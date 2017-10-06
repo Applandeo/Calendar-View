@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarCell" customModule="CalendarLandeo" customModuleProvider="target">
+            <connections>
+                <outlet property="dayLabel" destination="hHl-MI-kiG" id="cwv-EM-S7M"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="133" height="128"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC8-Un-RpJ">
+                    <rect key="frame" x="0.0" y="0.0" width="133" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHl-MI-kiG">
+                            <rect key="frame" x="41" y="35" width="52.5" height="59"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="43"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.56197089499999997" green="1" blue="0.55536275349999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="hHl-MI-kiG" firstAttribute="centerX" secondItem="tC8-Un-RpJ" secondAttribute="centerX" id="r5G-pS-C9B"/>
+                        <constraint firstItem="hHl-MI-kiG" firstAttribute="centerY" secondItem="tC8-Un-RpJ" secondAttribute="centerY" id="vRb-Mh-bk4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tC8-Un-RpJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2T0-L7-Pul"/>
+                <constraint firstItem="tC8-Un-RpJ" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="aeC-w3-XWZ"/>
+                <constraint firstItem="tC8-Un-RpJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="idp-xM-wHB"/>
+                <constraint firstItem="tC8-Un-RpJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jOH-PF-aTj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-67.5" y="-35"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13568EBA4AED553091F120F4 /* Pods_CalendarLandeo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B3D77CFBE50B544D2E6C4A /* Pods_CalendarLandeo.framework */; };
+		9E3833991F84AE0C0010948C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3833981F84AE0C0010948C /* AppDelegate.swift */; };
+		9E38339B1F84AE0C0010948C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38339A1F84AE0C0010948C /* ViewController.swift */; };
+		9E38339E1F84AE0C0010948C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E38339C1F84AE0C0010948C /* Main.storyboard */; };
+		9E3833A01F84AE0C0010948C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E38339F1F84AE0C0010948C /* Assets.xcassets */; };
+		9E3833A31F84AE0C0010948C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3833A11F84AE0C0010948C /* LaunchScreen.storyboard */; };
+		9E3833AC1F84AF030010948C /* LandeoCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3833AB1F84AF030010948C /* LandeoCalendar.swift */; };
+		9E3833AE1F84AFCA0010948C /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3833AD1F84AFCA0010948C /* DateModel.swift */; };
+		9E3833B01F84B8840010948C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3833AF1F84B8840010948C /* Extensions.swift */; };
+		9E3833B21F84C4070010948C /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3833B11F84C4070010948C /* CalendarCell.swift */; };
+		9E3833B41F84C9F00010948C /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3833B31F84C9F00010948C /* CalendarCell.xib */; };
+		9E3833B61F84D7A50010948C /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3833B51F84D7A50010948C /* CalendarHeader.swift */; };
+		9E3833B81F84D7B00010948C /* CalendarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3833B71F84D7B00010948C /* CalendarHeader.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5C68F0ACF3597089AB4CCBB4 /* Pods-CalendarLandeo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarLandeo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarLandeo/Pods-CalendarLandeo.debug.xcconfig"; sourceTree = "<group>"; };
+		9E3833951F84AE0C0010948C /* CalendarLandeo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarLandeo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E3833981F84AE0C0010948C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9E38339A1F84AE0C0010948C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9E38339D1F84AE0C0010948C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9E38339F1F84AE0C0010948C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E3833A21F84AE0C0010948C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E3833A41F84AE0C0010948C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E3833AB1F84AF030010948C /* LandeoCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandeoCalendar.swift; sourceTree = "<group>"; };
+		9E3833AD1F84AFCA0010948C /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
+		9E3833AF1F84B8840010948C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9E3833B11F84C4070010948C /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		9E3833B31F84C9F00010948C /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
+		9E3833B51F84D7A50010948C /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
+		9E3833B71F84D7B00010948C /* CalendarHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarHeader.xib; sourceTree = "<group>"; };
+		C8B3D77CFBE50B544D2E6C4A /* Pods_CalendarLandeo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalendarLandeo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE73A9719CD5284ADACC862D /* Pods-CalendarLandeo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarLandeo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarLandeo/Pods-CalendarLandeo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E3833921F84AE0C0010948C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13568EBA4AED553091F120F4 /* Pods_CalendarLandeo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48F6ED99A4F3A8E55A633ADF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8B3D77CFBE50B544D2E6C4A /* Pods_CalendarLandeo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E38338C1F84AE0C0010948C = {
+			isa = PBXGroup;
+			children = (
+				9E3833971F84AE0C0010948C /* CalendarLandeo */,
+				9E3833961F84AE0C0010948C /* Products */,
+				D1026743F02CC7399CFAAED8 /* Pods */,
+				48F6ED99A4F3A8E55A633ADF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9E3833961F84AE0C0010948C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E3833951F84AE0C0010948C /* CalendarLandeo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E3833971F84AE0C0010948C /* CalendarLandeo */ = {
+			isa = PBXGroup;
+			children = (
+				9E3833AA1F84AE140010948C /* Calendar */,
+				9E3833981F84AE0C0010948C /* AppDelegate.swift */,
+				9E38339A1F84AE0C0010948C /* ViewController.swift */,
+				9E38339C1F84AE0C0010948C /* Main.storyboard */,
+				9E38339F1F84AE0C0010948C /* Assets.xcassets */,
+				9E3833A11F84AE0C0010948C /* LaunchScreen.storyboard */,
+				9E3833A41F84AE0C0010948C /* Info.plist */,
+			);
+			path = CalendarLandeo;
+			sourceTree = "<group>";
+		};
+		9E3833AA1F84AE140010948C /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				9E3833AB1F84AF030010948C /* LandeoCalendar.swift */,
+				9E3833AD1F84AFCA0010948C /* DateModel.swift */,
+				9E3833AF1F84B8840010948C /* Extensions.swift */,
+				9E3833B11F84C4070010948C /* CalendarCell.swift */,
+				9E3833B31F84C9F00010948C /* CalendarCell.xib */,
+				9E3833B51F84D7A50010948C /* CalendarHeader.swift */,
+				9E3833B71F84D7B00010948C /* CalendarHeader.xib */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		D1026743F02CC7399CFAAED8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C68F0ACF3597089AB4CCBB4 /* Pods-CalendarLandeo.debug.xcconfig */,
+				DE73A9719CD5284ADACC862D /* Pods-CalendarLandeo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E3833941F84AE0C0010948C /* CalendarLandeo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E3833A71F84AE0C0010948C /* Build configuration list for PBXNativeTarget "CalendarLandeo" */;
+			buildPhases = (
+				E8CA683F34E52D0F1551F180 /* [CP] Check Pods Manifest.lock */,
+				9E3833911F84AE0C0010948C /* Sources */,
+				9E3833921F84AE0C0010948C /* Frameworks */,
+				9E3833931F84AE0C0010948C /* Resources */,
+				FDB996506E1CA3CF2E07A356 /* [CP] Embed Pods Frameworks */,
+				63EC3421418E48BC374A7283 /* [CP] Copy Pods Resources */,
+				9E3833B91F84E60C0010948C /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalendarLandeo;
+			productName = CalendarLandeo;
+			productReference = 9E3833951F84AE0C0010948C /* CalendarLandeo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E38338D1F84AE0C0010948C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = AppLandeo;
+				TargetAttributes = {
+					9E3833941F84AE0C0010948C = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9E3833901F84AE0C0010948C /* Build configuration list for PBXProject "CalendarLandeo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9E38338C1F84AE0C0010948C;
+			productRefGroup = 9E3833961F84AE0C0010948C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E3833941F84AE0C0010948C /* CalendarLandeo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E3833931F84AE0C0010948C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E3833A31F84AE0C0010948C /* LaunchScreen.storyboard in Resources */,
+				9E3833B81F84D7B00010948C /* CalendarHeader.xib in Resources */,
+				9E3833A01F84AE0C0010948C /* Assets.xcassets in Resources */,
+				9E38339E1F84AE0C0010948C /* Main.storyboard in Resources */,
+				9E3833B41F84C9F00010948C /* CalendarCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63EC3421418E48BC374A7283 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalendarLandeo/Pods-CalendarLandeo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E3833B91F84E60C0010948C /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		E8CA683F34E52D0F1551F180 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalendarLandeo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDB996506E1CA3CF2E07A356 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalendarLandeo/Pods-CalendarLandeo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E3833911F84AE0C0010948C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E3833B01F84B8840010948C /* Extensions.swift in Sources */,
+				9E3833B61F84D7A50010948C /* CalendarHeader.swift in Sources */,
+				9E3833B21F84C4070010948C /* CalendarCell.swift in Sources */,
+				9E38339B1F84AE0C0010948C /* ViewController.swift in Sources */,
+				9E3833AE1F84AFCA0010948C /* DateModel.swift in Sources */,
+				9E3833AC1F84AF030010948C /* LandeoCalendar.swift in Sources */,
+				9E3833991F84AE0C0010948C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9E38339C1F84AE0C0010948C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E38339D1F84AE0C0010948C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9E3833A11F84AE0C0010948C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E3833A21F84AE0C0010948C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9E3833A51F84AE0C0010948C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9E3833A61F84AE0C0010948C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E3833A81F84AE0C0010948C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C68F0ACF3597089AB4CCBB4 /* Pods-CalendarLandeo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39ZKQ9YZS2;
+				INFOPLIST_FILE = CalendarLandeo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = applandeo.CalendarLandeo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E3833A91F84AE0C0010948C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE73A9719CD5284ADACC862D /* Pods-CalendarLandeo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39ZKQ9YZS2;
+				INFOPLIST_FILE = CalendarLandeo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = applandeo.CalendarLandeo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E3833901F84AE0C0010948C /* Build configuration list for PBXProject "CalendarLandeo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E3833A51F84AE0C0010948C /* Debug */,
+				9E3833A61F84AE0C0010948C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E3833A71F84AE0C0010948C /* Build configuration list for PBXNativeTarget "CalendarLandeo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E3833A81F84AE0C0010948C /* Debug */,
+				9E3833A91F84AE0C0010948C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E38338D1F84AE0C0010948C /* Project object */;
+}
