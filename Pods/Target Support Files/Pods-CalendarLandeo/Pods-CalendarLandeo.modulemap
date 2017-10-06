@@ -1,6 +1,0 @@
-framework module Pods_CalendarLandeo {
-  umbrella header "Pods-CalendarLandeo-umbrella.h"
-
-  export *
-  module * { export * }
-}
