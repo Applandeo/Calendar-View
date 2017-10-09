@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E25428A1F8B6CA300F7AB1C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2609B5C1F88C48600303A9F /* Info.plist */; };
 		C250382B1F8A4DED00BC8CBA /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250382A1F8A4DED00BC8CBA /* CalendarEvent.swift */; };
 		C2609B511F88C48600303A9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2609B501F88C48600303A9F /* AppDelegate.swift */; };
 		C2609B531F88C48600303A9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2609B521F88C48600303A9F /* ViewController.swift */; };
@@ -176,6 +177,7 @@
 			files = (
 				C2609B5B1F88C48600303A9F /* LaunchScreen.storyboard in Resources */,
 				C29846CD1F89379400539A55 /* CalendarHeaderView.xib in Resources */,
+				9E25428A1F8B6CA300F7AB1C /* Info.plist in Resources */,
 				C2609B581F88C48600303A9F /* Assets.xcassets in Resources */,
 				C2609B561F88C48600303A9F /* Main.storyboard in Resources */,
 				C2D827471F8966E00058E542 /* CalendarCell.xib in Resources */,
@@ -336,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3A35JM6C5V;
-				INFOPLIST_FILE = Calendar/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CalendarView/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.applandeo.Calendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -351,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3A35JM6C5V;
-				INFOPLIST_FILE = Calendar/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CalendarView/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.applandeo.Calendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
