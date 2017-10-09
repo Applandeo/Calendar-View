@@ -56,7 +56,7 @@
 		C2609B441F88C48600303A9F = {
 			isa = PBXGroup;
 			children = (
-				C2609B4F1F88C48600303A9F /* Calendar */,
+				C2609B4F1F88C48600303A9F /* CalendarView */,
 				C2609B4E1F88C48600303A9F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,10 +69,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C2609B4F1F88C48600303A9F /* Calendar */ = {
+		C2609B4F1F88C48600303A9F /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
-				C2609B621F88C48D00303A9F /* Calendar */,
+				C2609B621F88C48D00303A9F /* CalendarView */,
 				C2609B501F88C48600303A9F /* AppDelegate.swift */,
 				C2609B521F88C48600303A9F /* ViewController.swift */,
 				C2609B541F88C48600303A9F /* Main.storyboard */,
@@ -80,10 +80,10 @@
 				C2609B591F88C48600303A9F /* LaunchScreen.storyboard */,
 				C2609B5C1F88C48600303A9F /* Info.plist */,
 			);
-			path = Calendar;
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
-		C2609B621F88C48D00303A9F /* Calendar */ = {
+		C2609B621F88C48D00303A9F /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
 				C2D827481F8967160058E542 /* XIBs */,
@@ -94,7 +94,7 @@
 				C250382A1F8A4DED00BC8CBA /* CalendarEvent.swift */,
 				C2D827491F896E1F0058E542 /* CalendarViewDelegate.swift */,
 			);
-			path = Calendar;
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 		C2609B691F88E0BA00303A9F /* Extensions */ = {
