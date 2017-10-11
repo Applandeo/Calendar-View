@@ -47,10 +47,8 @@ class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSo
     func startDate() -> Date? {
         var dateComponents = DateComponents()
         dateComponents.month = -3
-        
         let today = Date()
         let threeMonthsAgo = Calendar.current.date(byAdding: dateComponents, to: today)
-        
         return threeMonthsAgo
     }
     
@@ -61,14 +59,6 @@ class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSo
         let twoYearsFromNow = Calendar.current.date(byAdding: dateComponents, to: today)
         
         return twoYearsFromNow
-    }
-    
-    func calendar(_ calendar : CalendarView, didScrollToMonth date: Date) {
-        
-    }
-    
-    func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents events: [CalendarEvent]) {
-        
     }
     
     func loadEventsInCalendar() {
@@ -96,6 +86,14 @@ class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSo
             }
             
         }
+        
+    }
+    
+    func calendar(_ calendar : CalendarView, didScrollToMonth date: Date) {
+        
+    }
+    
+    func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents events: [CalendarEvent]) {
         
     }
     

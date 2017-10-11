@@ -26,7 +26,6 @@ class CalendarFlowLayout: UICollectionViewFlowLayout {
             return attrscp
         }
         return nil
-        
     }
     
     func applyLayoutAttributes(_ attributes : UICollectionViewLayoutAttributes) {
