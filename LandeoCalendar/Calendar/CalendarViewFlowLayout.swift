@@ -12,18 +12,18 @@ class CalendarFlowLayout: UICollectionViewFlowLayout {
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return super.layoutAttributesForElements(in: rect)?.map {
-            attrs in
-            let attrscp = attrs.copy() as! UICollectionViewLayoutAttributes
-            self.applyLayoutAttributes(attrscp)
-            return attrscp
+            attributes in
+            let layoutAttributes = attributes.copy() as! UICollectionViewLayoutAttributes
+            self.applyLayoutAttributes(layoutAttributes)
+            return layoutAttributes
         }
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        if let attrs = super.layoutAttributesForItem(at: indexPath) {
-            let attrscp = attrs.copy() as! UICollectionViewLayoutAttributes
-            self.applyLayoutAttributes(attrscp)
-            return attrscp
+        if let attributes = super.layoutAttributesForItem(at: indexPath) {
+            let layoutAttributes = attributes.copy() as! UICollectionViewLayoutAttributes
+            self.applyLayoutAttributes(layoutAttributes)
+            return layoutAttributes
         }
         return nil
     }
@@ -45,7 +45,6 @@ class CalendarFlowLayout: UICollectionViewFlowLayout {
             } else {
                 yCellOffset += offset
             }
-            
             attributes.frame = CGRect(x: xCellOffset, y: yCellOffset, width: self.itemSize.width, height: self.itemSize.height)
         }
         

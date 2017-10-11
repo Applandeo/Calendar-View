@@ -100,21 +100,26 @@ class CalendarView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        setFrames()
+    }
+    
+    func setFrames() {
         let height = frame.size.height - HEADER_DEFAULT_HEIGHT
         let width = frame.size.width
-        
         self.headerView.frame   = CGRect(x:0.0, y:0.0, width: width, height:HEADER_DEFAULT_HEIGHT)
         self.calendarView.frame = CGRect(x:0.0, y:HEADER_DEFAULT_HEIGHT, width: width, height: height)
-        
-        let layout = self.calendarView.collectionViewLayout as! UICollectionViewFlowLayout
+        setLayout(width: width, height: height)
+    }
+    
+    func setLayout(width: CGFloat, height: CGFloat){
+        guard let layout = self.calendarView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         layout.itemSize = CGSize(width: width / CGFloat(NUMBER_OF_DAYS_IN_WEEK), height: height / CGFloat(MAXIMUM_NUMBER_OF_ROWS))
         self.headerView.setHeaderColor(monthLabelColor: colors.headerMonthLabelColor , weekdaysLabelColor: colors.headerWeekdaysLabelColor)
     }
     
 // MARK: - Setup
     
-    open func buildCalendarView(cellLabelTintColor: UIColor, selectCellTintColor: UIColor, todayTintColor: UIColor, todayCellTextColor: UIColor, headerMonthLabelColor: UIColor, headerWeekdaysLabelColor: UIColor, weekdayTintColor: UIColor) {
+    open func buildCalendarView(cellLabelTintColor: UIColor, selectCellTintColor: UIColor, todayTintColor: UIColor, todayCellTextColor: UIColor, headerMonthLabelColor: UIColor, headerWeekdaysLabelColor: UIColor, weekdayTintColor: UIColor, selectedCellTextColor: UIColor) {
         
         colors.cellLabelTintColor = cellLabelTintColor
         colors.selectCellTintColor = selectCellTintColor
@@ -123,6 +128,7 @@ class CalendarView: UIView {
         colors.weekdayTintColor = weekdayTintColor
         colors.headerMonthLabelColor = headerMonthLabelColor
         colors.todayTintColor = todayTintColor
+        colors.selectedCellTextColor = selectedCellTextColor
     }
     
     fileprivate func createSubviews() {
@@ -139,6 +145,8 @@ class CalendarView: UIView {
         }
     }
     
+    //Events
+    
     var events : [EKEvent]? {
         
         didSet {
@@ -153,10 +161,9 @@ class CalendarView: UIView {
                     return
                 }
                 
-                let flags: NSCalendar.Unit = [NSCalendar.Unit.month, NSCalendar.Unit.day]
                 let startDate = event.startDate.addingTimeInterval(secondsFromGMTDifference)
                 let endDate = event.endDate.addingTimeInterval(secondsFromGMTDifference)
-                let distanceFromStartComponent = (self.gregorian as NSCalendar).components( flags, from:startOfMonthCache, to: startDate, options: NSCalendar.Options() )
+                let distanceFromStartComponent = self.gregorian.dateComponents([.month, .day], from: startOfMonthCache, to: startDate)
                 let calendarEvent = CalendarEvent(title: event.title, startDate: startDate, endDate: endDate)
                 let indexPath = IndexPath(item: distanceFromStartComponent.day!, section: distanceFromStartComponent.month!)
                 
@@ -177,12 +184,12 @@ extension CalendarView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         
-        let currentMonthInfo : [Int] = monthInfo[(indexPath as NSIndexPath).section]!
+        let currentMonthInfo : [Int] = monthInfo[indexPath.section]!
         let firstDayInMonth = currentMonthInfo[FIRST_DAY_INDEX]
         
         var offsetComponents = DateComponents()
-        offsetComponents.month = (indexPath as NSIndexPath).section
-        offsetComponents.day = (indexPath as NSIndexPath).item - firstDayInMonth
+        offsetComponents.month = indexPath.section
+        offsetComponents.day = indexPath.item - firstDayInMonth
         
         if let dateUserSelected = self.gregorian.date(byAdding: offsetComponents, to: startOfMonthCache) {
             dateBeingSelectedByUser = dateUserSelected
@@ -198,8 +205,8 @@ extension CalendarView: UICollectionViewDelegate {
             return
         }
         
-        let currentMonthInfo : [Int] = monthInfo[(indexPath as NSIndexPath).section]!
-        let fromStartOfMonthIndexPath = IndexPath(item: (indexPath as NSIndexPath).item - currentMonthInfo[FIRST_DAY_INDEX], section: (indexPath as NSIndexPath).section)
+        let currentMonthInfo : [Int] = monthInfo[indexPath.section]!
+        let fromStartOfMonthIndexPath = IndexPath(item: indexPath.item - currentMonthInfo[FIRST_DAY_INDEX], section: indexPath.section)
         var eventsArray : [CalendarEvent] = [CalendarEvent]()
         
         if let eventsForDay = eventsByIndexPath[fromStartOfMonthIndexPath] {
@@ -293,7 +300,7 @@ extension CalendarView : UICollectionViewDataSource {
         var monthOffsetComponents = DateComponents()
         monthOffsetComponents.month = section;
         
-        guard let correctMonthForSectionDate = (self.gregorian as NSCalendar).date(byAdding: monthOffsetComponents, to: startOfMonthCache, options: NSCalendar.Options()) else {
+        guard let correctMonthForSectionDate = self.gregorian.date(byAdding: monthOffsetComponents, to: startOfMonthCache) else {
             return 0
         }
         
@@ -311,11 +318,11 @@ extension CalendarView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.CalendarCellID, for: indexPath) as? CalendarViewCell else { return CalendarViewCell() }
         
-        let currentMonthInfo : [Int] = monthInfo[(indexPath as NSIndexPath).section]!
+        let currentMonthInfo : [Int] = monthInfo[indexPath.section]!
         let firstDayIndex = currentMonthInfo[FIRST_DAY_INDEX]
         let numberOfDays = currentMonthInfo[NUMBER_OF_DAYS_INDEX]
-        let fromStartOfMonthIndexPath = IndexPath(item: (indexPath as NSIndexPath).item - firstDayIndex, section: (indexPath as NSIndexPath).section)
-        let day = String((fromStartOfMonthIndexPath as NSIndexPath).item + 1)
+        let fromStartOfMonthIndexPath = IndexPath(item: indexPath.item - firstDayIndex, section: indexPath.section)
+        let day = String(fromStartOfMonthIndexPath.item + 1)
         
         if indexPath.item >= firstDayIndex && indexPath.item < firstDayIndex + numberOfDays {
             setUpCell(dayCell, day)
@@ -333,7 +340,7 @@ extension CalendarView : UICollectionViewDataSource {
     func setUpCell(_ cell: CalendarViewCell, _ day: String) {
         cell.textLabel.text = day
         cell.isHidden = false
-        cell.cellColors(selectionColor: colors.selectCellTintColor, todayTintColor: colors.todayTintColor, weekdayTintColor: colors.weekdayTintColor, todayCellTextColor: colors.todayCellTextColor)
+        cell.cellColors(selectionColor: colors.selectCellTintColor, todayTintColor: colors.todayTintColor, weekdayTintColor: colors.weekdayTintColor, todayCellTextColor: colors.todayCellTextColor, selectedCellTextColor: colors.selectedCellTextColor)
     }
     
     func checkCollectionViewPosition(_ indexPath: IndexPath, _ collectionView: UICollectionView) {
@@ -369,7 +376,6 @@ extension CalendarView : UICollectionViewDataSource {
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let yearDate = self.calculateDateBasedOnScrollViewPosition()
-        
         if let date = yearDate,
             let delegate = self.delegate {
             delegate.calendar(self, didScrollToMonth: date)
@@ -377,19 +383,9 @@ extension CalendarView : UICollectionViewDataSource {
     }
     
     func calculateDateBasedOnScrollViewPosition() -> Date? {
+        let rect = self.calendarView.bounds
         
-        let cvbounds = self.calendarView.bounds
-        var page : Int = 0
-        
-        switch self.direction {
-        case .horizontal:
-            page = Int(floor(self.calendarView.contentOffset.x / cvbounds.size.width))
-            break
-        case .vertical:
-            page = Int(floor(self.calendarView.contentOffset.y / cvbounds.size.height))
-            break
-        }
-        
+        var page = pageOffSet(rect: rect)
         page = page > 0 ? page : 0
         
         var monthsOffsetComponents = DateComponents()
@@ -399,14 +395,28 @@ extension CalendarView : UICollectionViewDataSource {
             return nil
         }
         
+        setUpHeaderViewDate(yearDate)
+        return yearDate;
+    }
+    
+    func setUpHeaderViewDate(_ yearDate: Date) {
         let month = self.gregorian.component(.month, from: yearDate)
         let monthName = DateFormatter().monthSymbols[ (month - 1) % 12]
         let year = self.gregorian.component(.year, from: yearDate)
-        
         self.headerView.monthLabel.text = monthName + " " + String(year)
         self.displayDate = yearDate
-        
-        return yearDate;
     }
-
+    
+    func pageOffSet(rect: CGRect) -> Int {
+        var page : Int = 0
+        switch self.direction {
+        case .horizontal:
+            page = Int(floor(self.calendarView.contentOffset.x / rect.size.width))
+            break
+        case .vertical:
+            page = Int(floor(self.calendarView.contentOffset.y / rect.size.height))
+            break
+        }
+        return page
+    }
 }

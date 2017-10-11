@@ -14,6 +14,7 @@ class CalendarViewCell: UICollectionViewCell {
     var todayTintColor: UIColor?
     var weekdayTintColor: UIColor?
     var todayCellTextColor: UIColor?
+    var selectedCellTextColor: UIColor?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -29,6 +30,10 @@ class CalendarViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        setUpDotView()
+    }
+    
+    func setUpDotView() {
         let dotFactor : CGFloat = 0.07
         let size = self.bounds.height*dotFactor
         self.dotsView.frame = CGRect(x: 0, y: 0, width: size, height: size)
@@ -46,12 +51,10 @@ class CalendarViewCell: UICollectionViewCell {
     override var isSelected : Bool {
         didSet {
             if isSelected {
-                // DODAC SELECTION LABEL COLOR
                 guard let selection = selectionColor else {
                     return selectionColor = UIColor.white
-                }
-                
-                setCellColor(selection, UIColor.white)
+                }                
+                setCellColor(selection, selectedCellTextColor!)
             } else {
                 if isToday {
                     setCellColor(todayTintColor!, todayCellTextColor!)
@@ -104,10 +107,11 @@ class CalendarViewCell: UICollectionViewCell {
         
     }()
     
-    func cellColors(selectionColor: UIColor, todayTintColor: UIColor, weekdayTintColor: UIColor, todayCellTextColor: UIColor) {
+    func cellColors(selectionColor: UIColor, todayTintColor: UIColor, weekdayTintColor: UIColor, todayCellTextColor: UIColor, selectedCellTextColor: UIColor) {
         self.selectionColor = selectionColor
         self.todayTintColor = todayTintColor
         self.weekdayTintColor = weekdayTintColor
         self.todayCellTextColor = todayCellTextColor
+        self.selectedCellTextColor = selectedCellTextColor
     }
 }
