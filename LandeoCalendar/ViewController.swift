@@ -20,7 +20,7 @@ class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSo
         calendarView.dataSource = self
         calendarView.buildCalendarView(cellLabelTintColor: #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1), selectCellTintColor: #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1), todayTintColor: #colorLiteral(red: 0.4514698386, green: 0.912237823, blue: 0.7296689153, alpha: 1), todayCellTextColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), headerMonthLabelColor: #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1), headerWeekdaysLabelColor: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), weekdayTintColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
                                        
-        calendarView.direction = .vertical
+        calendarView.direction = .horizontal
         calendarView.allowMultipleSelection = false
     }
     
@@ -46,7 +46,7 @@ class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSo
     
     func startDate() -> Date? {
         var dateComponents = DateComponents()
-        dateComponents.month = -3
+        dateComponents.year = -2
         let today = Date()
         let threeMonthsAgo = Calendar.current.date(byAdding: dateComponents, to: today)
         return threeMonthsAgo
@@ -54,10 +54,9 @@ class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSo
     
     func endDate() -> Date? {
         var dateComponents = DateComponents()
-        dateComponents.year = 2;
+        dateComponents.year = 2
         let today = Date()
         let twoYearsFromNow = Calendar.current.date(byAdding: dateComponents, to: today)
-        
         return twoYearsFromNow
     }
     

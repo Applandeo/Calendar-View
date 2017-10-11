@@ -31,9 +31,6 @@ class CalendarView: UIView {
     var displayDate : Date?
     var monthInfo : [Int:[Int]] = [Int:[Int]]()
     
-    fileprivate(set) var startYear: Int? = 2016
-    fileprivate(set) var endYear: Int? = 2018
-    
     fileprivate(set) var selectedIndexPaths : [IndexPath] = [IndexPath]()
     fileprivate(set) var selectedDatesByUser : [Date] = [Date]()
     fileprivate var dateBeingSelectedByUser : Date?
@@ -41,12 +38,11 @@ class CalendarView: UIView {
 
     fileprivate var eventsByIndexPath : [IndexPath:[CalendarEvent]] = [IndexPath:[CalendarEvent]]()
     
-    
 //MARK: - Lazy Variables
     
     lazy var headerView : CalendarViewHeader = {
-        let hv = CalendarViewHeader(frame:CGRect.zero)
-        return hv
+        let headerView = CalendarViewHeader(frame:CGRect.zero)
+        return headerView
     }()
     
     lazy var calendarView : UICollectionView = {
@@ -252,7 +248,6 @@ extension CalendarView: UICollectionViewDelegate {
             _ = self.calculateDateBasedOnScrollViewPosition()
         }
     }
-
 }
 
 // MARK: - UICollectionViewDataSource
