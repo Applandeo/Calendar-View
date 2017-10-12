@@ -19,12 +19,14 @@ class CalendarView: UIView {
     open var colors: CalendarColors = CalendarColors()
     
     //Mark: - Data
-    var delegate    : CalendarViewDelegate?
+    var delegate : CalendarViewDelegate?
     
     fileprivate var startCalendarDate : Date = Date()
     fileprivate var endCalendarDate : Date = Date()
     fileprivate var startOfMonthCache : Date = Date()
     fileprivate var todayIndexPath : IndexPath?
+    
+    open var loadEKEvents: Bool? = false
     
     var displayDate : Date?
     var monthInfo : [Int:[Int]] = [Int:[Int]]()
@@ -99,6 +101,7 @@ class CalendarView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         setFrames()
+//        checkEvents()
     }
     
     func setFrames() {
@@ -118,7 +121,6 @@ class CalendarView: UIView {
 // MARK: - Setup
     
     open func buildCalendarView(cellLabelTintColor: UIColor, selectCellTintColor: UIColor, todayTintColor: UIColor, todayCellTextColor: UIColor, headerMonthLabelColor: UIColor, headerWeekdaysLabelColor: UIColor, weekdayTintColor: UIColor, selectedCellTextColor: UIColor) {
-        
         colors.cellLabelTintColor = cellLabelTintColor
         colors.selectCellTintColor = selectCellTintColor
         colors.headerWeekdaysLabelColor = headerWeekdaysLabelColor
@@ -148,39 +150,72 @@ class CalendarView: UIView {
     var events : [EKEvent]? {
         didSet {
             eventsByIndexPath = [IndexPath:[CalendarEvent]]()
+            
             guard let events = events else {
                 return
             }
+            let secondsFromGMTDifference = TimeInterval(NSTimeZone.local.secondsFromGMT())
             for event in events {
+                
                 if event.isOneDay == false {
                     return
                 }
-                setUpEvents(event: event)
+                
+                let flags: NSCalendar.Unit = [NSCalendar.Unit.month, NSCalendar.Unit.day]
+                let startDate = event.startDate.addingTimeInterval(secondsFromGMTDifference)
+                let endDate = event.endDate.addingTimeInterval(secondsFromGMTDifference)
+                
+                let distanceFromStartComponent = (self.gregorian as NSCalendar).components( flags, from:startOfMonthCache, to: startDate, options: NSCalendar.Options() )
+                let calendarEvent = CalendarEvent(title: event.title, startDate: startDate, endDate: endDate)
+                let indexPath = IndexPath(item: distanceFromStartComponent.day!, section: distanceFromStartComponent.month!)
+                
+                if (eventsByIndexPath[indexPath] != nil) {
+                    eventsByIndexPath[indexPath]?.append(calendarEvent)
+                } else {
+                    eventsByIndexPath[indexPath] = [calendarEvent]
+                }
             }
             self.calendarView.reloadData()
         }
     }
     
     func setUpEvents(event: EKEvent) {
-        let secondsFromGMTDifference = TimeInterval(NSTimeZone.local.secondsFromGMT())
-        let startDate = event.startDate.addingTimeInterval(secondsFromGMTDifference)
-        let endDate = event.endDate.addingTimeInterval(secondsFromGMTDifference)
-        let distanceFromStartComponent = self.gregorian.dateComponents([.month, .day], from: startOfMonthCache, to: startDate)
         
-        guard let day = distanceFromStartComponent.day else { return }
-        guard let month = distanceFromStartComponent.month else { return }
-        
-        let calendarEvent = CalendarEvent(title: event.title, startDate: startDate, endDate: endDate)
-        let indexPath = IndexPath(item: day, section: month)
-        
-        if (eventsByIndexPath[indexPath] != nil) {
-            eventsByIndexPath[indexPath]?.append(calendarEvent)
-        } else {
-            eventsByIndexPath[indexPath] = [calendarEvent]
+    }
+    
+    func loadEventsInCalendar() {
+        if let  startDate = startDate(),
+            let endDate = endDate() {
+            
+            let store = EKEventStore()
+            let fetchEvents = { () -> Void in
+                let predicate = store.predicateForEvents(withStart: startDate, end:endDate, calendars: nil)
+                if let eventsBetweenDates = store.events(matching: predicate) as [EKEvent]? {
+                    self.events = eventsBetweenDates
+                }
+            }
+            if EKEventStore.authorizationStatus(for: EKEntityType.event) != EKAuthorizationStatus.authorized {
+                store.requestAccess(to: EKEntityType.event, completion: {(granted, error ) -> Void in
+                    if granted {
+                        fetchEvents()
+                    }
+                })
+            } else {
+                fetchEvents()
+            }
         }
     }
     
-    open func startDate() -> Date? {
+    func checkEvents() {
+        if loadEKEvents! {
+            loadEventsInCalendar()
+        }
+    }
+}
+
+extension CalendarView {
+    
+    fileprivate func startDate() -> Date? {
         var dateComponents = DateComponents()
         dateComponents.year = -100
         let today = Date()
@@ -188,7 +223,7 @@ class CalendarView: UIView {
         return startDate
     }
     
-    open func endDate() -> Date? {
+    fileprivate func endDate() -> Date? {
         var dateComponents = DateComponents()
         dateComponents.year = 100
         let today = Date()
@@ -229,10 +264,11 @@ extension CalendarView: UICollectionViewDelegate {
         var eventsArray : [CalendarEvent] = [CalendarEvent]()
         
         if let eventsForDay = eventsByIndexPath[fromStartOfMonthIndexPath] {
-            eventsArray = eventsForDay;
+            eventsArray = eventsForDay
         }
         
         delegate?.calendar(self, didSelectDate: dateBeingSelectedByUser, withEvents: eventsArray)
+        
         selectedIndexPaths.append(indexPath)
         selectedDates.append(dateBeingSelectedByUser)
     }
