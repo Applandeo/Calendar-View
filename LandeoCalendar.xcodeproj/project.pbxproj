@@ -12,7 +12,7 @@
 		9E9AB53A1F8E133A00ED1DAE /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9AB5391F8E133A00ED1DAE /* DateExtension.swift */; };
 		9E9AB53C1F8E134500ED1DAE /* EKEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9AB53B1F8E134500ED1DAE /* EKEventExtension.swift */; };
 		C245B62A1F72C4FB0071D30F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245B6291F72C4FB0071D30F /* AppDelegate.swift */; };
-		C245B62C1F72C4FB0071D30F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245B62B1F72C4FB0071D30F /* ViewController.swift */; };
+		C245B62C1F72C4FB0071D30F /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245B62B1F72C4FB0071D30F /* CalendarController.swift */; };
 		C245B62F1F72C4FB0071D30F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C245B62D1F72C4FB0071D30F /* Main.storyboard */; };
 		C245B6311F72C4FB0071D30F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C245B6301F72C4FB0071D30F /* Assets.xcassets */; };
 		C245B6341F72C4FB0071D30F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C245B6321F72C4FB0071D30F /* LaunchScreen.storyboard */; };
@@ -32,7 +32,7 @@
 		9E9AB53B1F8E134500ED1DAE /* EKEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKEventExtension.swift; sourceTree = "<group>"; };
 		C245B6261F72C4FB0071D30F /* LandeoCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandeoCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C245B6291F72C4FB0071D30F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C245B62B1F72C4FB0071D30F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C245B62B1F72C4FB0071D30F /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		C245B62E1F72C4FB0071D30F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C245B6301F72C4FB0071D30F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C245B6331F72C4FB0071D30F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			children = (
 				C245B63B1F72C5000071D30F /* Calendar */,
 				C245B6291F72C4FB0071D30F /* AppDelegate.swift */,
-				C245B62B1F72C4FB0071D30F /* ViewController.swift */,
+				C245B62B1F72C4FB0071D30F /* CalendarController.swift */,
 				C245B62D1F72C4FB0071D30F /* Main.storyboard */,
 				C245B6301F72C4FB0071D30F /* Assets.xcassets */,
 				C245B6321F72C4FB0071D30F /* LaunchScreen.storyboard */,
@@ -194,7 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E9AB53C1F8E134500ED1DAE /* EKEventExtension.swift in Sources */,
-				C245B62C1F72C4FB0071D30F /* ViewController.swift in Sources */,
+				C245B62C1F72C4FB0071D30F /* CalendarController.swift in Sources */,
 				C2857F861F73D4F500A6BA5C /* CalendarViewFlowLayout.swift in Sources */,
 				C245B62A1F72C4FB0071D30F /* AppDelegate.swift in Sources */,
 				9E9AB5341F8DF37100ED1DAE /* CalendarColorSettings.swift in Sources */,
