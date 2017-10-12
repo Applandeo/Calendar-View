@@ -22,7 +22,7 @@ class CalendarViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(self.pBackgroundView)
+        self.addSubview(self.cellBackgroundView)
         self.textLabel.frame = self.bounds
         self.addSubview(self.textLabel)
         self.addSubview(self.dotsView)
@@ -76,12 +76,12 @@ class CalendarViewCell: UICollectionViewCell {
     }
     
     func setCellColor(_ backgroundColor: UIColor, _ labelColor: UIColor) {
-        self.pBackgroundView.backgroundColor = backgroundColor
+        self.cellBackgroundView.backgroundColor = backgroundColor
         self.textLabel.textColor = labelColor
     }
     
     
-    lazy var pBackgroundView : UIView = {
+    lazy var cellBackgroundView : UIView = {
         var vFrame = self.frame.insetBy(dx: 3.0, dy: 6.7)
         let view = UIView(frame: vFrame)
         view.layer.cornerRadius = vFrame.width / 2
@@ -92,18 +92,18 @@ class CalendarViewCell: UICollectionViewCell {
     }()
     
     lazy var textLabel : UILabel = {
-        let lbl = UILabel()
-        lbl.textAlignment = NSTextAlignment.center
-        lbl.font = UIFont(name: "AvenitNext", size: 21)
-        lbl.textColor = weekdayTintColor
-        return lbl
+        let label = UILabel()
+        label.textAlignment = NSTextAlignment.center
+        label.font = UIFont(name: "AvenitNext", size: 21)
+        label.textColor = weekdayTintColor
+        return label
         
     }()
     
     lazy var dotsView : UIView = {
-        let dv = UIView()
-        dv.backgroundColor = UIColor.red
-        return dv
+        let dotView = UIView()
+        dotView.backgroundColor = UIColor.red
+        return dotView
         
     }()
     

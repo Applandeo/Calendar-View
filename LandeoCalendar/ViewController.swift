@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSource {
+class ViewController: UIViewController, CalendarViewDelegate {
 
     @IBOutlet weak var calendarView: CalendarView!
     
@@ -17,9 +17,9 @@ class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSo
         super.viewDidLoad()
         
         calendarView.delegate = self
-        calendarView.dataSource = self
-        calendarView.buildCalendarView(cellLabelTintColor: #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1), selectCellTintColor: #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1), todayTintColor: #colorLiteral(red: 0.4514698386, green: 0.912237823, blue: 0.7296689153, alpha: 1), todayCellTextColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), headerMonthLabelColor: #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1), headerWeekdaysLabelColor: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), weekdayTintColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), selectedCellTextColor: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
-                                       
+//        calendarView.buildCalendarView(cellLabelTintColor: #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1), selectCellTintColor: #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1), todayTintColor: #colorLiteral(red: 0.4514698386, green: 0.912237823, blue: 0.7296689153, alpha: 1), todayCellTextColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), headerMonthLabelColor: #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1), headerWeekdaysLabelColor: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), weekdayTintColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), selectedCellTextColor: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+        calendarView.colors.cellLabelTintColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+        
         calendarView.direction = .horizontal
         calendarView.allowMultipleSelection = false
     }
@@ -44,26 +44,10 @@ class ViewController: UIViewController, CalendarViewDelegate, CalendarViewDataSo
         self.calendarView.frame = CGRect(x: 16, y: 16, width: width, height: height)
     }
     
-    func startDate() -> Date? {
-        var dateComponents = DateComponents()
-        dateComponents.year = -2
-        let today = Date()
-        let threeMonthsAgo = Calendar.current.date(byAdding: dateComponents, to: today)
-        return threeMonthsAgo
-    }
-    
-    func endDate() -> Date? {
-        var dateComponents = DateComponents()
-        dateComponents.year = 2
-        let today = Date()
-        let twoYearsFromNow = Calendar.current.date(byAdding: dateComponents, to: today)
-        return twoYearsFromNow
-    }
-    
     func loadEventsInCalendar() {
         
-        if let  startDate = self.startDate(),
-            let endDate = self.endDate() {
+        if let  startDate = calendarView.startDate(),
+            let endDate = calendarView.endDate() {
             
             let store = EKEventStore()
             let fetchEvents = { () -> Void in
