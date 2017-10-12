@@ -11,6 +11,6 @@ import Foundation
 @objc protocol CalendarViewDelegate {
     
     func calendar(_ calendar : CalendarView, didScrollToMonth date : Date) -> Void
-    func calendar(_ calendar : CalendarView, didSelectDate date : Date, withEvents events: [CalendarEvent]) -> Void
+//    func calendar(_ calendar : CalendarView, didSelectDate date : Date, withEvents events: [CalendarEvent]) -> Void
     @objc optional func calendar(_ calendar : CalendarView, didDeselectDate date : Date) -> Void
 }

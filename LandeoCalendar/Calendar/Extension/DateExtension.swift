@@ -13,8 +13,8 @@ extension Date {
     
     func applyOffSetOfMonth(calendar: Calendar, offset:Int) -> Date? {
         var dateComponents = DateComponents()
-        dateComponents.month = offset;
-        return(calendar as NSCalendar).date(byAdding: dateComponents, to: self, options: NSCalendar.Options())
+        dateComponents.month = offset
+        return calendar.date(byAdding: dateComponents, to: self)
     }
     
 }

@@ -25,9 +25,7 @@ class CalendarView: UIView {
     fileprivate var endCalendarDate : Date = Date()
     fileprivate var startOfMonthCache : Date = Date()
     fileprivate var todayIndexPath : IndexPath?
-    
-    open var loadEKEvents: Bool? = false
-    
+        
     var displayDate : Date?
     var monthInfo : [Int:[Int]] = [Int:[Int]]()
     
@@ -84,6 +82,7 @@ class CalendarView: UIView {
     }()
 
 //MARK: - Inits
+    
     override init(frame: CGRect) {
         super.init(frame :frame)
         self.createSubviews()
@@ -101,7 +100,6 @@ class CalendarView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         setFrames()
-//        checkEvents()
     }
     
     func setFrames() {
@@ -142,73 +140,6 @@ class CalendarView: UIView {
     var allowMultipleSelection : Bool = false {
         didSet{
             self.calendarView.allowsMultipleSelection = allowMultipleSelection
-        }
-    }
-    
-    //Events
-    
-    var events : [EKEvent]? {
-        didSet {
-            eventsByIndexPath = [IndexPath:[CalendarEvent]]()
-            
-            guard let events = events else {
-                return
-            }
-            let secondsFromGMTDifference = TimeInterval(NSTimeZone.local.secondsFromGMT())
-            for event in events {
-                
-                if event.isOneDay == false {
-                    return
-                }
-                
-                let flags: NSCalendar.Unit = [NSCalendar.Unit.month, NSCalendar.Unit.day]
-                let startDate = event.startDate.addingTimeInterval(secondsFromGMTDifference)
-                let endDate = event.endDate.addingTimeInterval(secondsFromGMTDifference)
-                
-                let distanceFromStartComponent = (self.gregorian as NSCalendar).components( flags, from:startOfMonthCache, to: startDate, options: NSCalendar.Options() )
-                let calendarEvent = CalendarEvent(title: event.title, startDate: startDate, endDate: endDate)
-                let indexPath = IndexPath(item: distanceFromStartComponent.day!, section: distanceFromStartComponent.month!)
-                
-                if (eventsByIndexPath[indexPath] != nil) {
-                    eventsByIndexPath[indexPath]?.append(calendarEvent)
-                } else {
-                    eventsByIndexPath[indexPath] = [calendarEvent]
-                }
-            }
-            self.calendarView.reloadData()
-        }
-    }
-    
-    func setUpEvents(event: EKEvent) {
-        
-    }
-    
-    func loadEventsInCalendar() {
-        if let  startDate = startDate(),
-            let endDate = endDate() {
-            
-            let store = EKEventStore()
-            let fetchEvents = { () -> Void in
-                let predicate = store.predicateForEvents(withStart: startDate, end:endDate, calendars: nil)
-                if let eventsBetweenDates = store.events(matching: predicate) as [EKEvent]? {
-                    self.events = eventsBetweenDates
-                }
-            }
-            if EKEventStore.authorizationStatus(for: EKEntityType.event) != EKAuthorizationStatus.authorized {
-                store.requestAccess(to: EKEntityType.event, completion: {(granted, error ) -> Void in
-                    if granted {
-                        fetchEvents()
-                    }
-                })
-            } else {
-                fetchEvents()
-            }
-        }
-    }
-    
-    func checkEvents() {
-        if loadEKEvents! {
-            loadEventsInCalendar()
         }
     }
 }
@@ -266,8 +197,7 @@ extension CalendarView: UICollectionViewDelegate {
         if let eventsForDay = eventsByIndexPath[fromStartOfMonthIndexPath] {
             eventsArray = eventsForDay
         }
-        
-        delegate?.calendar(self, didSelectDate: dateBeingSelectedByUser, withEvents: eventsArray)
+
         
         selectedIndexPaths.append(indexPath)
         selectedDates.append(dateBeingSelectedByUser)
@@ -295,6 +225,7 @@ extension CalendarView: UICollectionViewDelegate {
     
     func setDisplayDate(_ date : Date, animated: Bool) {
         if let dispDate = self.displayDate {
+            
             if  date.compare(dispDate) == ComparisonResult.orderedSame {
                 return
             }
@@ -345,8 +276,8 @@ extension CalendarView : UICollectionViewDataSource {
         let today = Date()
         if  startOfMonthCache.compare(today) == ComparisonResult.orderedAscending &&
             endCalendarDate.compare(today) == ComparisonResult.orderedDescending {
-            let differenceFromTodayComponents = gregorian.dateComponents([.month, .day], from: startOfMonthCache, to: today)
-            self.todayIndexPath = IndexPath(item: differenceFromTodayComponents.day!, section: differenceFromTodayComponents.month!)
+            let differenceComponent = gregorian.getCalendarDay(from: startOfMonthCache, to: today)
+            self.todayIndexPath = IndexPath(item: differenceComponent.day!, section: differenceComponent.month!) //we are sure we have data here, so force unwrap
         }
     }
     

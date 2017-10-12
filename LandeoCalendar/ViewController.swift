@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class ViewController: UIViewController, CalendarViewDelegate {
+class CalendarController: UIViewController, CalendarViewDelegate {
 
     @IBOutlet weak var calendarView: CalendarView!
     
@@ -27,8 +27,6 @@ class ViewController: UIViewController, CalendarViewDelegate {
                                        selectedCellTextColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         calendarView.direction = .horizontal
         calendarView.allowMultipleSelection = false
-//        calendarView.loadEKEvents = true
-//        calendarView.checkEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,12 +35,10 @@ class ViewController: UIViewController, CalendarViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        var tommorowComponents = DateComponents()
-        tommorowComponents.day = 1
+        var components = DateComponents()
+        components.day = 1
         let today = Date()
         self.calendarView.setDisplayDate(today, animated: false)
-        calendarView.loadEventsInCalendar()
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -50,45 +46,6 @@ class ViewController: UIViewController, CalendarViewDelegate {
         let width = self.view.frame.width - 16.0 * 2
         let height = width + 80
         self.calendarView.frame = CGRect(x: 16, y: 16, width: width, height: height)
-    }
-    
-    func eventsEndDate() -> Date? {
-        var dateComponents = DateComponents()
-        dateComponents.month = 1
-        let today = Date()
-        let endDate = Calendar.current.date(byAdding: dateComponents, to: today)
-        return endDate
-    }
-    
-    func eventsStartDate() -> Date? {
-        var dateComponents = DateComponents()
-        dateComponents.year = -1
-        let today = Date()
-        let startDate = Calendar.current.date(byAdding: dateComponents, to: today)
-        return startDate
-    }
-    
-    func loadEventsInCalendar() {
-        if let  startDate = eventsStartDate(),
-            let endDate = eventsEndDate() {
-            
-            let store = EKEventStore()
-            let fetchEvents = { () -> Void in
-                let predicate = store.predicateForEvents(withStart: startDate, end:endDate, calendars: nil)
-                if let eventsBetweenDates = store.events(matching: predicate) as [EKEvent]? {
-                    self.calendarView.events = eventsBetweenDates
-                }
-            }
-            if EKEventStore.authorizationStatus(for: EKEntityType.event) != EKAuthorizationStatus.authorized {
-                store.requestAccess(to: EKEntityType.event, completion: {(granted, error ) -> Void in
-                    if granted {
-                        fetchEvents()
-                    }
-                })
-            } else {
-                fetchEvents()
-            }
-        }
     }
     
     func calendar(_ calendar : CalendarView, didScrollToMonth date: Date) {
