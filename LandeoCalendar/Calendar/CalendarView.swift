@@ -154,26 +154,30 @@ class CalendarView: UIView {
             guard let events = events else {
                 return
             }
-            let secondsFromGMTDifference = TimeInterval(NSTimeZone.local.secondsFromGMT())
             for event in events {
                 
                 if event.isOneDay == false {
                     return
                 }
+                setUpEvents(event: event)
                 
-                let startDate = event.startDate.addingTimeInterval(secondsFromGMTDifference)
-                let endDate = event.endDate.addingTimeInterval(secondsFromGMTDifference)
-                let distanceFromStartComponent = self.gregorian.dateComponents([.month, .day], from: startOfMonthCache, to: startDate)
-                let calendarEvent = CalendarEvent(title: event.title, startDate: startDate, endDate: endDate)
-                let indexPath = IndexPath(item: distanceFromStartComponent.day!, section: distanceFromStartComponent.month!)
-                
-                if (eventsByIndexPath[indexPath] != nil) {
-                    eventsByIndexPath[indexPath]?.append(calendarEvent)
-                } else {
-                    eventsByIndexPath[indexPath] = [calendarEvent]
-                }
             }
             self.calendarView.reloadData()
+        }
+    }
+    
+    func setUpEvents(event: EKEvent) {
+        let secondsFromGMTDifference = TimeInterval(NSTimeZone.local.secondsFromGMT())
+        let startDate = event.startDate.addingTimeInterval(secondsFromGMTDifference)
+        let endDate = event.endDate.addingTimeInterval(secondsFromGMTDifference)
+        let distanceFromStartComponent = self.gregorian.dateComponents([.month, .day], from: startOfMonthCache, to: startDate)
+        let calendarEvent = CalendarEvent(title: event.title, startDate: startDate, endDate: endDate)
+        let indexPath = IndexPath(item: distanceFromStartComponent.day!, section: distanceFromStartComponent.month!)
+        
+        if (eventsByIndexPath[indexPath] != nil) {
+            eventsByIndexPath[indexPath]?.append(calendarEvent)
+        } else {
+            eventsByIndexPath[indexPath] = [calendarEvent]
         }
     }
 }
