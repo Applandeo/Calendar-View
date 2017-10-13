@@ -26,8 +26,6 @@ class CalendarView: UIView {
     fileprivate var startOfMonthCache : Date = Date()
     fileprivate var todayIndexPath : IndexPath?
     
-    open var loadEKEvents: Bool? = false
-    
     var displayDate : Date?
     var monthInfo : [Int:[Int]] = [Int:[Int]]()
     
@@ -82,6 +80,15 @@ class CalendarView: UIView {
         calendar.timeZone = TimeZone(abbreviation: UTC)!
         return calendar
     }()
+    
+     open var loadEKEvents: Bool? = false {
+        didSet{
+            if loadEKEvents! {
+                loadEventsInCalendar()
+            }
+        }
+    }
+
 
 //MARK: - Inits
     override init(frame: CGRect) {
@@ -101,7 +108,6 @@ class CalendarView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         setFrames()
-//        checkEvents()
     }
     
     func setFrames() {
@@ -179,13 +185,9 @@ class CalendarView: UIView {
         }
     }
     
-    func setUpEvents(event: EKEvent) {
-        
-    }
-    
     func loadEventsInCalendar() {
-        if let  startDate = startDate(),
-            let endDate = endDate() {
+        if let  startDate = startDateForEvents(),
+            let endDate = endDateForEvents() {
             
             let store = EKEventStore()
             let fetchEvents = { () -> Void in
@@ -205,12 +207,6 @@ class CalendarView: UIView {
             }
         }
     }
-    
-    func checkEvents() {
-        if loadEKEvents! {
-            loadEventsInCalendar()
-        }
-    }
 }
 
 extension CalendarView {
@@ -226,6 +222,22 @@ extension CalendarView {
     fileprivate func endDate() -> Date? {
         var dateComponents = DateComponents()
         dateComponents.year = 100
+        let today = Date()
+        let endDate = Calendar.current.date(byAdding: dateComponents, to: today)
+        return endDate
+    }
+    
+    fileprivate func startDateForEvents() -> Date? {
+        var dateComponents = DateComponents()
+        dateComponents.month = -12
+        let today = Date()
+        let startDate = Calendar.current.date(byAdding: dateComponents, to: today)
+        return startDate
+    }
+    
+    fileprivate func endDateForEvents() -> Date? {
+        var dateComponents = DateComponents()
+        dateComponents.year = 1
         let today = Date()
         let endDate = Calendar.current.date(byAdding: dateComponents, to: today)
         return endDate
