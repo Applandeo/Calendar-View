@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 
 extension Calendar {
-    
     func getCalendarMonths(from startDate: Date, to endDate: Date) -> Int {
         let differenceComponents = self.dateComponents( [.month], from: startDate, to: endDate)
         guard let month = differenceComponents.month else { return 0 }
         return month + 1
+    }
+    
+    func getCalendarDay(from startDate: Date, to endDate: Date) -> DateComponents {
+        let differenceComponents = self.dateComponents( [.month, .day], from: startDate, to: endDate)
+        return differenceComponents
     }
     
 }

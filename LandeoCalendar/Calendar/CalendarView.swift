@@ -25,7 +25,7 @@ class CalendarView: UIView {
     fileprivate var endCalendarDate : Date = Date()
     fileprivate var startOfMonthCache : Date = Date()
     fileprivate var todayIndexPath : IndexPath?
-    
+
     var displayDate : Date?
     var monthInfo : [Int:[Int]] = [Int:[Int]]()
     
@@ -91,6 +91,7 @@ class CalendarView: UIView {
 
 
 //MARK: - Inits
+    
     override init(frame: CGRect) {
         super.init(frame :frame)
         self.createSubviews()
@@ -278,8 +279,7 @@ extension CalendarView: UICollectionViewDelegate {
         if let eventsForDay = eventsByIndexPath[fromStartOfMonthIndexPath] {
             eventsArray = eventsForDay
         }
-        
-        delegate?.calendar(self, didSelectDate: dateBeingSelectedByUser, withEvents: eventsArray)
+
         
         selectedIndexPaths.append(indexPath)
         selectedDates.append(dateBeingSelectedByUser)
@@ -307,6 +307,7 @@ extension CalendarView: UICollectionViewDelegate {
     
     func setDisplayDate(_ date : Date, animated: Bool) {
         if let dispDate = self.displayDate {
+            
             if  date.compare(dispDate) == ComparisonResult.orderedSame {
                 return
             }
@@ -357,8 +358,8 @@ extension CalendarView : UICollectionViewDataSource {
         let today = Date()
         if  startOfMonthCache.compare(today) == ComparisonResult.orderedAscending &&
             endCalendarDate.compare(today) == ComparisonResult.orderedDescending {
-            let differenceFromTodayComponents = gregorian.dateComponents([.month, .day], from: startOfMonthCache, to: today)
-            self.todayIndexPath = IndexPath(item: differenceFromTodayComponents.day!, section: differenceFromTodayComponents.month!)
+            let differenceComponent = gregorian.getCalendarDay(from: startOfMonthCache, to: today)
+            self.todayIndexPath = IndexPath(item: differenceComponent.day!, section: differenceComponent.month!) //we are sure we have data here, so force unwrap
         }
     }
     
