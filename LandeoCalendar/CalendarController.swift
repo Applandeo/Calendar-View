@@ -51,6 +51,7 @@ class CalendarController: UIViewController {
 }
 
 extension CalendarController: CalendarViewDelegate {
+    
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
         
     }
@@ -62,9 +63,6 @@ extension CalendarController: CalendarViewDelegate {
     func calendar(_ calendar: CalendarView, didDeselectDate date: Date, with events: [CalendarEvent]) {
         
     }
-    
-    
-    
-  
+
 }
 
