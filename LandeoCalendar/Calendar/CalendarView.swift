@@ -36,6 +36,15 @@ class CalendarView: UIView {
 
     fileprivate var eventsByIndexPath : [IndexPath:[CalendarEvent]] = [IndexPath:[CalendarEvent]]()
     
+    var direction : UICollectionViewScrollDirection = .horizontal {
+        didSet {
+            if let layout = self.calendarView.collectionViewLayout as? CalendarFlowLayout {
+                layout.scrollDirection = direction
+                self.calendarView.reloadData()
+            }
+        }
+    }
+    
 //MARK: - Lazy Variables
     
     lazy var headerView : CalendarViewHeader = {
@@ -61,15 +70,6 @@ class CalendarView: UIView {
         
         return cv
     }()
-    
-    var direction : UICollectionViewScrollDirection = .horizontal {
-        didSet {
-            if let layout = self.calendarView.collectionViewLayout as? CalendarFlowLayout {
-                layout.scrollDirection = direction
-                self.calendarView.reloadData()
-            }
-        }
-    }
     
     lazy var calendar: Calendar = {
         return Calendar.current
