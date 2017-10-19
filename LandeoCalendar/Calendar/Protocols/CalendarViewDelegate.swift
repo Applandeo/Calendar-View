@@ -12,5 +12,5 @@ protocol CalendarViewDelegate {
     
     func calendar(_ calendar : CalendarView, didScrollToMonth date : Date) -> Void
     func calendar(_ calendar : CalendarView, didSelectDate date : Date) -> Void
-    func calendar(_ calendar : CalendarView, didDeselectDate date : Date) -> Void
+    func calendar(_ calendar : CalendarView, didDeselectDate date : Date, with events: [CalendarEvent]) -> Void
 }

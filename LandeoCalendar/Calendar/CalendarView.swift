@@ -195,8 +195,6 @@ class CalendarView: UIView {
             let store = EKEventStore()
             let fetchEvents = { () -> Void in
                 let predicate = store.predicateForEvents(withStart: eventsStartDate, end:eventsEndDate, calendars: nil)
-                print("Start Date: - \(eventsStartDate)")
-                print("End Date: - \(eventsEndDate)")
                 if let eventsBetweenDates = store.events(matching: predicate) as [EKEvent]? {
                     self.events = eventsBetweenDates
                 }
@@ -247,7 +245,7 @@ extension CalendarView: UICollectionViewDelegate {
             eventsArray = eventsForDay
         }
 
-        delegate?.calendar(self, didSelectDate: dateBeingSelectedByUser)
+        delegate?.calendar(self, didDeselectDate: dateBeingSelectedByUser, with: eventsArray)
         selectedIndexPaths.append(indexPath)
         selectedDates.append(dateBeingSelectedByUser)
     }
@@ -261,7 +259,6 @@ extension CalendarView: UICollectionViewDelegate {
             return
         }
         
-        delegate?.calendar(self, didDeselectDate: dateBeingSelectedByUser)
         selectedIndexPaths.remove(at: index)
         selectedDates.remove(at: index)
         

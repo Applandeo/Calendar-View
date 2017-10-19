@@ -51,16 +51,20 @@ class CalendarController: UIViewController {
 }
 
 extension CalendarController: CalendarViewDelegate {
-    
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
-        print("Did Scroll to month: - \(date)")
+        
     }
     
     func calendar(_ calendar: CalendarView, didSelectDate date: Date) {
+        
     }
     
-    func calendar(_ calendar: CalendarView, didDeselectDate date: Date) {
-
+    func calendar(_ calendar: CalendarView, didDeselectDate date: Date, with events: [CalendarEvent]) {
+        
     }
+    
+    
+    
+  
 }
 
