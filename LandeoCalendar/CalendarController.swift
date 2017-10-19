@@ -9,8 +9,8 @@
 import UIKit
 import EventKit
 
-class CalendarController: UIViewController, CalendarViewDelegate {
-
+class CalendarController: UIViewController {
+    
     @IBOutlet weak var calendarView: CalendarView!
     
     override func viewDidLoad() {
@@ -48,14 +48,19 @@ class CalendarController: UIViewController, CalendarViewDelegate {
         let height = width + 80
         self.calendarView.frame = CGRect(x: 16, y: 16, width: width, height: height)
     }
+}
+
+extension CalendarController: CalendarViewDelegate {
     
-    func calendar(_ calendar : CalendarView, didScrollToMonth date: Date) {
-        
+    func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
+        print("Did Scroll to month: - \(date)")
     }
     
-    func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents events: [CalendarEvent]) {
-        
+    func calendar(_ calendar: CalendarView, didSelectDate date: Date) {
     }
     
+    func calendar(_ calendar: CalendarView, didDeselectDate date: Date) {
+
+    }
 }
 

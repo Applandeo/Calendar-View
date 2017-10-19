@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc class CalendarEvent : NSObject {
+class CalendarEvent : NSObject {
     private(set) var title: String
     private(set) var startDate: Date
     private(set) var endDate:Date
