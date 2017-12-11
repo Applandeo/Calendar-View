@@ -54,10 +54,11 @@ class CalendarViewCell: UICollectionViewCell {
                 guard let selection = selectionColor else {
                     return selectionColor = UIColor.white
                 }                
-                setCellColor(selection, selectedCellTextColor!)
+                setCellColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), UIColor.white)
             } else {
                 if isToday {
-                    setCellColor(todayTintColor!, todayCellTextColor!)
+                    //TODO: Change colors
+                    setCellColor(#colorLiteral(red: 0.1664928794, green: 0.7488424182, blue: 0.8295294642, alpha: 1), #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
                 } else {
                     setCellColor(UIColor.clear, UIColor.black)
                 }
@@ -68,7 +69,7 @@ class CalendarViewCell: UICollectionViewCell {
     var isToday : Bool = false {
         didSet {
             if isToday {
-                setCellColor(todayTintColor!, UIColor.white)
+                setCellColor(#colorLiteral(red: 0.1664928794, green: 0.7488424182, blue: 0.8295294642, alpha: 1), UIColor.white)
             } else {
                 setCellColor(UIColor.clear, UIColor.black)
             }
