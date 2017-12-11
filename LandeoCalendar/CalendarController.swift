@@ -13,6 +13,8 @@ class CalendarController: UIViewController {
     
     @IBOutlet weak var calendarView: CalendarView!
     
+    var arrayOfCalendars = ["Standard", "One Day Picker", "One Day Picker - Modal", "Multiple Days Picker", "Multiple Days Picker - Modal", "Range Picker", "Range Picker - Modal"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,17 +54,24 @@ class CalendarController: UIViewController {
 
 extension CalendarController: CalendarViewDelegate {
     
+    func calendar(_ calendar: CalendarView, canSelectDate date: Date) -> Bool {
+        print("Mkay")
+        return true
+    }
+    
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
-        
+        print("Scrolled to month : - \(date)")
     }
     
-    func calendar(_ calendar: CalendarView, didSelectDate date: Date) {
-        
+    func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents: [CalendarEvent]) {
+        print("Selected date : - \(date)")
     }
     
-    func calendar(_ calendar: CalendarView, didDeselectDate date: Date, with events: [CalendarEvent]) {
-        
+    func calendar(_ calendar: CalendarView, didDeselectDate date: Date) {
+        print("Deselected date : - \(date)")
     }
+    
+    
 
 }
 
