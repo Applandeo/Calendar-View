@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,22 +25,35 @@
                                     <constraint firstAttribute="height" constant="375" id="6ot-Q4-PDD"/>
                                 </constraints>
                             </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iL5-YZ-Yx0">
+                                <rect key="frame" x="0.0" y="505" width="375" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="yey-GK-sBV"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="534757161.95865202">
+                                    <!--2017-12-12 07:39:21 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eRg-R7-WDu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="BhB-lE-mq2"/>
                             <constraint firstItem="eRg-R7-WDu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EzV-Lu-eSz"/>
+                            <constraint firstItem="iL5-YZ-Yx0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Hn2-th-c66"/>
                             <constraint firstItem="eRg-R7-WDu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VhM-xN-lXh"/>
+                            <constraint firstItem="iL5-YZ-Yx0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jXU-h9-LL6"/>
+                            <constraint firstItem="iL5-YZ-Yx0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zbI-RJ-Q2E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="calendarView" destination="eRg-R7-WDu" id="sUo-fg-pPg"/>
+                        <outlet property="calendarView" destination="eRg-R7-WDu" id="vVU-Dz-uUi"/>
+                        <outlet property="datePicker" destination="iL5-YZ-Yx0" id="ywM-Dn-wrY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="456.80000000000001" y="118.29085457271366"/>
         </scene>
     </scenes>
 </document>

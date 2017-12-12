@@ -9,93 +9,62 @@
 import UIKit
 import EventKit
 
-struct Identifiers {
-    static let CalendarCellID = "CalendarCellID"
-    static let HeaderViewID = "HeaderViewID"
-}
+let cellReuseIdentifier = "CalendarDayCell"
 
 class CalendarView: UIView {
-    
-    open var colors: CalendarColors = CalendarColors()
-    
-    //Mark: - Data
+
     var delegate : CalendarViewDelegate?
+    var eventsLoader = EventsLoader()
     
-    var startCalendarDate = Date()
-    var endCalendarDate = Date()
-    var startOfMonthCache = Date()
-    var todayIndexPath: IndexPath?
-
-    var displayDate: Date?
-    var monthInfo = [Int:[Int]]()
-    var monthInfoForSection = [Int:(firstDay:Int, daysTotal:Int)]()
-    
-    var selectedIndexPaths = [IndexPath]()
-    var selectedDatesByUser = [Date]()
-    
-    var dateBeingSelectedByUser: Date?
-    var selectedDates = [Date]()
-
-    var eventsByIndexPath = [IndexPath:[CalendarEvent]]()
+    lazy var calendar : Calendar = {
+        var gregorian = Calendar(identifier: .gregorian)
+        gregorian.timeZone = TimeZone(abbreviation: "UTC")!
+        return gregorian
+    }()
     
     var direction : UICollectionViewScrollDirection = .horizontal {
         didSet {
-            if let layout = self.calendarView.collectionViewLayout as? CalendarFlowLayout {
-                layout.scrollDirection = direction
-                self.calendarView.reloadData()
-            }
+            flowLayout.scrollDirection = direction
+            self.collectionView.reloadData()
         }
     }
     
-//MARK: - Lazy Variables
+    internal var startDateCache = Date() 
+    internal var endDateCache       = Date()
+    internal var startOfMonthCache  = Date()
     
-    lazy var headerView : CalendarViewHeader = {
-        let headerView = CalendarViewHeader(frame:CGRect.zero)
-        return headerView
-    }()
+    internal var todayIndexPath: IndexPath?
+    public var displayDate: Date?
     
-    lazy var calendarView : UICollectionView = {
-        
-        let layout = CalendarFlowLayout()
-        layout.scrollDirection = self.direction;
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        
-        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.dataSource = self
-        cv.delegate = self
-        cv.isPagingEnabled = true
-        cv.backgroundColor = UIColor.clear
-        cv.showsHorizontalScrollIndicator = false
-        cv.showsVerticalScrollIndicator = false
-        cv.allowsMultipleSelection = true
-        
-        return cv
-    }()
+    internal(set) var selectedIndexPaths    = [IndexPath]()
+    internal(set) var selectedDates         = [Date]()
     
-    lazy var calendar: Calendar = {
-        return Calendar.current
-    }()
+    internal var eventsByIndexPath = [IndexPath:[CalendarEvent]]()
     
-    lazy var gregorian : Calendar = {
-        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-        calendar.timeZone = TimeZone(abbreviation: UTC)!
-        return calendar
-    }()
+    internal var monthInfoForSection = [Int:(firstDay:Int, daysTotal:Int)]()
     
-     open var loadEKEvents: Bool? = false {
-        didSet{
-            if loadEKEvents! {
-                loadEventsInCalendar()
+    var events: [CalendarEvent] = [] {
+        didSet {
+            self.eventsByIndexPath.removeAll()
+            for event in events {
+                guard let indexPath = self.indexPathForDate(event.startDate) else { continue }
+                var eventsForIndexPath = eventsByIndexPath[indexPath] ?? []
+                eventsForIndexPath.append(event)
+                eventsByIndexPath[indexPath] = eventsForIndexPath
             }
+            DispatchQueue.main.async { self.collectionView.reloadData() }
         }
     }
 
-//MARK: - Inits
+    var allowMultipleSelection : Bool = false {
+        didSet{
+            self.collectionView.allowsMultipleSelection = allowMultipleSelection
+        }
+    }
     
     override init(frame: CGRect) {
-        super.init(frame :frame)
-        self.createSubviews()
+        super.init(frame: frame)
+        self.setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -104,160 +73,170 @@ class CalendarView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.createSubviews()
+        self.setup()
+        self.loadEKEvents()
+    }
+    
+    // MARK: Create Subviews
+    var headerView: CalendarHeaderView!
+    var collectionView: UICollectionView!
+
+    private func setup() {
+        
+        self.clipsToBounds = true
+        
+        self.headerView = CalendarHeaderView(frame:CGRect.zero)
+        self.addSubview(self.headerView)
+        
+        let layout = CalendarFlowLayout()
+        layout.scrollDirection = self.direction;
+        layout.sectionInset = UIEdgeInsets.zero
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.itemSize = self.cellSize(in: self.bounds)
+        setupCollectionView(layout: layout)
+    }
+    
+    fileprivate func setupCollectionView(layout: CalendarFlowLayout) {
+        self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.isPagingEnabled = true
+        self.collectionView.backgroundColor = UIColor.clear
+        self.collectionView.showsHorizontalScrollIndicator = false
+        self.collectionView.showsVerticalScrollIndicator = false
+        self.collectionView.register(CalendarDayCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
+        self.addSubview(self.collectionView)
+    }
+    
+    open func loadEKEvents() {
+        loadEvents()
+    }
+    
+    private func loadEvents() {
+        var dateComponents = DateComponents()
+        dateComponents.year = -2
+        let today = Date()
+        let startDate = self.calendar.date(byAdding: dateComponents, to: today)
+        
+        var dateComponents1 = DateComponents()
+        dateComponents1.year = 2
+        let endDate = self.calendar.date(byAdding: dateComponents1, to: today)
+        
+        eventsLoader.load(from: startDate!, to: endDate!) { (event) in
+            if let events = event {
+                self.events = events
+            }
+        }
+    }
+    
+    func setStartDate() -> Date {
+        var dateComponents = DateComponents()
+        dateComponents.year = -10
+        let today = Date()
+        guard let startDate = self.calendar.date(byAdding: dateComponents, to: today) else { return Date() }
+        self.startDateCache = startDate
+        return startDate
+    }
+    
+    func setEndDate() -> Date {
+        var dateComponents = DateComponents()
+        dateComponents.year = 10
+        let today = Date()
+        guard let endDate = self.calendar.date(byAdding: dateComponents, to: today) else { return Date() }
+        self.endDateCache = endDate
+        return endDate
+    }
+    
+    var flowLayout: CalendarFlowLayout {
+        return self.collectionView.collectionViewLayout as! CalendarFlowLayout
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setFrames()
-    }
-    
-    func setFrames() {
-        let height = frame.size.height - HEADER_DEFAULT_HEIGHT
-        let width = frame.size.width
-        self.headerView.frame   = CGRect(x:0.0, y:0.0, width: width, height:HEADER_DEFAULT_HEIGHT)
-        self.calendarView.frame = CGRect(x:0.0, y:HEADER_DEFAULT_HEIGHT, width: width, height: height)
-        setLayout(width: width, height: height)
-    }
-    
-    func setLayout(width: CGFloat, height: CGFloat){
-        guard let layout = self.calendarView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        layout.itemSize = CGSize(width: width / CGFloat(NUMBER_OF_DAYS_IN_WEEK), height: height / CGFloat(MAXIMUM_NUMBER_OF_ROWS))
-        self.headerView.setHeaderColor(monthLabelColor: colors.headerMonthLabelColor , weekdaysLabelColor: colors.headerWeekdaysLabelColor)
-    }
-    
-// MARK: - Setup
-    
-    open func buildCalendarView(cellLabelTintColor: UIColor, selectCellTintColor: UIColor, todayTintColor: UIColor, todayCellTextColor: UIColor, headerMonthLabelColor: UIColor, headerWeekdaysLabelColor: UIColor, weekdayTintColor: UIColor, selectedCellTextColor: UIColor) {
-        colors.cellLabelTintColor = cellLabelTintColor
-        colors.selectCellTintColor = selectCellTintColor
-        colors.headerWeekdaysLabelColor = headerWeekdaysLabelColor
-        colors.todayCellTextColor = todayCellTextColor
-        colors.weekdayTintColor = weekdayTintColor
-        colors.headerMonthLabelColor = headerMonthLabelColor
-        colors.todayTintColor = todayTintColor
-        colors.selectedCellTextColor = selectedCellTextColor
-    }
-    
-    fileprivate func createSubviews() {
-        self.clipsToBounds = true
-        self.calendarView.register(CalendarViewCell.self, forCellWithReuseIdentifier: Identifiers.CalendarCellID)
-        self.calendarView.allowsMultipleSelection = allowMultipleSelection
-        self.addSubview(self.headerView)
-        self.addSubview(self.calendarView)
-    }
-    
-    var allowMultipleSelection : Bool = false {
-        didSet{
-            self.calendarView.allowsMultipleSelection = allowMultipleSelection
-        }
-    }
-    
-    //Events
-    
-    fileprivate func setUpEvents(_ event: EKEvent, _ secondsFromGMTDifference: TimeInterval) {
-        let startDate = event.startDate.addingTimeInterval(secondsFromGMTDifference)
-        let endDate = event.endDate.addingTimeInterval(secondsFromGMTDifference)
         
-        let distanceFromStartComponent = self.gregorian.dateComponents([.month,.day], from: startDate)
-        let calendarEvent = CalendarEvent(title: event.title, startDate: startDate, endDate: endDate)
-        let indexPath = IndexPath(item: distanceFromStartComponent.day!, section: distanceFromStartComponent.month!)
-        
-        if (eventsByIndexPath[indexPath] != nil) {
-            eventsByIndexPath[indexPath]?.append(calendarEvent)
-        } else {
-            eventsByIndexPath[indexPath] = [calendarEvent]
-        }
+        self.headerView.frame = CGRect( x:0.0, y:0.0, width: self.frame.size.width,height: CalendarStyle.headerHeight)
+        self.collectionView.frame = CGRect(x: 0.0, y: CalendarStyle.headerHeight, width: self.frame.size.width, height: self.frame.size.height - CalendarStyle.headerHeight)
+        flowLayout.itemSize = self.cellSize(in: self.bounds)
+        self.resetDisplayDate()
     }
     
-    var events : [EKEvent]? {
-        didSet {
-            eventsByIndexPath = [IndexPath:[CalendarEvent]]()
-            
-            guard let events = events else {
-                return
-            }
-            let secondsFromGMTDifference = TimeInterval(NSTimeZone.local.secondsFromGMT())
-            for event in events {
-                
-                if event.isOneDay == false {
-                    return
-                }
-                
-                setUpEvents(event, secondsFromGMTDifference)
-            }
-            self.calendarView.reloadData()
-        }
+    private func cellSize(in bounds: CGRect) -> CGSize {
+        return CGSize(width: frame.size.width / 7.0, height: (frame.size.height - CalendarStyle.headerHeight) / 6.0)
     }
     
-    func loadEventsInCalendar() {
-        
-        if let  eventsStartDate =  Date().dateMonthFromToday(-12),
-            let eventsEndDate = Date().dateMonthFromToday(12) {
-
-            let store = EKEventStore()
-            let fetchEvents = { () -> Void in
-                let predicate = store.predicateForEvents(withStart: eventsStartDate, end:eventsEndDate, calendars: nil)
-                if let eventsBetweenDates = store.events(matching: predicate) as [EKEvent]? {
-                    self.events = eventsBetweenDates
-                }
-            }
-            if EKEventStore.authorizationStatus(for: EKEntityType.event) != EKAuthorizationStatus.authorized {
-                store.requestAccess(to: EKEntityType.event, completion: {(granted, error ) -> Void in
-                    if granted {
-                        fetchEvents()
-                        print("Events Loaded")
-                    }
-                })
-            } else {
-                fetchEvents()
-            }
-        }
+    
+    func reloadData() {
+        self.collectionView.reloadData()
     }
+    
+    func setDisplayDate(date: Date, animated: Bool = false) {
+        guard (date > startDateCache) && (date < endDateCache) else { return }
+        
+        self.collectionView.setContentOffset(
+            self.scrollViewOffset(for: date),
+            animated: false
+        )
+        self.displayDateOnHeader(date)
+    }
+    
+    func resetDisplayDate() {
+        guard let displayDate = self.displayDate else { return }
+        self.collectionView.setContentOffset(
+            self.scrollViewOffset(for: displayDate),
+            animated: false
+        )
+    }
+    
+    func scrollViewOffset(for date: Date) -> CGPoint {
+        var point = CGPoint.zero
+        guard let sections = self.indexPathForDate(date)?.section else { return point }
+        
+        switch self.direction {
+        case .horizontal:   point.x = CGFloat(sections) * self.collectionView.frame.size.width
+        case .vertical:     point.y = CGFloat(sections) * self.collectionView.frame.size.height
+        }
+        return point
+    }
+    
 }
 
+// MARK: Selection of Dates
 extension CalendarView {
     
-    func selectDate(_ date: Date) {
+    func selectDate(_ date : Date) {
         guard let indexPath = self.indexPathForDate(date) else { return }
-        
-        self.calendarView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
-        self.collectionView(calendarView, didSelectItemAt: indexPath)
-        
+        self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
+        self.collectionView(collectionView, didSelectItemAt: indexPath)
     }
     
-    func deselectDate(_ date: Date) {
+    func deselectDate(_ date : Date) {
         guard let indexPath = self.indexPathForDate(date) else { return }
+        self.collectionView.deselectItem(at: indexPath, animated: false)
+        self.collectionView(collectionView, didSelectItemAt: indexPath)
         
-        self.calendarView.deselectItem(at: indexPath, animated: false)
-        self.collectionView(calendarView, didSelectItemAt: indexPath)
     }
     
 }
 
-
+// MARK: Convertion
 extension CalendarView {
     
     func indexPathForDate(_ date : Date) -> IndexPath? {
-        
         let distanceFromStartDate = self.calendar.dateComponents([.month, .day], from: self.startOfMonthCache, to: date)
         
-        guard
-            let day   = distanceFromStartDate.day,
-            let month = distanceFromStartDate.month,
-            let (firstDayIndex, _) = monthInfoForSection[month] else { return nil }
+        guard let day = distanceFromStartDate.day,
+              let month = distanceFromStartDate.month,
+              let (firstDayIndex, _) = monthInfoForSection[month] else { return nil }
         
         return IndexPath(
             item: day + firstDayIndex,
             section: month
         )
-        
     }
     
     func dateFromIndexPath(_ indexPath: IndexPath) -> Date? {
-        
         let month = indexPath.section
-        
         guard let monthInfo = monthInfoForSection[month] else { return nil }
         
         var components      = DateComponents()
@@ -265,6 +244,26 @@ extension CalendarView {
         components.day      = indexPath.item - monthInfo.firstDay
         
         return self.calendar.date(byAdding: components, to: self.startOfMonthCache)
-        
     }
+    
+}
+
+extension CalendarView {
+    
+    func goToMonthWithOffet(_ offset: Int) {
+        guard let displayDate = self.displayDate else { return }
+        var dateComponents = DateComponents()
+        dateComponents.month = offset;
+        guard let newDate = self.calendar.date(byAdding: dateComponents, to: displayDate) else { return }
+        self.setDisplayDate(date: newDate, animated: true)
+    }
+    
+    func goToNextMonth() {
+        goToMonthWithOffet(1)
+    }
+    
+    func goToPreviousMonth() {
+        goToMonthWithOffet(-1)
+    }
+    
 }

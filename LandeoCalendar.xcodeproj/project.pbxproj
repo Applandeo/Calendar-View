@@ -11,9 +11,10 @@
 		9E85D8271FDEBACB00AACE9D /* CalendarView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E85D8241FDEBACA00AACE9D /* CalendarView+DataSource.swift */; };
 		9E85D8281FDEBACB00AACE9D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E85D8251FDEBACA00AACE9D /* CalendarView.swift */; };
 		9E85D8291FDEBACB00AACE9D /* CalendarView+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E85D8261FDEBACB00AACE9D /* CalendarView+Delegate.swift */; };
-		9E9AB5341F8DF37100ED1DAE /* CalendarColorSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9AB5331F8DF37100ED1DAE /* CalendarColorSettings.swift */; };
 		9E9AB53A1F8E133A00ED1DAE /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9AB5391F8E133A00ED1DAE /* DateExtension.swift */; };
 		9E9AB53C1F8E134500ED1DAE /* EKEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9AB53B1F8E134500ED1DAE /* EKEventExtension.swift */; };
+		9ECC556B1FDFBEA600C8FFEB /* EventsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC556A1FDFBEA600C8FFEB /* EventsLoader.swift */; };
+		9ECC556D1FDFC29500C8FFEB /* CalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC556C1FDFC29500C8FFEB /* CalendarStyle.swift */; };
 		C245B62A1F72C4FB0071D30F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245B6291F72C4FB0071D30F /* AppDelegate.swift */; };
 		C245B62C1F72C4FB0071D30F /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245B62B1F72C4FB0071D30F /* CalendarController.swift */; };
 		C245B62F1F72C4FB0071D30F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C245B62D1F72C4FB0071D30F /* Main.storyboard */; };
@@ -32,9 +33,10 @@
 		9E85D8241FDEBACA00AACE9D /* CalendarView+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+DataSource.swift"; sourceTree = "<group>"; };
 		9E85D8251FDEBACA00AACE9D /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		9E85D8261FDEBACB00AACE9D /* CalendarView+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Delegate.swift"; sourceTree = "<group>"; };
-		9E9AB5331F8DF37100ED1DAE /* CalendarColorSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarColorSettings.swift; sourceTree = "<group>"; };
 		9E9AB5391F8E133A00ED1DAE /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		9E9AB53B1F8E134500ED1DAE /* EKEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKEventExtension.swift; sourceTree = "<group>"; };
+		9ECC556A1FDFBEA600C8FFEB /* EventsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsLoader.swift; sourceTree = "<group>"; };
+		9ECC556C1FDFC29500C8FFEB /* CalendarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStyle.swift; sourceTree = "<group>"; };
 		C245B6261F72C4FB0071D30F /* LandeoCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandeoCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C245B6291F72C4FB0071D30F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C245B62B1F72C4FB0071D30F /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9ECC55691FDFBE3000C8FFEB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C2E4D9D21F793C61007460BC /* Constants.swift */,
+				9ECC556C1FDFC29500C8FFEB /* CalendarStyle.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		9ECC55701FDFE68700C8FFEB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C245B62B1F72C4FB0071D30F /* CalendarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		C226533D1F8BDF1C000C8879 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,9 +109,9 @@
 		C245B6281F72C4FB0071D30F /* LandeoCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC55701FDFE68700C8FFEB /* Controllers */,
 				C245B63B1F72C5000071D30F /* Calendar */,
 				C245B6291F72C4FB0071D30F /* AppDelegate.swift */,
-				C245B62B1F72C4FB0071D30F /* CalendarController.swift */,
 				C245B62D1F72C4FB0071D30F /* Main.storyboard */,
 				C245B6301F72C4FB0071D30F /* Assets.xcassets */,
 				C245B6321F72C4FB0071D30F /* LaunchScreen.storyboard */,
@@ -104,14 +123,14 @@
 		C245B63B1F72C5000071D30F /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC55691FDFBE3000C8FFEB /* Constants */,
 				9E85D8251FDEBACA00AACE9D /* CalendarView.swift */,
 				9E85D8241FDEBACA00AACE9D /* CalendarView+DataSource.swift */,
 				9E85D8261FDEBACB00AACE9D /* CalendarView+Delegate.swift */,
+				9ECC556A1FDFBEA600C8FFEB /* EventsLoader.swift */,
 				C2857F831F73C63800A6BA5C /* CalendarViewCell.swift */,
 				C2857F871F73F64C00A6BA5C /* CalendarViewHeader.swift */,
-				9E9AB5331F8DF37100ED1DAE /* CalendarColorSettings.swift */,
 				C278C6EC1F8C0A8F00D69B24 /* Protocols */,
-				C2E4D9D21F793C61007460BC /* Constants.swift */,
 				C2E4D9D61F793F5C007460BC /* CalendarEvent.swift */,
 				C2857F851F73D4F500A6BA5C /* CalendarViewFlowLayout.swift */,
 				C226533D1F8BDF1C000C8879 /* Extension */,
@@ -203,15 +222,16 @@
 				C245B62C1F72C4FB0071D30F /* CalendarController.swift in Sources */,
 				C2857F861F73D4F500A6BA5C /* CalendarViewFlowLayout.swift in Sources */,
 				C245B62A1F72C4FB0071D30F /* AppDelegate.swift in Sources */,
-				9E9AB5341F8DF37100ED1DAE /* CalendarColorSettings.swift in Sources */,
 				9E9AB53A1F8E133A00ED1DAE /* DateExtension.swift in Sources */,
 				C2857F881F73F64C00A6BA5C /* CalendarViewHeader.swift in Sources */,
 				C2E4D9D11F793C50007460BC /* CalendarViewDelegate.swift in Sources */,
 				9E85D8291FDEBACB00AACE9D /* CalendarView+Delegate.swift in Sources */,
+				9ECC556B1FDFBEA600C8FFEB /* EventsLoader.swift in Sources */,
 				9E85D8281FDEBACB00AACE9D /* CalendarView.swift in Sources */,
 				9E53AEB01F8F6A0D00748EDF /* CalendarExtension.swift in Sources */,
 				C2E4D9D71F793F5C007460BC /* CalendarEvent.swift in Sources */,
 				C2857F841F73C63800A6BA5C /* CalendarViewCell.swift in Sources */,
+				9ECC556D1FDFC29500C8FFEB /* CalendarStyle.swift in Sources */,
 				9E85D8271FDEBACB00AACE9D /* CalendarView+DataSource.swift in Sources */,
 				C2E4D9D31F793C61007460BC /* Constants.swift in Sources */,
 			);
@@ -352,7 +372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3A35JM6C5V;
+				DEVELOPMENT_TEAM = 39ZKQ9YZS2;
 				INFOPLIST_FILE = LandeoCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -370,7 +390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3A35JM6C5V;
+				DEVELOPMENT_TEAM = 39ZKQ9YZS2;
 				INFOPLIST_FILE = LandeoCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
