@@ -164,8 +164,7 @@ class CalendarView: UIView {
     private func cellSize(in bounds: CGRect) -> CGSize {
         return CGSize(width: frame.size.width / 7.0, height: (frame.size.height - CalendarStyle.headerHeight) / 6.0)
     }
-    
-    
+
     func reloadData() {
         self.collectionView.reloadData()
     }

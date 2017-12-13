@@ -22,9 +22,9 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     }
     
     fileprivate func deselectCell(date: Date, index: Int) {
-        delegate?.calendar(self, didDeselectDate: date)
         selectedIndexPaths.remove(at: index)
-        selectedDates.remove(at: index)
+//        selectedDates.remove(at: index)
+        delegate?.calendar(self, didDeselectDate: date)
     }
     
     fileprivate func selectCell(date: Date, indexPath: IndexPath) {
@@ -32,43 +32,54 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
 //            selectedDates.removeAll()
 //            selectedIndexPaths.removeAll()
 //        }
-        selectedDates.append(date)
-        selectedIndexPaths.append(indexPath)
-        
+//        selectedDates.append(date)
+//        selectedIndexPaths.append(indexPath)
+//        let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
+//        delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
+//
         if CalendarStyle.cellSelectionType == .range {
-            if selectedIndexPaths.count <= 1 || selectedDates.count <= 1 {
-                selectedDates.append(date)
+            
+            if selectedIndexPaths.count > 1  {
                 selectedIndexPaths.append(indexPath)
+                selectedIndexPaths.removeAll()
             }
             
-            if selectedIndexPaths.count > 1 || selectedDates.count > 1 {
-                selectedDates.remove(at: 0)
-                selectedIndexPaths.remove(at: 0)
+            if selectedIndexPaths.count == 1 {
+                selectRange(indexPath: indexPath)
+                
             }
             
-            if selectedIndexPaths[0].row < selectedIndexPaths[1].row {
-                let startIndex = selectedIndexPaths[0].row
-                let endIndex = selectedIndexPaths[1].row
-                for index in startIndex...endIndex {
-                    let path = IndexPath(row: index, section: indexPath.section)
-                    guard let date = dateFromIndexPath(path) else { return }
-                    selectCell(date: date, indexPath: path)
-                }
-            } else {
-                let startIndex = selectedIndexPaths[1].row
-                let endIndex = selectedIndexPaths[0].row
-                for index in startIndex...endIndex {
-                    let path = IndexPath(row: index, section: indexPath.section)
-                    guard let date = dateFromIndexPath(path) else { return }
-                    selectCell(date: date, indexPath: path)
-                }
+            if selectedIndexPaths.isEmpty {
+                selectedIndexPaths.append(indexPath)
             }
         }
         
-        let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
-        delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
     }
     
+    func selectRange(indexPath: IndexPath) {
+        selectedIndexPaths.append(indexPath)
+        
+        let startIndex = selectedIndexPaths[0].row
+        let endIndex = selectedIndexPaths[1].row
+
+        let startIndexSection = selectedIndexPaths[0].section
+        let endIndexSection = selectedIndexPaths[1].section
+        
+        var startIndexPath = IndexPath(row: startIndex, section: startIndexSection)
+        var endIndexPath = IndexPath(row: endIndex, section: endIndexSection)
+        
+        if endIndexPath < startIndexPath {
+            swap(&endIndexPath, &startIndexPath)
+        }
+        
+        repeat {
+            startIndexPath = startIndexPath.increaseRowByOne(sectionEnd: 30)
+            selectedIndexPaths.append(startIndexPath)
+        } while (startIndexPath.isLesser(indexPath: endIndexPath))
+        
+        
+    }
+
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         guard let dateBeingSelected = self.dateFromIndexPath(indexPath) else { return false }
         
@@ -121,4 +132,3 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         self.displayDate = date
     }
 }
-
