@@ -17,6 +17,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             deselectCell(date: date, index: index)
         } else {
             selectCell(date: date, indexPath: indexPath)
+            
         }
         self.reloadData()
     }
@@ -28,6 +29,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     }
     
     fileprivate func selectCell(date: Date, indexPath: IndexPath) {
+        
 //        if allowMultipleSelection {
 //            selectedDates.removeAll()
 //            selectedIndexPaths.removeAll()
@@ -45,8 +47,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             }
             
             if selectedIndexPaths.count == 1 {
-                selectRange(indexPath: indexPath)
-                
+                selectRange(indexPath: indexPath, date: date)
             }
             
             if selectedIndexPaths.isEmpty {
@@ -56,27 +57,40 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         
     }
     
-    func selectRange(indexPath: IndexPath) {
+    func selectRange(indexPath: IndexPath, date: Date) {
         selectedIndexPaths.append(indexPath)
         
-        let startIndex = selectedIndexPaths[0].row
-        let endIndex = selectedIndexPaths[1].row
-
-        let startIndexSection = selectedIndexPaths[0].section
-        let endIndexSection = selectedIndexPaths[1].section
+        var monthOffsetComponents = DateComponents()
+        monthOffsetComponents.month = indexPath.section
         
-        var startIndexPath = IndexPath(row: startIndex, section: startIndexSection)
-        var endIndexPath = IndexPath(row: endIndex, section: endIndexSection)
+        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: startOfMonthCache) else { return }
+        guard let info = self.getMonthInfo(for: correctMonthForSectionDate) else { return }
         
+        let firstDay = info.firstDay
+        let daysTotal = info.daysTotal
+        let lastDayIndex = firstDay + daysTotal
+        
+        var startIndexPath = IndexPath(row: selectedIndexPaths[0].row, section: selectedIndexPaths[0].section)
+        var endIndexPath = IndexPath(row: selectedIndexPaths[1].row, section: selectedIndexPaths[1].section)
+       
         if endIndexPath < startIndexPath {
             swap(&endIndexPath, &startIndexPath)
         }
-        
+       
         repeat {
-            startIndexPath = startIndexPath.increaseRowByOne(sectionEnd: 30)
-            selectedIndexPaths.append(startIndexPath)
+            if startIndexPath.row == 0 {
+//                let info = monthInfoForSection[startIndexPath.section]!
+//                let firstDay = info.firstDay
+//                let daysTotal = info.daysTotal
+            }
+            
+            let startPath = startIndexPath.increaseRowByOne(sectionEnd: lastDayIndex)
+            selectedIndexPaths.append(startPath)
+            
+            startIndexPath = startPath
+            
+            
         } while (startIndexPath.isLesser(indexPath: endIndexPath))
-        
         
     }
 

@@ -11,6 +11,13 @@ import UIKit
 
 extension Date {
     
+    public func isDateLesser(date: Date) -> Bool {
+        if self < date {
+            return true
+        }
+        return false
+    }
+    
     func applyOffSetOfMonth(calendar: Calendar, offset:Int) -> Date? {
         var dateComponents = DateComponents()
         dateComponents.month = offset
@@ -31,6 +38,15 @@ extension Date {
         let today = Date()
         let date = Calendar.current.date(byAdding: dateComponents, to: today)
         return date
+    }
+    
+    func lastDayOfMonth() -> Date {
+        let calendar = Calendar.current
+        let dayRange = calendar.range(of: .day, in: .month, for: self)
+        let dayCount = dayRange?.count
+        var components = calendar.dateComponents([.year,.month,.day], from: self)
+        components.day = dayCount
+        return calendar.date(from: components)!
     }
     
 }

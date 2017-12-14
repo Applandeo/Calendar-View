@@ -32,11 +32,10 @@ extension CalendarView: UICollectionViewDataSource {
     }
     
     internal func getMonthInfo(for date: Date) -> (firstDay: Int, daysTotal: Int)? {
-        
         var firstWeekdayOfMonthIndex = self.calendar.component(.weekday, from: date)
         firstWeekdayOfMonthIndex = firstWeekdayOfMonthIndex - 1
         firstWeekdayOfMonthIndex = (firstWeekdayOfMonthIndex + 6) % 7
-        guard let rangeOfDaysInMonth:Range<Int> = self.calendar.range(of: .day, in: .month, for: date) else { return nil }
+        guard let rangeOfDaysInMonth: Range<Int> = self.calendar.range(of: .day, in: .month, for: date) else { return nil }
         let numberOfDaysInMonth = rangeOfDaysInMonth.upperBound - rangeOfDaysInMonth.lowerBound
         return (firstDay: firstWeekdayOfMonthIndex, daysTotal: numberOfDaysInMonth)
     }
@@ -44,17 +43,18 @@ extension CalendarView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var monthOffsetComponents = DateComponents()
         monthOffsetComponents.month = section;
-        guard
-            let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: startOfMonthCache), let info = self.getMonthInfo(for: correctMonthForSectionDate) else { return 0 }
+        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: startOfMonthCache), let info = self.getMonthInfo(for: correctMonthForSectionDate) else { return 0 }
         self.monthInfoForSection[section] = info
         return 42
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! CalendarDayCell
         guard let (firstDayIndex, numberOfDaysTotal) = self.monthInfoForSection[indexPath.section] else { return dayCell }
         let fromStartOfMonthIndexPath = IndexPath(item: indexPath.item - firstDayIndex, section: indexPath.section)
         let lastDayIndex = firstDayIndex + numberOfDaysTotal
+        
         if (firstDayIndex..<lastDayIndex).contains(indexPath.item) {
             dayCell.textLabel.text = String(fromStartOfMonthIndexPath.item + 1)
             dayCell.isHidden = false
@@ -62,7 +62,10 @@ extension CalendarView: UICollectionViewDataSource {
             dayCell.textLabel.text = ""
             dayCell.isHidden = true
         }
-        dayCell.isSelected = selectedIndexPaths.contains(indexPath)
+        
+        let date = dateFromIndexPath(indexPath)
+        dayCell.isSelected = selectedDates.contains(date!)
+//        dayCell.isSelected = selectedIndexPaths.contains(indexPath)
         
         if indexPath.section == 0 && indexPath.item == 0 {
             self.scrollViewDidEndDecelerating(collectionView)
