@@ -62,10 +62,8 @@ extension CalendarView: UICollectionViewDataSource {
             dayCell.textLabel.text = ""
             dayCell.isHidden = true
         }
-        
-        let date = dateFromIndexPath(indexPath)
-        dayCell.isSelected = selectedDates.contains(date!)
-//        dayCell.isSelected = selectedIndexPaths.contains(indexPath)
+                
+        dayCell.isSelected = selectedIndexPaths.contains(indexPath)
         
         if indexPath.section == 0 && indexPath.item == 0 {
             self.scrollViewDidEndDecelerating(collectionView)

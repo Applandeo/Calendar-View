@@ -39,57 +39,75 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
 //        let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
 //        delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
 //
+        
+        
+        
         if CalendarStyle.cellSelectionType == .range {
+            let startIndexPath: IndexPath?
+            let endIndexPath: IndexPath?
             
             if selectedIndexPaths.count > 1  {
-                selectedIndexPaths.append(indexPath)
+                startIndexPath = indexPath
+                selectedIndexPaths.append(startIndexPath!)
                 selectedIndexPaths.removeAll()
             }
             
             if selectedIndexPaths.count == 1 {
-                selectRange(indexPath: indexPath, date: date)
+                endIndexPath = indexPath
+                selectRange(startIndexPath: selectedIndexPaths[0], endIndexPath: endIndexPath!, date: date)
             }
             
             if selectedIndexPaths.isEmpty {
                 selectedIndexPaths.append(indexPath)
             }
         }
-        
     }
     
-    func selectRange(indexPath: IndexPath, date: Date) {
-        selectedIndexPaths.append(indexPath)
+    func selectRange(startIndexPath: IndexPath, endIndexPath: IndexPath, date: Date) {
+        selectedIndexPaths.append(endIndexPath)
         
-        var monthOffsetComponents = DateComponents()
-        monthOffsetComponents.month = indexPath.section
+        var startIndexPath = startIndexPath
+        var endIndexPath = endIndexPath
         
-        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: startOfMonthCache) else { return }
-        guard let info = self.getMonthInfo(for: correctMonthForSectionDate) else { return }
+        var startmonthOffsetComponents = DateComponents()
+        var endMonthOffsetcomponents = DateComponents()
         
-        let firstDay = info.firstDay
-        let daysTotal = info.daysTotal
-        let lastDayIndex = firstDay + daysTotal
+        startmonthOffsetComponents.month = startIndexPath.section
+        endMonthOffsetcomponents.month = endIndexPath.section
         
-        var startIndexPath = IndexPath(row: selectedIndexPaths[0].row, section: selectedIndexPaths[0].section)
-        var endIndexPath = IndexPath(row: selectedIndexPaths[1].row, section: selectedIndexPaths[1].section)
-       
+        guard var correctStartMonthDate = self.calendar.date(byAdding: startmonthOffsetComponents, to: startOfMonthCache) else { return }
+        guard let correctEndMonthDate = self.calendar.date(byAdding: endMonthOffsetcomponents, to: startOfMonthCache) else { return }
+        
+        guard var startMonthInfo = self.getMonthInfo(for: correctStartMonthDate) else { return  }
+        guard let endMonthInfo = self.getMonthInfo(for: correctEndMonthDate) else { return }
+        
+        guard var startDate = dateFromIndexPath(startIndexPath) else { return }
+        guard let endDate = dateFromIndexPath(endIndexPath) else { return }
+        
+        var startfirstDay = startMonthInfo.firstDay
+        var startdaysTotal = startMonthInfo.daysTotal
+        var startlastDayIndex = startfirstDay + startdaysTotal
+        
+        let endFirstDay = endMonthInfo.firstDay
+        let endDaysTotal = endMonthInfo.daysTotal
+        let endLastDayIndex = endFirstDay + endDaysTotal
+        
         if endIndexPath < startIndexPath {
             swap(&endIndexPath, &startIndexPath)
         }
-       
+        
         repeat {
+            startIndexPath = startIndexPath.increaseRowByOne(sectionEnd: startlastDayIndex)
+            selectedIndexPaths.append(startIndexPath)
+            
             if startIndexPath.row == 0 {
-//                let info = monthInfoForSection[startIndexPath.section]!
-//                let firstDay = info.firstDay
-//                let daysTotal = info.daysTotal
+                startmonthOffsetComponents.month = startIndexPath.section
+                correctStartMonthDate = self.calendar.date(byAdding: startmonthOffsetComponents, to: startOfMonthCache)!
+                startMonthInfo = self.getMonthInfo(for: correctStartMonthDate)!
+                startfirstDay = startMonthInfo.firstDay
+                startdaysTotal = startMonthInfo.daysTotal
+                startlastDayIndex = startfirstDay + startdaysTotal
             }
-            
-            let startPath = startIndexPath.increaseRowByOne(sectionEnd: lastDayIndex)
-            selectedIndexPaths.append(startPath)
-            
-            startIndexPath = startPath
-            
-            
         } while (startIndexPath.isLesser(indexPath: endIndexPath))
         
     }
