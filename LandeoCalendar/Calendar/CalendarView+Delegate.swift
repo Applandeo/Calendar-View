@@ -60,6 +60,18 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             if selectedIndexPaths.isEmpty {
                 selectedIndexPaths.append(indexPath)
             }
+        } else if CalendarStyle.cellSelectionType == .single {
+            selectedDates.removeAll()
+            selectedIndexPaths.removeAll()
+            selectedDates.append(date)
+            selectedIndexPaths.append(indexPath)
+            let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
+            delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
+        } else if CalendarStyle.cellSelectionType == .multiple {
+            selectedDates.append(date)
+            selectedIndexPaths.append(indexPath)
+            let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
+            delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
         }
     }
     

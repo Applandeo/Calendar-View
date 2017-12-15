@@ -107,10 +107,22 @@ class CalendarView: UIView {
         self.collectionView.showsVerticalScrollIndicator = false
         self.collectionView.register(CalendarDayCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
         self.addSubview(self.collectionView)
+        checkSelectionStyle()
     }
     
     open func loadEKEvents() {
         loadEvents()
+    }
+    
+    func checkSelectionStyle() {
+        switch CalendarStyle.cellSelectionType {
+        case .single:
+            self.collectionView.allowsMultipleSelection = true
+        case .multiple:
+            self.collectionView.allowsMultipleSelection = false
+        case .range:
+            print("")
+        }
     }
     
     private func loadEvents() {
