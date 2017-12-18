@@ -117,9 +117,9 @@ class CalendarView: UIView {
     func checkSelectionStyle() {
         switch CalendarStyle.cellSelectionType {
         case .single:
-            self.collectionView.allowsMultipleSelection = true
-        case .multiple:
             self.collectionView.allowsMultipleSelection = false
+        case .multiple:
+            self.collectionView.allowsMultipleSelection = true
         case .range:
             print("")
         }

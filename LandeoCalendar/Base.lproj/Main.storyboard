@@ -11,6 +11,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Medium</string>
         </array>
     </customFonts>
@@ -30,60 +31,119 @@
                                         <rect key="frame" x="31.5" y="129" width="260" height="200"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZeO-Bb-0UI">
-                                                <rect key="frame" x="0.0" y="0.0" width="260" height="66.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="69"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-Xy-AWX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="66.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="69"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal">
                                                             <attributedString key="attributedTitle">
-                                                                <fragment content="Spokojnie">
+                                                                <fragment content="Single">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="12" name="Helvetica"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        <font key="NSFont" size="15" name="AvenirNext-DemiBold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="singleButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="hsX-uo-oXo"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8RN-5t-kUm">
-                                                        <rect key="frame" x="136" y="0.0" width="124" height="66.5"/>
+                                                        <rect key="frame" x="136" y="0.0" width="124" height="69"/>
+                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal">
-                                                            <attributedString key="attributedTitle"/>
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Single - Modal">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="15" name="AvenirNext-DemiBold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="singleModalPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="5i3-jU-RQa"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-k7-Xhv">
-                                                <rect key="frame" x="0.0" y="66.5" width="260" height="67"/>
+                                                <rect key="frame" x="0.0" y="69" width="260" height="65.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-uC-5mn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="67"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="65.5"/>
+                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal">
-                                                            <attributedString key="attributedTitle"/>
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Multiple">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="multipleButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="fwn-yh-3du"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rt9-Pe-38b">
-                                                        <rect key="frame" x="136" y="0.0" width="124" height="67"/>
+                                                        <rect key="frame" x="136" y="0.0" width="124" height="65.5"/>
+                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal">
-                                                            <attributedString key="attributedTitle"/>
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Multiple - Modal">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="multipleModalButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="as6-2Z-DwH"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9P7-4P-Thz">
-                                                <rect key="frame" x="0.0" y="133.5" width="260" height="66.5"/>
+                                                <rect key="frame" x="0.0" y="134.5" width="260" height="65.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAs-M3-Kry">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="66.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="65.5"/>
+                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal">
-                                                            <attributedString key="attributedTitle"/>
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Range">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="rangeMarkButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="0CL-v1-gdg"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMo-MO-6bO">
-                                                        <rect key="frame" x="136" y="0.0" width="124" height="66.5"/>
+                                                        <rect key="frame" x="136" y="0.0" width="124" height="65.5"/>
+                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal">
-                                                            <attributedString key="attributedTitle"/>
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Range - Modal">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="rangeModalButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="UVS-Wh-LX6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -96,24 +156,14 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i01-mu-OaG">
                                         <rect key="frame" x="119.5" y="55" width="84" height="27.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                        <color key="textColor" red="0.98400741815567017" green="0.87279695272445679" blue="0.16877055168151855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xVw-Wo-Ogr">
-                                        <rect key="frame" x="85" y="354" width="153" height="29"/>
-                                        <segments>
-                                            <segment title="Vertical"/>
-                                            <segment title="Horizontal"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.98400741815567017" green="0.87279695272445679" blue="0.16877055168151855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.11996033031088082" green="0.11996033031088082" blue="0.11996033031088082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.76552218198776245" green="0.057911477982997894" blue="0.22243320941925049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="c0d-1e-Rtm" firstAttribute="centerY" secondItem="sBf-ff-grD" secondAttribute="centerY" id="5L0-G1-Ttr"/>
                                     <constraint firstAttribute="width" constant="323" id="6tq-2v-GaE"/>
-                                    <constraint firstItem="xVw-Wo-Ogr" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="9wX-DF-KTS"/>
-                                    <constraint firstItem="xVw-Wo-Ogr" firstAttribute="top" secondItem="c0d-1e-Rtm" secondAttribute="bottom" constant="25" id="OXh-db-DtQ"/>
                                     <constraint firstItem="i01-mu-OaG" firstAttribute="top" secondItem="sBf-ff-grD" secondAttribute="top" constant="55" id="cKJ-yg-nkl"/>
                                     <constraint firstItem="i01-mu-OaG" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="vDT-2A-8jq"/>
                                     <constraint firstItem="c0d-1e-Rtm" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="yA3-UL-km3"/>
@@ -136,50 +186,275 @@
             </objects>
             <point key="canvasLocation" x="-583.20000000000005" y="117.39130434782609"/>
         </scene>
-        <!--SingleVC-->
+        <!--Multiple PickerVC Modal-->
+        <scene sceneID="MuS-AE-poJ">
+            <objects>
+                <viewController storyboardIdentifier="MultiplePickerModal" id="hx4-vd-WUa" customClass="MultiplePickerVCModal" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cHs-WS-qUQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anR-h3-33r">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.0774975712435233" green="0.0774975712435233" blue="0.0774975712435233" alpha="0.32218309859154931" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMy-w5-ksL" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
+                                <rect key="frame" x="37" y="158" width="300" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="747-gG-1kc"/>
+                                    <constraint firstAttribute="width" constant="300" id="VZA-Af-3fB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pMy-w5-ksL" firstAttribute="centerY" secondItem="cHs-WS-qUQ" secondAttribute="centerY" id="1Wa-MH-ssy"/>
+                            <constraint firstItem="vfr-T1-Oqh" firstAttribute="trailing" secondItem="anR-h3-33r" secondAttribute="trailing" id="TwW-AH-9Rp"/>
+                            <constraint firstItem="pMy-w5-ksL" firstAttribute="centerX" secondItem="cHs-WS-qUQ" secondAttribute="centerX" id="UZn-Rf-CX2"/>
+                            <constraint firstItem="anR-h3-33r" firstAttribute="leading" secondItem="vfr-T1-Oqh" secondAttribute="leading" id="tm6-4v-aWs"/>
+                            <constraint firstItem="anR-h3-33r" firstAttribute="top" secondItem="vfr-T1-Oqh" secondAttribute="top" id="uKI-H9-FoH"/>
+                            <constraint firstItem="vfr-T1-Oqh" firstAttribute="bottom" secondItem="anR-h3-33r" secondAttribute="bottom" id="zhh-Ar-9pW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vfr-T1-Oqh"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundDismissView" destination="anR-h3-33r" id="7kY-ip-edh"/>
+                        <outlet property="calendarView" destination="pMy-w5-ksL" id="hnG-hr-g9r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9z7-Di-qfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349.60000000000002" y="331.48425787106447"/>
+        </scene>
+        <!--Range PickerVC Modal-->
+        <scene sceneID="Lwj-VC-fbw">
+            <objects>
+                <viewController storyboardIdentifier="RangePickerModal" id="Gba-Bk-lsb" customClass="RangePickerVCModal" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9YA-sw-Zs2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2D5-4J-CPc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-0h-cW6" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
+                                        <rect key="frame" x="37" y="158" width="300" height="350"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="JfV-38-e9C"/>
+                                            <constraint firstAttribute="height" constant="350" id="ynj-KZ-BOL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.32372359150000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="EbA-0h-cW6" firstAttribute="centerX" secondItem="2D5-4J-CPc" secondAttribute="centerX" id="pYd-d1-ict"/>
+                                    <constraint firstItem="EbA-0h-cW6" firstAttribute="centerY" secondItem="2D5-4J-CPc" secondAttribute="centerY" id="yms-Gt-3Nx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2D5-4J-CPc" firstAttribute="top" secondItem="9YA-sw-Zs2" secondAttribute="top" id="8kG-Jv-DII"/>
+                            <constraint firstItem="2D5-4J-CPc" firstAttribute="trailing" secondItem="d8x-ao-ycT" secondAttribute="trailing" id="Lez-th-EFy"/>
+                            <constraint firstItem="2D5-4J-CPc" firstAttribute="leading" secondItem="d8x-ao-ycT" secondAttribute="leading" id="fMF-22-9PJ"/>
+                            <constraint firstItem="2D5-4J-CPc" firstAttribute="bottom" secondItem="d8x-ao-ycT" secondAttribute="bottom" id="iKL-Bp-ogc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d8x-ao-ycT"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundDismissView" destination="2D5-4J-CPc" id="L83-ps-xjL"/>
+                        <outlet property="calendarView" destination="EbA-0h-cW6" id="OnG-xk-Plc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SVo-mG-8KX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="339" y="1057"/>
+        </scene>
+        <!--Range PickerVC-->
+        <scene sceneID="Okj-Zr-9la">
+            <objects>
+                <viewController storyboardIdentifier="RangePicker" id="b8o-u2-9FX" customClass="RangePickerVC" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yC3-QF-Nnd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76h-OO-cW7" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="84" width="375" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="350" id="Cao-2k-7Qn"/>
+                                    <constraint firstAttribute="height" constant="350" id="j9Y-s6-NfG"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-LP-uee">
+                                <rect key="frame" x="157" y="454" width="60" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="OWK-tT-BNN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Okay!">
+                                    <color key="titleColor" red="0.76347452400000004" green="0.061452023680000002" blue="0.22332000730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="b8o-u2-9FX" eventType="touchUpInside" id="VJp-J2-DKY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="76h-OO-cW7" firstAttribute="leading" secondItem="MJ3-pt-Q2w" secondAttribute="leading" id="5D2-pB-mZV"/>
+                            <constraint firstItem="ii2-LP-uee" firstAttribute="centerX" secondItem="yC3-QF-Nnd" secondAttribute="centerX" id="FCZ-lF-Y0p"/>
+                            <constraint firstItem="76h-OO-cW7" firstAttribute="trailing" secondItem="MJ3-pt-Q2w" secondAttribute="trailing" id="N4z-rq-Qiu"/>
+                            <constraint firstItem="76h-OO-cW7" firstAttribute="top" secondItem="MJ3-pt-Q2w" secondAttribute="top" constant="64" id="ZDe-4h-QSZ"/>
+                            <constraint firstItem="ii2-LP-uee" firstAttribute="top" secondItem="76h-OO-cW7" secondAttribute="bottom" constant="20" id="oaG-E3-DZy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MJ3-pt-Q2w"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="76h-OO-cW7" id="E5e-gK-dhg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIg-Hh-REg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1165" y="1067"/>
+        </scene>
+        <!--Multiple PickerVC-->
+        <scene sceneID="Ggg-LX-qS8">
+            <objects>
+                <viewController storyboardIdentifier="MultiplePicker" id="TC9-Cf-fTu" customClass="MultiplePickerVC" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aoy-rU-bxx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cy9-Nz-cI2" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="84" width="375" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="BGp-2l-U0r"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEf-OB-4md">
+                                <rect key="frame" x="157" y="454" width="60" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="6rQ-3S-qxh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Okay!">
+                                    <color key="titleColor" red="0.76347452400000004" green="0.061452023680000002" blue="0.22332000730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="L9h-Xg-M81" eventType="touchUpInside" id="8JP-uI-Brq"/>
+                                    <action selector="doneButtonPressed:" destination="TC9-Cf-fTu" eventType="touchUpInside" id="c3v-tQ-RIX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cy9-Nz-cI2" firstAttribute="top" secondItem="aRb-HQ-M5E" secondAttribute="top" constant="64" id="Boo-RA-tZ0"/>
+                            <constraint firstItem="uEf-OB-4md" firstAttribute="top" secondItem="cy9-Nz-cI2" secondAttribute="bottom" constant="20" id="EvM-sH-mVQ"/>
+                            <constraint firstItem="cy9-Nz-cI2" firstAttribute="trailing" secondItem="aRb-HQ-M5E" secondAttribute="trailing" id="H1y-7M-pNu"/>
+                            <constraint firstItem="cy9-Nz-cI2" firstAttribute="leading" secondItem="aRb-HQ-M5E" secondAttribute="leading" id="VGA-05-E7Q"/>
+                            <constraint firstItem="uEf-OB-4md" firstAttribute="centerX" secondItem="Aoy-rU-bxx" secondAttribute="centerX" id="n78-u8-DHU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aRb-HQ-M5E"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="cy9-Nz-cI2" id="VSZ-ex-YtT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rpr-Yw-X6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="337.78110944527737"/>
+        </scene>
+        <!--Single PickerVC Modal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SingleVC" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SinglePickerModal" id="BYZ-38-t0r" customClass="SinglePickerVCModal" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUt-ST-FIh">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-R7-WDu" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <rect key="frame" x="37" y="158.5" width="300" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="375" id="6ot-Q4-PDD"/>
+                                    <constraint firstAttribute="height" constant="350" id="6ot-Q4-PDD"/>
+                                    <constraint firstAttribute="width" constant="300" id="9ZP-HL-xgs"/>
                                 </constraints>
                             </view>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iL5-YZ-Yx0">
-                                <rect key="frame" x="0.0" y="505" width="375" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="yey-GK-sBV"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="534757161.95865202">
-                                    <!--2017-12-12 07:39:21 +0000-->
-                                </date>
-                            </datePicker>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.32119278169014087" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eRg-R7-WDu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="BhB-lE-mq2"/>
-                            <constraint firstItem="eRg-R7-WDu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EzV-Lu-eSz"/>
-                            <constraint firstItem="iL5-YZ-Yx0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Hn2-th-c66"/>
-                            <constraint firstItem="eRg-R7-WDu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VhM-xN-lXh"/>
-                            <constraint firstItem="iL5-YZ-Yx0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jXU-h9-LL6"/>
-                            <constraint firstItem="iL5-YZ-Yx0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zbI-RJ-Q2E"/>
+                            <constraint firstItem="wUt-ST-FIh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1mM-vp-ViO"/>
+                            <constraint firstItem="wUt-ST-FIh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Mx-Ec-vzO"/>
+                            <constraint firstItem="eRg-R7-WDu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jf5-Su-t3p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wUt-ST-FIh" secondAttribute="bottom" id="jRs-QD-Swn"/>
+                            <constraint firstItem="eRg-R7-WDu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lwy-f6-WCb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wUt-ST-FIh" secondAttribute="trailing" id="qtS-00-HpZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundDismissView" destination="wUt-ST-FIh" id="P7l-lA-g5f"/>
                         <outlet property="calendarView" destination="eRg-R7-WDu" id="vVU-Dz-uUi"/>
-                        <outlet property="datePicker" destination="iL5-YZ-Yx0" id="ywM-Dn-wrY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456.80000000000001" y="118.29085457271366"/>
+            <point key="canvasLocation" x="361" y="-383"/>
+        </scene>
+        <!--Single PickerVC-->
+        <scene sceneID="9at-xT-zsl">
+            <objects>
+                <viewController storyboardIdentifier="SinglePicker" id="L9h-Xg-M81" customClass="SinglePickerVC" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XB0-Pz-oTh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amg-Jx-GTI" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="51" width="375" height="433"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="433" id="qeJ-c8-4Xe"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBC-21-eNM">
+                                <rect key="frame" x="157" y="504" width="60" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="fdb-x8-bYH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Okay!">
+                                    <color key="titleColor" red="0.76347452400000004" green="0.061452023680000002" blue="0.22332000730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="L9h-Xg-M81" eventType="touchUpInside" id="AmD-uR-ROv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="amg-Jx-GTI" firstAttribute="trailing" secondItem="Zgr-P6-jrL" secondAttribute="trailing" id="09M-zD-jbV"/>
+                            <constraint firstItem="amg-Jx-GTI" firstAttribute="top" secondItem="Zgr-P6-jrL" secondAttribute="top" constant="31" id="4Wn-rz-2or"/>
+                            <constraint firstItem="EBC-21-eNM" firstAttribute="centerX" secondItem="XB0-Pz-oTh" secondAttribute="centerX" id="8zg-ZP-xvE"/>
+                            <constraint firstItem="EBC-21-eNM" firstAttribute="top" secondItem="amg-Jx-GTI" secondAttribute="bottom" constant="20" id="DUE-V7-O7A"/>
+                            <constraint firstItem="amg-Jx-GTI" firstAttribute="leading" secondItem="Zgr-P6-jrL" secondAttribute="leading" id="fHr-Ln-vq5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zgr-P6-jrL"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="amg-Jx-GTI" id="jGO-bU-L7v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXb-hH-1IY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="-383.65817091454278"/>
         </scene>
     </scenes>
 </document>
