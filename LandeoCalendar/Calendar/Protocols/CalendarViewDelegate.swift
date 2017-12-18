@@ -18,6 +18,6 @@ protocol CalendarViewDelegate {
 
 extension CalendarViewDelegate {
     func calendar(_ calendar : CalendarView, canSelectDate date : Date) -> Bool { return true }
-    func calendar(_ calendar : CalendarView, didDeselectDate date : Date) -> Void { return true }
+    func calendar(_ calendar : CalendarView, didDeselectDate date : Date) -> Void { return }
 
 }
