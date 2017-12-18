@@ -29,11 +29,6 @@ class EventsLoader {
         EventsLoader.fetch(from: fromDate, to: toDate) { events in
             q.async { onComplete(events) }
         }
-     
-        
-        
-        //test
-        
         
     }
     
