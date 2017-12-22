@@ -215,5 +215,3 @@ class CalendarView: UIView {
     }
     
 }
-
-
