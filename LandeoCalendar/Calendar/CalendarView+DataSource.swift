@@ -47,7 +47,7 @@ extension CalendarView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! CalendarViewCell
+        let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell_ID, for: indexPath) as! CalendarViewCell
         guard let (firstDayIndex, numberOfDaysTotal) = self.monthInfoForSection[indexPath.section] else { return dayCell }
         let fromStartOfMonthIndexPath = IndexPath(item: indexPath.item - firstDayIndex, section: indexPath.section)
         let lastDayIndex = firstDayIndex + numberOfDaysTotal

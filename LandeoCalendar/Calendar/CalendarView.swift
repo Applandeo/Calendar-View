@@ -9,8 +9,6 @@
 import UIKit
 import EventKit
 
-let cellReuseIdentifier = "CalendarDayCell"
-
 class CalendarView: UIView {
 
     var delegate : CalendarViewDelegate?
@@ -107,7 +105,7 @@ class CalendarView: UIView {
         self.collectionView.backgroundColor = UIColor.clear
         self.collectionView.showsHorizontalScrollIndicator = false
         self.collectionView.showsVerticalScrollIndicator = false
-        self.collectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
+        self.collectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: DayCell_ID)
         self.addSubview(self.collectionView)
         checkSelectionStyle()
     }
@@ -218,45 +216,4 @@ class CalendarView: UIView {
     
 }
 
-// MARK: Selection of Dates
-extension CalendarView {
-    
-    fileprivate func selectDate(_ date : Date) {
-        guard let indexPath = self.indexPathForDate(date) else { return }
-        self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
-        self.collectionView(collectionView, didSelectItemAt: indexPath)
-    }
-    
-    fileprivate func deselectDate(_ date : Date) {
-        guard let indexPath = self.indexPathForDate(date) else { return }
-        self.collectionView.deselectItem(at: indexPath, animated: false)
-        self.collectionView(collectionView, didSelectItemAt: indexPath)
-    }
-    
-}
 
-extension CalendarView {
-    
-    func indexPathForDate(_ date : Date) -> IndexPath? {
-        let distanceFromStartDate = self.calendar.dateComponents([.month, .day], from: self.startOfMonthCache, to: date)
-        guard let day = distanceFromStartDate.day,
-              let month = distanceFromStartDate.month,
-              let (firstDayIndex, _) = monthInfoForSection[month] else { return nil }
-        
-        return IndexPath(
-            item: day + firstDayIndex,
-            section: month
-        )
-    }
-    
-    func dateFromIndexPath(_ indexPath: IndexPath) -> Date? {
-        let month = indexPath.section
-        guard let monthInfo = monthInfoForSection[month] else { return nil }
-        var components      = DateComponents()
-        components.month    = month
-        components.day      = indexPath.item - monthInfo.firstDay
-        
-        return self.calendar.date(byAdding: components, to: self.startOfMonthCache)
-    }
-    
-}

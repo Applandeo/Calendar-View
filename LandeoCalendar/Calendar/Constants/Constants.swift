@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let CELL_ID = "Cell"
+let DayCell_ID = "CalendarDayCell"
 let NUMBER_OF_DAYS = 7
 let MAX_NUM_OF_ROWS = 6
 let HEADER_DEFAULT_HEIGHT = CGFloat(80)

@@ -74,6 +74,7 @@ class CalendarViewCell: UICollectionViewCell {
         self.addSubview(self.bgView)
         self.addSubview(self.textLabel)
         self.addSubview(self.dotsView)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

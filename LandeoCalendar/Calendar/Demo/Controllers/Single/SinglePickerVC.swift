@@ -18,27 +18,25 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
     }
 
     func setUpCalendar() {
-        calendarView.direction = .horizontal
         
-//        calendarView.backgroundColor = UIColor.white
+        calendarView.direction = .horizontal
         calendarView.delegate = self
-        calendarView.layer.cornerRadius = 8
+
         calendarView.loadEKEvents()
         
-        calendarView.layoutIfNeeded()
-        
-        var tomorrowComponents = DateComponents()
-        tomorrowComponents.day = 1
-        
+        CalendarStyle.cellEventColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         CalendarStyle.cellSelectionType = .single
         CalendarStyle.cellShape = .round
         CalendarStyle.cellBackgroundColor = UIColor.clear
         CalendarStyle.cellTodayBackgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
         CalendarStyle.cellBorderColor = #colorLiteral(red: 0.1664928794, green: 0.7488424182, blue: 0.8295294642, alpha: 1)
-        CalendarStyle.cellEventColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         CalendarStyle.headerTextColor = UIColor.black
         CalendarStyle.cellTextColor = UIColor.black
         CalendarStyle.cellTodayTextColor = UIColor.white
+        
+        calendarView.layoutIfNeeded()
+        var tomorrowComponents = DateComponents()
+        tomorrowComponents.day = 1
     }
     
     override func viewDidLayoutSubviews() {
