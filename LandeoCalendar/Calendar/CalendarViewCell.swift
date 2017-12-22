@@ -10,7 +10,7 @@ import UIKit
 
 import UIKit
 
-class CalendarDayCell: UICollectionViewCell {
+class CalendarViewCell: UICollectionViewCell {
     
     var selectionColor: UIColor?
     var todayTintColor: UIColor?
@@ -40,11 +40,9 @@ class CalendarDayCell: UICollectionViewCell {
         didSet {
             switch isToday {
             case true:
-                self.bgView.backgroundColor = CalendarStyle.cellTodayBackgroundColor
-                self.textLabel.textColor = CalendarStyle.cellTodayTextColor
+                self.setCellColor(backroundColor: CalendarStyle.cellTodayBackgroundColor, textColor: CalendarStyle.cellTodayTextColor)
             case false:
-                self.bgView.backgroundColor = CalendarStyle.cellBackgroundColor
-                self.textLabel.textColor = CalendarStyle.cellTextColor
+                self.setCellColor(backroundColor: CalendarStyle.cellBackgroundColor, textColor: CalendarStyle.cellTextColor)
             }
         }
     }
@@ -61,12 +59,18 @@ class CalendarDayCell: UICollectionViewCell {
             }
         }
     }
+    
+    func setCellColor(backroundColor: UIColor, textColor: UIColor) {
+        self.bgView.backgroundColor = backroundColor
+        self.textLabel.textColor = textColor
+    }
+    
     override init(frame: CGRect) {
+        super.init(frame: frame)
         
         self.textLabel.textAlignment = NSTextAlignment.center
         self.dotsView.backgroundColor = CalendarStyle.cellEventColor
         
-        super.init(frame: frame)
         self.addSubview(self.bgView)
         self.addSubview(self.textLabel)
         self.addSubview(self.dotsView)
@@ -105,5 +109,3 @@ class CalendarDayCell: UICollectionViewCell {
     }
     
 }
-
-

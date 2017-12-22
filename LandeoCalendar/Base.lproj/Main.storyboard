@@ -25,161 +25,245 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBf-ff-grD">
-                                <rect key="frame" x="26" y="104" width="323" height="458"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="c0d-1e-Rtm">
-                                        <rect key="frame" x="31.5" y="129" width="260" height="200"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZeO-Bb-0UI">
+                                        <rect key="frame" x="167" y="191" width="164" height="32.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZeO-Bb-0UI">
-                                                <rect key="frame" x="0.0" y="0.0" width="260" height="69"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-Xy-AWX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="69"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Single">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="15" name="AvenirNext-DemiBold"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="singleButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="hsX-uo-oXo"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8RN-5t-kUm">
-                                                        <rect key="frame" x="136" y="0.0" width="124" height="69"/>
-                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Single - Modal">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="15" name="AvenirNext-DemiBold"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="singleModalPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="5i3-jU-RQa"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-k7-Xhv">
-                                                <rect key="frame" x="0.0" y="69" width="260" height="65.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-uC-5mn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="65.5"/>
-                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Multiple">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="multipleButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="fwn-yh-3du"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rt9-Pe-38b">
-                                                        <rect key="frame" x="136" y="0.0" width="124" height="65.5"/>
-                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Multiple - Modal">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="multipleModalButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="as6-2Z-DwH"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9P7-4P-Thz">
-                                                <rect key="frame" x="0.0" y="134.5" width="260" height="65.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAs-M3-Kry">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="65.5"/>
-                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Range">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="rangeMarkButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="0CL-v1-gdg"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMo-MO-6bO">
-                                                        <rect key="frame" x="136" y="0.0" width="124" height="65.5"/>
-                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Range - Modal">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="rangeModalButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="UVS-Wh-LX6"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-Xy-AWX" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="32.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="76" id="2Ls-Er-irF"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Standard">
+                                                            <attributes>
+                                                                <font key="NSFont" size="15" name="AvenirNext-DemiBold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="singleButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="hsX-uo-oXo"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8RN-5t-kUm" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
+                                                <rect key="frame" x="88" y="0.0" width="76" height="32.5"/>
+                                                <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Modal">
+                                                            <attributes>
+                                                                <font key="NSFont" size="15" name="AvenirNext-DemiBold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="singleModalPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="5i3-jU-RQa"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="Q9v-ve-rV5"/>
-                                            <constraint firstAttribute="width" constant="260" id="ggn-Gi-Piv"/>
-                                        </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i01-mu-OaG">
-                                        <rect key="frame" x="119.5" y="55" width="84" height="27.5"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-k7-Xhv">
+                                        <rect key="frame" x="167" y="331" width="164" height="32.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-uC-5mn" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="32.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="76" id="Xrq-Le-4vf"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Standard">
+                                                            <attributes>
+                                                                <font key="NSFont" size="15" name="AvenirNext-DemiBold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                    <tabStops>
+                                                                        <textTab alignment="left" location="28">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="56">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="84">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="112">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="140">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="168">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="196">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="224">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="252">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="280">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="308">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="336">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                    </tabStops>
+                                                                </paragraphStyle>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="multipleButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="fwn-yh-3du"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rt9-Pe-38b" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
+                                                <rect key="frame" x="88" y="0.0" width="76" height="32.5"/>
+                                                <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Modal">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="multipleModalButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="as6-2Z-DwH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9P7-4P-Thz">
+                                        <rect key="frame" x="167" y="487.5" width="164" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAs-M3-Kry" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="76" id="IHf-iF-xoA"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Standard">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rangeMarkButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="0CL-v1-gdg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMo-MO-6bO" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
+                                                <rect key="frame" x="88" y="0.0" width="76" height="31"/>
+                                                <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Modal">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="AvenirNext-DemiBold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rangeModalButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="UVS-Wh-LX6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZV-7b-8eq">
+                                        <rect key="frame" x="28" y="191" width="63.5" height="33"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                        <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-in-npY">
+                                        <rect key="frame" x="28" y="331" width="84" height="30.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                        <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP4-ul-Jm9">
+                                        <rect key="frame" x="28" y="487.5" width="65.5" height="30.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                        <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="al what you need!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUo-iT-awb">
+                                        <rect key="frame" x="118" y="116" width="139" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.76552218198776245" green="0.057911477982997894" blue="0.22243320941925049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31760880351066589" green="0.31766906380653381" blue="0.31760498881340027" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="c0d-1e-Rtm" firstAttribute="centerY" secondItem="sBf-ff-grD" secondAttribute="centerY" id="5L0-G1-Ttr"/>
-                                    <constraint firstAttribute="width" constant="323" id="6tq-2v-GaE"/>
-                                    <constraint firstItem="i01-mu-OaG" firstAttribute="top" secondItem="sBf-ff-grD" secondAttribute="top" constant="55" id="cKJ-yg-nkl"/>
-                                    <constraint firstItem="i01-mu-OaG" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="vDT-2A-8jq"/>
-                                    <constraint firstItem="c0d-1e-Rtm" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="yA3-UL-km3"/>
-                                    <constraint firstAttribute="height" constant="458" id="zUb-k0-aWA"/>
+                                    <constraint firstAttribute="trailing" secondItem="9P7-4P-Thz" secondAttribute="trailing" constant="44" id="34z-gx-8BD"/>
+                                    <constraint firstItem="vZV-7b-8eq" firstAttribute="leading" secondItem="sBf-ff-grD" secondAttribute="leading" constant="28" id="5Gy-kF-um5"/>
+                                    <constraint firstAttribute="trailing" secondItem="GaY-k7-Xhv" secondAttribute="trailing" constant="44" id="5NR-b8-j0z"/>
+                                    <constraint firstAttribute="bottom" secondItem="oP4-ul-Jm9" secondAttribute="bottom" constant="149" id="AoG-5T-R5e"/>
+                                    <constraint firstAttribute="trailing" secondItem="9P7-4P-Thz" secondAttribute="trailing" constant="44" id="CmZ-nK-H6S"/>
+                                    <constraint firstItem="sUo-iT-awb" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="DEz-t1-6aG"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZeO-Bb-0UI" secondAttribute="trailing" constant="44" id="Dlz-lW-10s"/>
+                                    <constraint firstItem="v0c-in-npY" firstAttribute="leading" secondItem="sBf-ff-grD" secondAttribute="leading" constant="28" id="FtI-eW-fBY"/>
+                                    <constraint firstItem="v0c-in-npY" firstAttribute="leading" secondItem="oP4-ul-Jm9" secondAttribute="trailing" constant="-65.5" id="HYt-Vd-Tu1"/>
+                                    <constraint firstItem="9P7-4P-Thz" firstAttribute="top" secondItem="GaY-k7-Xhv" secondAttribute="bottom" constant="124" id="JkM-hq-uU0"/>
+                                    <constraint firstItem="oP4-ul-Jm9" firstAttribute="leading" secondItem="sBf-ff-grD" secondAttribute="leading" constant="28" id="KXB-yB-9J0"/>
+                                    <constraint firstItem="oP4-ul-Jm9" firstAttribute="centerY" secondItem="9P7-4P-Thz" secondAttribute="centerY" id="L4U-iD-Ngs"/>
+                                    <constraint firstItem="vZV-7b-8eq" firstAttribute="centerY" secondItem="ZeO-Bb-0UI" secondAttribute="centerY" id="Lg9-OL-xXw"/>
+                                    <constraint firstItem="v0c-in-npY" firstAttribute="top" secondItem="GaY-k7-Xhv" secondAttribute="bottom" constant="-32.5" id="aqw-u3-IQS"/>
+                                    <constraint firstItem="v0c-in-npY" firstAttribute="top" secondItem="vZV-7b-8eq" secondAttribute="bottom" constant="107" id="qXF-pO-WaV"/>
+                                    <constraint firstItem="GaY-k7-Xhv" firstAttribute="top" secondItem="ZeO-Bb-0UI" secondAttribute="bottom" constant="107.5" id="t58-vF-h6U"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALCalendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i01-mu-OaG">
+                                <rect key="frame" x="85.5" y="54" width="205" height="52"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="38"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sBf-ff-grD" firstAttribute="centerX" secondItem="7aB-XL-h2W" secondAttribute="centerX" id="YLp-nZ-beu"/>
-                            <constraint firstItem="sBf-ff-grD" firstAttribute="centerY" secondItem="7aB-XL-h2W" secondAttribute="centerY" id="oDD-gH-3oe"/>
+                            <constraint firstItem="i01-mu-OaG" firstAttribute="centerX" secondItem="7aB-XL-h2W" secondAttribute="centerX" id="E3A-3D-2GE"/>
+                            <constraint firstItem="i01-mu-OaG" firstAttribute="top" secondItem="LVl-Ep-NQb" secondAttribute="top" constant="34" id="Fi8-9w-BkP"/>
+                            <constraint firstItem="sBf-ff-grD" firstAttribute="top" secondItem="7aB-XL-h2W" secondAttribute="top" id="Fnm-Z3-bvk"/>
+                            <constraint firstItem="LVl-Ep-NQb" firstAttribute="bottom" secondItem="sBf-ff-grD" secondAttribute="bottom" id="JQ1-cn-62u"/>
+                            <constraint firstItem="LVl-Ep-NQb" firstAttribute="trailing" secondItem="sBf-ff-grD" secondAttribute="trailing" id="LJD-AY-3UF"/>
+                            <constraint firstItem="sUo-iT-awb" firstAttribute="top" secondItem="i01-mu-OaG" secondAttribute="bottom" constant="10" id="iaf-h8-dmg"/>
+                            <constraint firstItem="sBf-ff-grD" firstAttribute="leading" secondItem="LVl-Ep-NQb" secondAttribute="leading" id="k7K-0R-MEV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LVl-Ep-NQb"/>
                     </view>
                     <connections>
-                        <outlet property="pickerView" destination="sBf-ff-grD" id="fg1-Z4-NLP"/>
+                        <outlet property="gradientView" destination="sBf-ff-grD" id="HYj-80-COw"/>
+                        <outlet property="multipleModal" destination="Rt9-Pe-38b" id="ACc-C7-uOP"/>
+                        <outlet property="multipleStandard" destination="hEd-uC-5mn" id="Cde-42-eE1"/>
+                        <outlet property="rangeModal" destination="kMo-MO-6bO" id="0ni-6c-IBj"/>
+                        <outlet property="rangeStandard" destination="WAs-M3-Kry" id="5Tg-b1-JML"/>
+                        <outlet property="singleModal" destination="8RN-5t-kUm" id="U6t-Xg-Cn9"/>
+                        <outlet property="singleStandard" destination="g5R-Xy-AWX" id="tg6-Cg-g0f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CA5-jc-1gT" userLabel="First Responder" sceneMemberID="firstResponder"/>

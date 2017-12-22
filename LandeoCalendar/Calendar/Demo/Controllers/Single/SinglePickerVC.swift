@@ -14,15 +14,18 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setUpCalendar()
     }
 
     func setUpCalendar() {
         calendarView.direction = .horizontal
         
-        calendarView.backgroundColor = UIColor.white
+//        calendarView.backgroundColor = UIColor.white
         calendarView.delegate = self
         calendarView.layer.cornerRadius = 8
+        calendarView.loadEKEvents()
+        
+        calendarView.layoutIfNeeded()
         
         var tomorrowComponents = DateComponents()
         tomorrowComponents.day = 1
@@ -30,18 +33,22 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
         CalendarStyle.cellSelectionType = .single
         CalendarStyle.cellShape = .round
         CalendarStyle.cellBackgroundColor = UIColor.clear
-        CalendarStyle.cellTodayBackgroundColor = #colorLiteral(red: 0.9782553315, green: 0.3780350089, blue: 0.4415892363, alpha: 1)
+        CalendarStyle.cellTodayBackgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
         CalendarStyle.cellBorderColor = #colorLiteral(red: 0.1664928794, green: 0.7488424182, blue: 0.8295294642, alpha: 1)
-        CalendarStyle.cellEventColor = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
+        CalendarStyle.cellEventColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         CalendarStyle.headerTextColor = UIColor.black
         CalendarStyle.cellTextColor = UIColor.black
         CalendarStyle.cellTodayTextColor = UIColor.white
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         let today = Date()
         calendarView.setDisplayDate(date: today, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     @objc func handleTap() {

@@ -12,9 +12,6 @@ extension CalendarView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        self.startDateCache = self.setStartDate()
-        self.endDateCache   = self.setEndDate()
-        
         guard self.startDateCache <= self.endDateCache else { fatalError("Start date cannot be later than end date.") }
         
         var firstDayOfStartMonth = self.calendar.dateComponents([.era, .year, .month], from: startDateCache)
@@ -50,7 +47,7 @@ extension CalendarView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! CalendarDayCell
+        let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! CalendarViewCell
         guard let (firstDayIndex, numberOfDaysTotal) = self.monthInfoForSection[indexPath.section] else { return dayCell }
         let fromStartOfMonthIndexPath = IndexPath(item: indexPath.item - firstDayIndex, section: indexPath.section)
         let lastDayIndex = firstDayIndex + numberOfDaysTotal

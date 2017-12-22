@@ -24,23 +24,11 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     
     fileprivate func deselectCell(date: Date, index: Int) {
         selectedIndexPaths.remove(at: index)
-//        selectedDates.remove(at: index)
+        selectedDates.remove(at: index)
         delegate?.calendar(self, didDeselectDate: date)
     }
     
     fileprivate func selectCell(date: Date, indexPath: IndexPath) {
-        
-//        if allowMultipleSelection {
-//            selectedDates.removeAll()
-//            selectedIndexPaths.removeAll()
-//        }
-//        selectedDates.append(date)
-//        selectedIndexPaths.append(indexPath)
-//        let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
-//        delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
-//
-        
-        
         
         if CalendarStyle.cellSelectionType == .range {
             let startIndexPath: IndexPath?
@@ -49,6 +37,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             if selectedIndexPaths.count > 1  {
                 startIndexPath = indexPath
                 selectedIndexPaths.append(startIndexPath!)
+                selectedDates.append(date)
                 selectedIndexPaths.removeAll()
             }
             
@@ -78,32 +67,20 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     
     func selectRange(startIndexPath: IndexPath, endIndexPath: IndexPath, date: Date) {
         selectedIndexPaths.append(endIndexPath)
+        selectedDates.append(date)
         
         var startIndexPath = startIndexPath
         var endIndexPath = endIndexPath
         
         var startmonthOffsetComponents = DateComponents()
-        var endMonthOffsetcomponents = DateComponents()
-        
         startmonthOffsetComponents.month = startIndexPath.section
-        endMonthOffsetcomponents.month = endIndexPath.section
         
         guard var correctStartMonthDate = self.calendar.date(byAdding: startmonthOffsetComponents, to: startOfMonthCache) else { return }
-        guard let correctEndMonthDate = self.calendar.date(byAdding: endMonthOffsetcomponents, to: startOfMonthCache) else { return }
-        
         guard var startMonthInfo = self.getMonthInfo(for: correctStartMonthDate) else { return  }
-        guard let endMonthInfo = self.getMonthInfo(for: correctEndMonthDate) else { return }
-        
-        guard var startDate = dateFromIndexPath(startIndexPath) else { return }
-        guard let endDate = dateFromIndexPath(endIndexPath) else { return }
         
         var startfirstDay = startMonthInfo.firstDay
         var startdaysTotal = startMonthInfo.daysTotal
         var startlastDayIndex = startfirstDay + startdaysTotal
-        
-        let endFirstDay = endMonthInfo.firstDay
-        let endDaysTotal = endMonthInfo.daysTotal
-        let endLastDayIndex = endFirstDay + endDaysTotal
         
         if endIndexPath < startIndexPath {
             swap(&endIndexPath, &startIndexPath)
@@ -131,7 +108,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         if let delegate = self.delegate {
             return delegate.calendar(self, canSelectDate: dateBeingSelected)
         }
-        return true // default
+        return true
     }
     
     // MARK: UIScrollViewDelegate
