@@ -10,7 +10,7 @@ import Foundation
 
 extension IndexPath {
     
-    public func isLesser(indexPath: IndexPath) -> Bool {
+    public func isLessThan(_ indexPath: IndexPath) -> Bool {
         if self < indexPath {
             return true
         }
