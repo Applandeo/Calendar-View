@@ -14,14 +14,12 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUpCalendar()
-    }
-
-    func setUpCalendar() {
-        
         calendarView.direction = .horizontal
+        calendarView.loadEkEvents = true
         calendarView.delegate = self
-        calendarView.loadEKEvents()
+        
+        let today = Date()
+        calendarView.setDisplayDate(date: today, animated: false)
         
         CalendarStyle.cellEventColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         CalendarStyle.cellSelectionType = .single
@@ -32,20 +30,6 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
         CalendarStyle.headerTextColor = UIColor.black
         CalendarStyle.cellTextColor = UIColor.black
         CalendarStyle.cellTodayTextColor = UIColor.white
-        
-        calendarView.layoutIfNeeded()
-        var tomorrowComponents = DateComponents()
-        tomorrowComponents.day = 1
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        let today = Date()
-        calendarView.setDisplayDate(date: today, animated: false)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     @objc func handleTap() {

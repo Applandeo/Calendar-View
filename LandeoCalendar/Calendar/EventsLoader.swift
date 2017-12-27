@@ -10,10 +10,12 @@
 import Foundation
 import EventKit
 
-class EventsLoader {
-    
-    private static let store = EKEventStore()
-    
+protocol EventsLoaderProtocol {
+    func load(from fromDate: Date, to toDate: Date, complete onComplete: @escaping ([CalendarEvent]?) -> Void)
+}
+
+class EventsLoader : EventsLoaderProtocol {
+        
     func load(from fromDate: Date, to toDate: Date, complete onComplete: @escaping ([CalendarEvent]?) -> Void) {
         let q = DispatchQueue.main
         guard EKEventStore.authorizationStatus(for: .event) == .authorized else {

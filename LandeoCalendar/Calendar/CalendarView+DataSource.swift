@@ -11,7 +11,6 @@ import UIKit
 extension CalendarView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
         guard self.startDateCache <= self.endDateCache else { fatalError("Start date cannot be later than end date.") }
         
         var firstDayOfStartMonth = self.calendar.dateComponents([.era, .year, .month], from: startDateCache)

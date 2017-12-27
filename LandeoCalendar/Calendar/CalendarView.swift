@@ -27,9 +27,23 @@ class CalendarView: UIView {
         }
     }
     
+    var loadEkEvents : Bool = false {
+        didSet {
+            self.loadEvents()
+        }
+    }
+    
+    var showToday: Bool = true {
+        didSet {
+            self.setDisplayDate(date: today, animated: false)
+        }
+    }
+    
     var startDateCache = Date()
     var endDateCache = Date()
     var startOfMonthCache = Date()
+    
+    let today = Date()
     
     var todayIndexPath: IndexPath?
     public var displayDate: Date?
@@ -54,7 +68,7 @@ class CalendarView: UIView {
     }
 
     var allowMultipleSelection : Bool = false {
-        didSet{
+        didSet {
             self.collectionView.allowsMultipleSelection = allowMultipleSelection
         }
     }
@@ -71,7 +85,7 @@ class CalendarView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setup()
-        self.loadEKEvents()
+        self.layoutIfNeeded()
     }
     
     // MARK: Create Subviews
@@ -108,10 +122,6 @@ class CalendarView: UIView {
         self.collectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: DayCell_ID)
         self.addSubview(self.collectionView)
         checkSelectionStyle()
-    }
-    
-    open func loadEKEvents() {
-        loadEvents()
     }
     
     fileprivate func checkSelectionStyle() {
