@@ -90,7 +90,6 @@ class CalendarView: UIView {
     
     // MARK: Create Subviews
     var headerView: CalendarHeaderView!
-    
     var collectionView: UICollectionView!
 
     private func setup() {
@@ -108,6 +107,7 @@ class CalendarView: UIView {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.itemSize = self.cellSize(in: self.bounds)
+        
         setupCollectionView(layout: layout)
     }
     
@@ -119,7 +119,7 @@ class CalendarView: UIView {
         self.collectionView.backgroundColor = UIColor.clear
         self.collectionView.showsHorizontalScrollIndicator = false
         self.collectionView.showsVerticalScrollIndicator = false
-        self.collectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: DayCell_ID)
+        self.collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell_ID)
         self.addSubview(self.collectionView)
         checkSelectionStyle()
     }

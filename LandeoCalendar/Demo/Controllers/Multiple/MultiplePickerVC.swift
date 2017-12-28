@@ -14,6 +14,8 @@ class MultiplePickerVC: UIViewController, CalendarViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CalendarStyle.cellSelectionType = .multiple
+
         
     }
     
@@ -27,7 +29,6 @@ class MultiplePickerVC: UIViewController, CalendarViewDelegate {
         var tomorrowComponents = DateComponents()
         tomorrowComponents.day = 1
         
-        CalendarStyle.cellSelectionType = .multiple
         CalendarStyle.cellShape = .round
         CalendarStyle.cellBackgroundColor = UIColor.clear
         CalendarStyle.cellTodayBackgroundColor = #colorLiteral(red: 0.9782553315, green: 0.3780350089, blue: 0.4415892363, alpha: 1)

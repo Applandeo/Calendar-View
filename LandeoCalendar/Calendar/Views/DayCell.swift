@@ -1,5 +1,5 @@
 //
-//  CalendarViewCell.swift
+//  DayCell.swift
 //  LandeoCalendar
 //
 //  Created by Sebastian Grabiński on 21.09.2017.
@@ -10,7 +10,7 @@ import UIKit
 
 import UIKit
 
-class CalendarViewCell: UICollectionViewCell {
+class DayCell: UICollectionViewCell {
     
     var selectionColor: UIColor?
     var todayTintColor: UIColor?
@@ -33,6 +33,7 @@ class CalendarViewCell: UICollectionViewCell {
         didSet {
             self.dotsView.isHidden = (eventsCount == 0)
             self.setNeedsLayout()
+            self.layoutIfNeeded()
         }
     }
     
@@ -69,12 +70,10 @@ class CalendarViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         self.textLabel.textAlignment = NSTextAlignment.center
-        self.dotsView.backgroundColor = CalendarStyle.cellEventColor
         
         self.addSubview(self.bgView)
         self.addSubview(self.textLabel)
         self.addSubview(self.dotsView)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,6 +83,7 @@ class CalendarViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         var elementsFrame = self.bounds.insetBy(dx: 3.0, dy: 3.0)
+        
         
         if CalendarStyle.cellShape.isRound {
             let smallestSide = min(elementsFrame.width, elementsFrame.height)
@@ -97,6 +97,8 @@ class CalendarViewCell: UICollectionViewCell {
         self.textLabel.frame = elementsFrame
         
         let size = self.bounds.height * 0.08
+        
+        self.dotsView.backgroundColor = CalendarStyle.cellEventColor
         self.dotsView.frame = CGRect(x: 0, y: 0, width: size, height: size)
         self.dotsView.center = CGPoint(x: self.textLabel.center.x, y: self.bounds.height - (2.5 * size))
         self.dotsView.layer.cornerRadius = size * 0.5

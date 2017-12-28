@@ -14,13 +14,12 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calendarView.direction = .horizontal
-        calendarView.loadEkEvents = true
         calendarView.delegate = self
+        calendarView.loadEkEvents = true
         
         let today = Date()
         calendarView.setDisplayDate(date: today, animated: false)
-        
+
         CalendarStyle.cellEventColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         CalendarStyle.cellSelectionType = .single
         CalendarStyle.cellShape = .round
@@ -48,9 +47,6 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
         print("Month : - \(date)")
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
     @IBAction func doneButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

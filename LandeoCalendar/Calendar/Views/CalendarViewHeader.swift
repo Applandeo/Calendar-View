@@ -11,51 +11,41 @@ import UIKit
 class CalendarHeaderView: UIView {
     
     lazy var monthLabel : UILabel = {
+        let label = UILabel()
+        label.textAlignment = NSTextAlignment.center
+        label.font = UIFont(name: CalendarStyle.headerFontName, size: 20.0)
+        label.textColor = CalendarStyle.headerTextColor
         
-        let lbl = UILabel()
-        lbl.textAlignment = NSTextAlignment.center
-        lbl.font = UIFont(name: CalendarStyle.headerFontName, size: 20.0)
-        lbl.textColor = CalendarStyle.headerTextColor
-        
-        self.addSubview(lbl)
-        
-        return lbl
+        self.addSubview(label)
+        return label
     }()
     
     lazy var dayLabelContainerView : UIView = {
         
-        let v = UIView()
-        
+        let containerView = UIView()
         let formatter = DateFormatter()
         
         for index in 1...7 {
             
             let weekdayLabel = UILabel()
-            
             weekdayLabel.font = UIFont(name: CalendarStyle.headerFontName, size: 14.0)
-            
             weekdayLabel.text = formatter.shortWeekdaySymbols[(index % 7)]
             weekdayLabel.textColor = CalendarStyle.headerTextColor
             weekdayLabel.textAlignment = NSTextAlignment.center
-            
-            v.addSubview(weekdayLabel)
+            containerView.addSubview(weekdayLabel)
         }
         
-        self.addSubview(v)
-        
-        return v
-        
+        self.addSubview(containerView)
+        return containerView
     }()
     
     override func layoutSubviews() {
-        
         super.layoutSubviews()
         
-        var frm = self.bounds
-        frm.origin.y += 5.0
-        frm.size.height = 40.0
-        
-        self.monthLabel.frame = frm
+        var rect = self.bounds
+        rect.origin.y += 5.0
+        rect.size.height = 40.0
+        self.monthLabel.frame = rect
         
         var labelFrame = CGRect(
             x: 0.0,
@@ -65,11 +55,9 @@ class CalendarHeaderView: UIView {
         )
         
         for lbl in self.dayLabelContainerView.subviews {
-            
             lbl.frame = labelFrame
             labelFrame.origin.x += labelFrame.size.width
         }
-        
     }
     
 }

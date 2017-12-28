@@ -17,7 +17,6 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             deselectCell(date: date, index: index)
         } else {
             selectCell(date: date, indexPath: indexPath)
-            
         }
         self.reloadData()
     }
@@ -30,88 +29,32 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     
     fileprivate func selectCell(date: Date, indexPath: IndexPath) {
         
-        if CalendarStyle.cellSelectionType == .range {
-            let startIndexPath: IndexPath?
-            let endIndexPath: IndexPath?
+        switch CalendarStyle.cellSelectionType {
+        case .range:
+            rangeSelection(indexPath, date)
+        case .multiple:
+            selectedDates.append(date)
+            selectedIndexPaths.append(indexPath)
+            let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
+            delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
             
-            if selectedIndexPaths.count > 1  {
-                startIndexPath = indexPath
-                selectedIndexPaths.append(startIndexPath!)
-                selectedDates.append(date)
-                selectedIndexPaths.removeAll()
-            }
-            
-            if selectedIndexPaths.count == 1 {
-                endIndexPath = indexPath
-                selectRange(startIndexPath: selectedIndexPaths[0], endIndexPath: endIndexPath!, date: date)
-            }
-            
-            if selectedIndexPaths.isEmpty {
-                selectedIndexPaths.append(indexPath)
-            }
-            
-        } else if CalendarStyle.cellSelectionType == .single {
+        case .single:
             selectedDates.removeAll()
             selectedIndexPaths.removeAll()
             selectedDates.append(date)
             selectedIndexPaths.append(indexPath)
             let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
             delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
-        } else if CalendarStyle.cellSelectionType == .multiple {
-            selectedDates.append(date)
-            selectedIndexPaths.append(indexPath)
-            let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
-            delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
         }
     }
     
-    func selectRange(startIndexPath: IndexPath, endIndexPath: IndexPath, date: Date) {
-        selectedIndexPaths.append(endIndexPath)
-        selectedDates.append(date)
-        
-        var startIndexPath = startIndexPath
-        var endIndexPath = endIndexPath
-        
-        var startmonthOffsetComponents = DateComponents()
-        startmonthOffsetComponents.month = startIndexPath.section
-        
-        guard var correctStartMonthDate = self.calendar.date(byAdding: startmonthOffsetComponents, to: startOfMonthCache) else { return }
-        guard var startMonthInfo = self.getMonthInfo(for: correctStartMonthDate) else { return  }
-        
-        var startfirstDay = startMonthInfo.firstDay
-        var startdaysTotal = startMonthInfo.daysTotal
-        var startlastDayIndex = startfirstDay + startdaysTotal
-        
-        if endIndexPath < startIndexPath {
-            swap(&endIndexPath, &startIndexPath)
-        }
-        
-        repeat {
-            startIndexPath = startIndexPath.increaseRowByOne(sectionEnd: startlastDayIndex)
-            selectedIndexPaths.append(startIndexPath)
-            
-            if startIndexPath.row == 0 {
-                startmonthOffsetComponents.month = startIndexPath.section
-                correctStartMonthDate = self.calendar.date(byAdding: startmonthOffsetComponents, to: startOfMonthCache)!
-                startMonthInfo = self.getMonthInfo(for: correctStartMonthDate)!
-                startfirstDay = startMonthInfo.firstDay
-                startdaysTotal = startMonthInfo.daysTotal
-                startlastDayIndex = startfirstDay + startdaysTotal
-            }
-        } while (startIndexPath.isLesser(indexPath: endIndexPath))
-        
-    }
-
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         guard let dateBeingSelected = self.dateFromIndexPath(indexPath) else { return false }
-        
         if let delegate = self.delegate {
             return delegate.calendar(self, canSelectDate: dateBeingSelected)
         }
         return true
     }
-    
-    // MARK: UIScrollViewDelegate
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.updateAndNotifyScrolling()
@@ -129,7 +72,6 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     
     @discardableResult
     func dateFromScrollViewPosition() -> Date? {
-        
         var page: Int = 0
         
         switch self.direction {
@@ -138,7 +80,6 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         }
         
         page = page > 0 ? page : 0
-        
         var monthsOffsetComponents = DateComponents()
         monthsOffsetComponents.month = page
         
@@ -153,4 +94,64 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         self.headerView.monthLabel.text = monthName + " " + String(year)
         self.displayDate = date
     }
+}
+
+//MARK: - Range Selection
+
+extension CalendarView {
+    fileprivate func rangeSelection(_ indexPath: IndexPath, _ date: Date) {
+        let startIndexPath: IndexPath?
+        
+        if selectedIndexPaths.count > 1  {
+            startIndexPath = indexPath
+            selectedIndexPaths.append(startIndexPath!)
+            selectedDates.append(date)
+            selectedIndexPaths.removeAll()
+        }
+        
+        if selectedIndexPaths.count == 1 {
+            selectRange(startIndexPath: selectedIndexPaths[0], endIndexPath: indexPath, date: date)
+        }
+        
+        if selectedIndexPaths.isEmpty {
+            selectedIndexPaths.append(indexPath)
+        }
+    }
+    
+    func selectRange(startIndexPath: IndexPath, endIndexPath: IndexPath, date: Date) {
+        selectedIndexPaths.append(endIndexPath)
+        selectedDates.append(date)
+        
+        let range = RangeInfo()
+        
+        range.startIndexPath = startIndexPath
+        range.endIndexPath = endIndexPath
+        
+        range.startmonthOffsetComponents = DateComponents()
+        range.startmonthOffsetComponents.month = range.startIndexPath.section
+        range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: startOfMonthCache)
+        range.startMonthInfo = self.getMonthInfo(for: range.correctStartMonthDate)
+        range.startlastDayIndex = range.startMonthInfo.daysTotal + range.startMonthInfo.firstDay
+        
+        if range.endIndexPath < range.startIndexPath {
+            swap(&range.endIndexPath, &range.startIndexPath)
+        }
+        
+        repeat {
+            getCurrentMonthInfo(range: range)
+        } while (range.startIndexPath.isLessThan(range.endIndexPath))
+    }
+    
+    fileprivate func getCurrentMonthInfo(range: RangeInfo) {
+        range.startIndexPath = range.startIndexPath.increaseRowByOne(sectionEnd: range.startlastDayIndex)
+        selectedIndexPaths.append(range.startIndexPath)
+        
+        if range.startIndexPath.row == 0 || range.startIndexPath.row == range.startlastDayIndex {
+            range.startmonthOffsetComponents.month = range.startIndexPath.section
+            range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: startOfMonthCache)!
+            range.startMonthInfo = self.getMonthInfo(for: range.correctStartMonthDate)!
+            range.startlastDayIndex = range.startMonthInfo.firstDay + range.startMonthInfo.daysTotal
+        }
+    }
+    
 }

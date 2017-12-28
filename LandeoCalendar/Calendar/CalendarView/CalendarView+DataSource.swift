@@ -11,14 +11,9 @@ import UIKit
 extension CalendarView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        guard self.startDateCache <= self.endDateCache else { fatalError("Start date cannot be later than end date.") }
-        
-        var firstDayOfStartMonth = self.calendar.dateComponents([.era, .year, .month], from: startDateCache)
-        firstDayOfStartMonth.day = 1
-        
-        let dateFromDayOneComponents = self.calendar.date(from: firstDayOfStartMonth)!
-        self.startOfMonthCache = dateFromDayOneComponents
-        let today = Date()
+        guard self.startDateCache <= self.endDateCache else { return 0 }
+        let firstDayOfMonth = self.calendar.firstDayOfMonth(from: startDateCache)
+        self.startOfMonthCache = firstDayOfMonth
         
         if (self.startOfMonthCache ... self.endDateCache).contains(today) {
             let distanceFromTodayComponents = self.calendar.dateComponents([.month, .day], from: self.startOfMonthCache, to: today)
@@ -27,7 +22,7 @@ extension CalendarView: UICollectionViewDataSource {
         return self.calendar.dateComponents([.month], from: startDateCache, to: endDateCache).month! + 1
     }
     
-    internal func getMonthInfo(for date: Date) -> (firstDay: Int, daysTotal: Int)? {
+    func getMonthInfo(for date: Date) -> (firstDay: Int, daysTotal: Int)? {
         var firstWeekdayOfMonthIndex = self.calendar.component(.weekday, from: date)
         firstWeekdayOfMonthIndex = firstWeekdayOfMonthIndex - 1
         firstWeekdayOfMonthIndex = (firstWeekdayOfMonthIndex + 6) % 7
@@ -38,19 +33,37 @@ extension CalendarView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var monthOffsetComponents = DateComponents()
-        monthOffsetComponents.month = section;
-        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: startOfMonthCache), let info = self.getMonthInfo(for: correctMonthForSectionDate) else { return 0 }
+        monthOffsetComponents.month = section
+        
+        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: startOfMonthCache) else { return 0 }
+        guard let info = self.getMonthInfo(for: correctMonthForSectionDate) else { return 0 }
+        
         self.monthInfoForSection[section] = info
         return 42
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell_ID, for: indexPath) as! CalendarViewCell
+        guard let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell_ID, for: indexPath) as? DayCell else { return DayCell() }
         guard let (firstDayIndex, numberOfDaysTotal) = self.monthInfoForSection[indexPath.section] else { return dayCell }
         let fromStartOfMonthIndexPath = IndexPath(item: indexPath.item - firstDayIndex, section: indexPath.section)
         let lastDayIndex = firstDayIndex + numberOfDaysTotal
         
+        isCellInMonthRange(firstDayIndex, lastDayIndex, indexPath, dayCell, fromStartOfMonthIndexPath)
+        dayCell.isSelected = selectedIndexPaths.contains(indexPath)
+        updateHeaderDate(indexPath, collectionView)
+        checkIfCellIsToday(dayCell, indexPath, firstDayIndex)
+        countEventsForCell(indexPath, dayCell)
+        
+        return dayCell
+    }
+    
+    fileprivate func updateHeaderDate(_ indexPath: IndexPath, _ collectionView: UICollectionView) {
+        if indexPath.section == 0 && indexPath.item == 0 {
+            self.scrollViewDidEndDecelerating(collectionView)
+        }
+    }
+    
+    fileprivate func isCellInMonthRange(_ firstDayIndex: Int, _ lastDayIndex: Int, _ indexPath: IndexPath, _ dayCell: DayCell, _ fromStartOfMonthIndexPath: IndexPath) {
         if (firstDayIndex..<lastDayIndex).contains(indexPath.item) {
             dayCell.textLabel.text = String(fromStartOfMonthIndexPath.item + 1)
             dayCell.isHidden = false
@@ -58,26 +71,21 @@ extension CalendarView: UICollectionViewDataSource {
             dayCell.textLabel.text = ""
             dayCell.isHidden = true
         }
-                
-        dayCell.isSelected = selectedIndexPaths.contains(indexPath)
-        
-        if indexPath.section == 0 && indexPath.item == 0 {
-            self.scrollViewDidEndDecelerating(collectionView)
+    }
+    
+    fileprivate func checkIfCellIsToday(_ dayCell: DayCell, _ indexPath: IndexPath, _ firstDayIndex: Int) {
+        if let index = todayIndexPath {
+            dayCell.isToday = (index.section == indexPath.section && index.item + firstDayIndex == indexPath.item)
         }
-        
-        if let idx = todayIndexPath {
-            dayCell.isToday = (idx.section == indexPath.section && idx.item + firstDayIndex == indexPath.item)
-        }
-        
+    }
+    
+    fileprivate func countEventsForCell(_ indexPath: IndexPath, _ dayCell: DayCell) {
         if let eventsForDay = self.eventsByIndexPath[indexPath] {
             dayCell.eventsCount = eventsForDay.count
         } else {
             dayCell.eventsCount = 0
         }
-        
-        return dayCell
     }
     
 }
-
 
