@@ -90,6 +90,9 @@
 		9E1E677A1FF3C88A00767201 /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
+				9EE822A31FF4F4100066285A /* Model */,
+				9E1E67781FF3B94700767201 /* DayCell.swift */,
+				C2857F871F73F64C00A6BA5C /* CalendarViewHeader.swift */,
 				9E85D8251FDEBACA00AACE9D /* CalendarView.swift */,
 				9E85D8241FDEBACA00AACE9D /* CalendarView+DataSource.swift */,
 				9E85D8261FDEBACB00AACE9D /* CalendarView+Delegate.swift */,
@@ -112,15 +115,6 @@
 				9ED871071FED3395005B3146 /* DateConverter.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		9E1E677D1FF3C8DD00767201 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9E1E67781FF3B94700767201 /* DayCell.swift */,
-				C2857F871F73F64C00A6BA5C /* CalendarViewHeader.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		9E1E677E1FF3C8ED00767201 /* Layout */ = {
@@ -220,6 +214,14 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		9EE822A31FF4F4100066285A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E1E67811FF3C91E00767201 /* RangeInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C226533D1F8BDF1C000C8879 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,13 +269,11 @@
 			children = (
 				9E1E677A1FF3C88A00767201 /* CalendarView */,
 				9E1E677B1FF3C89F00767201 /* Events */,
-				9E1E677D1FF3C8DD00767201 /* Views */,
 				9E1E677E1FF3C8ED00767201 /* Layout */,
 				9E1E677C1FF3C8B500767201 /* Helpers */,
 				C226533D1F8BDF1C000C8879 /* Extension */,
 				C278C6EC1F8C0A8F00D69B24 /* Protocols */,
 				9ECC55691FDFBE3000C8FFEB /* Constants */,
-				9E1E67811FF3C91E00767201 /* RangeInfo.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";

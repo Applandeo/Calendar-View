@@ -39,9 +39,9 @@ class CalendarView: UIView {
         }
     }
     
-    var startDateCache = Date()
-    var endDateCache = Date()
-    var startOfMonthCache = Date()
+    var startDate = Date()
+    var endDate = Date()
+    var monthFirstDay = Date()
     
     let today = Date()
     
@@ -93,9 +93,8 @@ class CalendarView: UIView {
     var collectionView: UICollectionView!
 
     private func setup() {
-        self.setStartDateCache()
-        self.setEndDateCache()
-        
+        self.setStartDate()
+        self.setEndDate()
         self.clipsToBounds = true
         
         self.headerView = CalendarHeaderView(frame:CGRect.zero)
@@ -138,7 +137,6 @@ class CalendarView: UIView {
     private func loadEvents() {
         var startDateComponents = DateComponents()
         startDateComponents.year = -2
-        let today = Date()
         guard let startDate = self.calendar.date(byAdding: startDateComponents, to: today) else { return }
         
         var endDateComponents = DateComponents()
@@ -150,22 +148,6 @@ class CalendarView: UIView {
                 self.events = events
             }
         }
-    }
-    
-    fileprivate func setStartDateCache() {
-        var dateComponents = DateComponents()
-        dateComponents.year = -10
-        let today = Date()
-        guard let startDate = self.calendar.date(byAdding: dateComponents, to: today) else { return }
-        self.startDateCache = startDate
-    }
-    
-    fileprivate func setEndDateCache() {
-        var dateComponents = DateComponents()
-        dateComponents.year = 10
-        let today = Date()
-        guard let endDate = self.calendar.date(byAdding: dateComponents, to: today) else { return }
-        self.endDateCache = endDate
     }
     
     fileprivate var flowLayout: CalendarFlowLayout {
@@ -192,7 +174,7 @@ class CalendarView: UIView {
     }
     
     func setDisplayDate(date: Date, animated: Bool = false) {
-        guard (date > startDateCache) && (date < endDateCache) else { return }
+        guard (date > startDate) && (date < endDate) else { return }
         
         self.collectionView.setContentOffset(
             self.scrollViewOffset(for: date),
@@ -224,4 +206,17 @@ class CalendarView: UIView {
         return point
     }
     
+    fileprivate func setStartDate() {
+        var dateComponents = DateComponents()
+        dateComponents.year = -10
+        guard let startDate = self.calendar.date(byAdding: dateComponents, to: today) else { return }
+        self.startDate = startDate
+    }
+    
+    fileprivate func setEndDate() {
+        var dateComponents = DateComponents()
+        dateComponents.year = 10
+        guard let endDate = self.calendar.date(byAdding: dateComponents, to: today) else { return }
+        self.endDate = endDate
+    }
 }

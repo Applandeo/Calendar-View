@@ -11,15 +11,15 @@ import UIKit
 extension CalendarView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        guard self.startDateCache <= self.endDateCache else { return 0 }
-        let firstDayOfMonth = self.calendar.firstDayOfMonth(from: startDateCache)
-        self.startOfMonthCache = firstDayOfMonth
+        guard self.startDate <= self.endDate else { return 0 }
+        let firstDayOfMonth = self.calendar.firstDayOfMonth(from: startDate)
+        self.monthFirstDay = firstDayOfMonth
         
-        if (self.startOfMonthCache ... self.endDateCache).contains(today) {
-            let distanceFromTodayComponents = self.calendar.dateComponents([.month, .day], from: self.startOfMonthCache, to: today)
+        if (self.monthFirstDay ... self.endDate).contains(today) {
+            let distanceFromTodayComponents = self.calendar.dateComponents([.month, .day], from: self.monthFirstDay, to: today)
             self.todayIndexPath = IndexPath(item: distanceFromTodayComponents.day!, section: distanceFromTodayComponents.month!)
         }
-        return self.calendar.dateComponents([.month], from: startDateCache, to: endDateCache).month! + 1
+        return self.calendar.dateComponents([.month], from: startDate, to: endDate).month! + 1
     }
     
     func getMonthInfo(for date: Date) -> (firstDay: Int, daysTotal: Int)? {
@@ -35,7 +35,7 @@ extension CalendarView: UICollectionViewDataSource {
         var monthOffsetComponents = DateComponents()
         monthOffsetComponents.month = section
         
-        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: startOfMonthCache) else { return 0 }
+        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: monthFirstDay) else { return 0 }
         guard let info = self.getMonthInfo(for: correctMonthForSectionDate) else { return 0 }
         
         self.monthInfoForSection[section] = info

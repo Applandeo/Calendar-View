@@ -20,12 +20,10 @@ class DayCell: UICollectionViewCell {
     
     let textLabel = UILabel()
     let dotsView = UIView()
-    let bgView = UIView()
-    
-    let eventCounterLabel = UILabel()
+    let background = UIView()
     
     override var description: String {
-        let dayString = self.textLabel.text ?? " "
+        let dayString = self.textLabel.text ?? ""
         return "<DayCell (text:\"\(dayString)\")>"
     }
     
@@ -48,21 +46,23 @@ class DayCell: UICollectionViewCell {
         }
     }
     
+    fileprivate func setBackgroundBorder(borderColor: UIColor, borderWidth: CGFloat) {
+        self.background.layer.borderColor = borderColor.cgColor
+        self.background.layer.borderWidth = borderWidth
+    }
+    
     override var isSelected : Bool {
         didSet {
-            switch isSelected {
-            case true:
-                self.bgView.layer.borderColor = CalendarStyle.cellBorderColor.cgColor
-                self.bgView.layer.borderWidth = CalendarStyle.cellBorderWidth
-            case false:
-                self.bgView.layer.borderColor = UIColor.clear.cgColor
-                self.bgView.layer.borderWidth = 0.0
+            if isSelected {
+                setBackgroundBorder(borderColor: CalendarStyle.cellBorderColor, borderWidth: CalendarStyle.cellBorderWidth)
+            } else {
+                setBackgroundBorder(borderColor: UIColor.clear ,borderWidth: 0.0)
             }
         }
     }
     
     func setCellColor(backroundColor: UIColor, textColor: UIColor) {
-        self.bgView.backgroundColor = backroundColor
+        self.background.backgroundColor = backroundColor
         self.textLabel.textColor = textColor
     }
     
@@ -71,7 +71,7 @@ class DayCell: UICollectionViewCell {
         
         self.textLabel.textAlignment = NSTextAlignment.center
         
-        self.addSubview(self.bgView)
+        self.addSubview(self.background)
         self.addSubview(self.textLabel)
         self.addSubview(self.dotsView)
     }
@@ -84,31 +84,32 @@ class DayCell: UICollectionViewCell {
         super.layoutSubviews()
         var elementsFrame = self.bounds.insetBy(dx: 3.0, dy: 3.0)
         
-        
         if CalendarStyle.cellShape.isRound {
-            let smallestSide = min(elementsFrame.width, elementsFrame.height)
-            elementsFrame = elementsFrame.insetBy(
-                dx: (elementsFrame.width - smallestSide) / 2.0,
-                dy: (elementsFrame.height - smallestSide) / 2.0
-            )
+            setRoundedShape(&elementsFrame)
         }
         
-        self.bgView.frame = elementsFrame
+        self.background.frame = elementsFrame
         self.textLabel.frame = elementsFrame
         
-        let size = self.bounds.height * 0.08
+        setUpDotsView()
         
+        self.background.layer.cornerRadius = CalendarStyle.cellShape == .square
+            ? 0.0 : elementsFrame.width * 0.5
+    }
+    
+    fileprivate func setRoundedShape(_ elementsFrame: inout CGRect) {
+        let smallestSide = min(elementsFrame.width, elementsFrame.height)
+        elementsFrame = elementsFrame.insetBy(
+            dx: (elementsFrame.width - smallestSide) / 2.0,
+            dy: (elementsFrame.height - smallestSide) / 2.0
+        )
+    }
+    
+    fileprivate func setUpDotsView() {
+        let size = self.bounds.height * 0.08
         self.dotsView.backgroundColor = CalendarStyle.cellEventColor
         self.dotsView.frame = CGRect(x: 0, y: 0, width: size, height: size)
         self.dotsView.center = CGPoint(x: self.textLabel.center.x, y: self.bounds.height - (2.5 * size))
         self.dotsView.layer.cornerRadius = size * 0.5
-        
-        switch CalendarStyle.cellShape {
-        case .square:
-            self.bgView.layer.cornerRadius = 0.0
-        case .round:
-            self.bgView.layer.cornerRadius = elementsFrame.width * 0.5
-        }
     }
-    
 }

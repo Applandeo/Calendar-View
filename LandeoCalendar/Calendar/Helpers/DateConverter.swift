@@ -11,7 +11,7 @@ import Foundation
 extension CalendarView {
     
     func indexPathForDate(_ date : Date) -> IndexPath? {
-        let distanceFromStartDate = self.calendar.dateComponents([.month, .day], from: self.startOfMonthCache, to: date)
+        let distanceFromStartDate = self.calendar.dateComponents([.month, .day], from: self.monthFirstDay, to: date)
         guard let day = distanceFromStartDate.day,
             let month = distanceFromStartDate.month,
             let (firstDayIndex, _) = monthInfoForSection[month] else { return nil }
@@ -29,7 +29,7 @@ extension CalendarView {
         components.month    = month
         components.day      = indexPath.item - monthInfo.firstDay
         
-        return self.calendar.date(byAdding: components, to: self.startOfMonthCache)
+        return self.calendar.date(byAdding: components, to: self.monthFirstDay)
     }
     
 }

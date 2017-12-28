@@ -83,7 +83,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         var monthsOffsetComponents = DateComponents()
         monthsOffsetComponents.month = page
         
-        return self.calendar.date(byAdding: monthsOffsetComponents, to: self.startOfMonthCache)
+        return self.calendar.date(byAdding: monthsOffsetComponents, to: self.monthFirstDay)
     }
     
     func displayDateOnHeader(_ date: Date) {
@@ -129,7 +129,7 @@ extension CalendarView {
         
         range.startmonthOffsetComponents = DateComponents()
         range.startmonthOffsetComponents.month = range.startIndexPath.section
-        range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: startOfMonthCache)
+        range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: monthFirstDay)
         range.startMonthInfo = self.getMonthInfo(for: range.correctStartMonthDate)
         range.startlastDayIndex = range.startMonthInfo.daysTotal + range.startMonthInfo.firstDay
         
@@ -148,7 +148,7 @@ extension CalendarView {
         
         if range.startIndexPath.row == 0 || range.startIndexPath.row == range.startlastDayIndex {
             range.startmonthOffsetComponents.month = range.startIndexPath.section
-            range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: startOfMonthCache)!
+            range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: monthFirstDay)!
             range.startMonthInfo = self.getMonthInfo(for: range.correctStartMonthDate)!
             range.startlastDayIndex = range.startMonthInfo.firstDay + range.startMonthInfo.daysTotal
         }
