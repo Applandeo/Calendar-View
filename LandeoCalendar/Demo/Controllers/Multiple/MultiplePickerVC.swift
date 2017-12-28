@@ -42,7 +42,7 @@ class MultiplePickerVC: UIViewController, CalendarViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
-        calendarView.setDisplayDate(date: today, animated: false)
+        calendarView.setCurrentDate(date: today, animated: false)
     }
     
     @objc func handleTap() {

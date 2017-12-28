@@ -20,13 +20,11 @@ class CalendarHeaderView: UIView {
         return label
     }()
     
-    lazy var dayLabelContainerView : UIView = {
-        
+    lazy var weekdaysContainerView : UIView = {
         let containerView = UIView()
         let formatter = DateFormatter()
         
         for index in 1...7 {
-            
             let weekdayLabel = UILabel()
             weekdayLabel.font = UIFont(name: CalendarStyle.headerFontName, size: 14.0)
             weekdayLabel.text = formatter.shortWeekdaySymbols[(index % 7)]
@@ -54,8 +52,8 @@ class CalendarHeaderView: UIView {
             height: self.bounds.size.height / 2.0
         )
         
-        for lbl in self.dayLabelContainerView.subviews {
-            lbl.frame = labelFrame
+        for label in self.weekdaysContainerView.subviews {
+            label.frame = labelFrame
             labelFrame.origin.x += labelFrame.size.width
         }
     }

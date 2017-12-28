@@ -43,13 +43,6 @@ extension CalendarPicker {
         self.gradientView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    func addButtonsStyling() {
-        
-        
-        
-        
-    }
-
 }
 
 //MARK: - Presentation section

@@ -13,7 +13,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let date = self.dateFromIndexPath(indexPath) else { return }
         
-        if let index = selectedIndexPaths.index(of: indexPath) {
+        if let index = calendarModel.selectedIndexPaths.index(of: indexPath) {
             deselectCell(date: date, index: index)
         } else {
             selectCell(date: date, indexPath: indexPath)
@@ -22,8 +22,8 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     }
     
     fileprivate func deselectCell(date: Date, index: Int) {
-        selectedIndexPaths.remove(at: index)
-        selectedDates.remove(at: index)
+        calendarModel.selectedIndexPaths.remove(at: index)
+        calendarModel.selectedDates.remove(at: index)
         delegate?.calendar(self, didDeselectDate: date)
     }
     
@@ -33,17 +33,17 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         case .range:
             rangeSelection(indexPath, date)
         case .multiple:
-            selectedDates.append(date)
-            selectedIndexPaths.append(indexPath)
-            let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
+            calendarModel.selectedDates.append(date)
+            calendarModel.selectedIndexPaths.append(indexPath)
+            let eventsForDaySelected = calendarModel.eventsByIndexPath[indexPath] ?? []
             delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
             
         case .single:
-            selectedDates.removeAll()
-            selectedIndexPaths.removeAll()
-            selectedDates.append(date)
-            selectedIndexPaths.append(indexPath)
-            let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
+            calendarModel.selectedDates.removeAll()
+            calendarModel.selectedIndexPaths.removeAll()
+            calendarModel.selectedDates.append(date)
+            calendarModel.selectedIndexPaths.append(indexPath)
+            let eventsForDaySelected = calendarModel.eventsByIndexPath[indexPath] ?? []
             delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
         }
     }
@@ -83,7 +83,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         var monthsOffsetComponents = DateComponents()
         monthsOffsetComponents.month = page
         
-        return self.calendar.date(byAdding: monthsOffsetComponents, to: self.monthFirstDay)
+        return self.calendar.date(byAdding: monthsOffsetComponents, to: calendarModel.monthFirstDay)
     }
     
     func displayDateOnHeader(_ date: Date) {
@@ -92,7 +92,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         let year = self.calendar.component(.year, from: date)
         
         self.headerView.monthLabel.text = monthName + " " + String(year)
-        self.displayDate = date
+        self.currentDate = date
     }
 }
 
@@ -102,25 +102,25 @@ extension CalendarView {
     fileprivate func rangeSelection(_ indexPath: IndexPath, _ date: Date) {
         let startIndexPath: IndexPath?
         
-        if selectedIndexPaths.count > 1  {
+        if calendarModel.selectedIndexPaths.count > 1  {
             startIndexPath = indexPath
-            selectedIndexPaths.append(startIndexPath!)
-            selectedDates.append(date)
-            selectedIndexPaths.removeAll()
+            calendarModel.selectedIndexPaths.append(startIndexPath!)
+            calendarModel.selectedDates.append(date)
+            calendarModel.selectedIndexPaths.removeAll()
         }
         
-        if selectedIndexPaths.count == 1 {
-            selectRange(startIndexPath: selectedIndexPaths[0], endIndexPath: indexPath, date: date)
+        if calendarModel.selectedIndexPaths.count == 1 {
+            selectRange(startIndexPath: calendarModel.selectedIndexPaths[0], endIndexPath: indexPath, date: date)
         }
         
-        if selectedIndexPaths.isEmpty {
-            selectedIndexPaths.append(indexPath)
+        if calendarModel.selectedIndexPaths.isEmpty {
+            calendarModel.selectedIndexPaths.append(indexPath)
         }
     }
     
     func selectRange(startIndexPath: IndexPath, endIndexPath: IndexPath, date: Date) {
-        selectedIndexPaths.append(endIndexPath)
-        selectedDates.append(date)
+        calendarModel.selectedIndexPaths.append(endIndexPath)
+        calendarModel.selectedDates.append(date)
         
         let range = RangeInfo()
         
@@ -129,7 +129,7 @@ extension CalendarView {
         
         range.startmonthOffsetComponents = DateComponents()
         range.startmonthOffsetComponents.month = range.startIndexPath.section
-        range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: monthFirstDay)
+        range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: calendarModel.monthFirstDay)
         range.startMonthInfo = self.getMonthInfo(for: range.correctStartMonthDate)
         range.startlastDayIndex = range.startMonthInfo.daysTotal + range.startMonthInfo.firstDay
         
@@ -144,11 +144,11 @@ extension CalendarView {
     
     fileprivate func getCurrentMonthInfo(range: RangeInfo) {
         range.startIndexPath = range.startIndexPath.increaseRowByOne(sectionEnd: range.startlastDayIndex)
-        selectedIndexPaths.append(range.startIndexPath)
+        calendarModel.selectedIndexPaths.append(range.startIndexPath)
         
         if range.startIndexPath.row == 0 || range.startIndexPath.row == range.startlastDayIndex {
             range.startmonthOffsetComponents.month = range.startIndexPath.section
-            range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: monthFirstDay)!
+            range.correctStartMonthDate = self.calendar.date(byAdding: range.startmonthOffsetComponents, to: calendarModel.monthFirstDay)!
             range.startMonthInfo = self.getMonthInfo(for: range.correctStartMonthDate)!
             range.startlastDayIndex = range.startMonthInfo.firstDay + range.startMonthInfo.daysTotal
         }

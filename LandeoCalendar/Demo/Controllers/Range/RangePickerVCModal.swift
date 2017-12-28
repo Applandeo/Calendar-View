@@ -53,7 +53,7 @@ class RangePickerVCModal: UIViewController, CalendarViewDelegate{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
-        calendarView.setDisplayDate(date: today, animated: false)
+        calendarView.setCurrentDate(date: today, animated: false)
         
     }
     
@@ -74,7 +74,7 @@ class RangePickerVCModal: UIViewController, CalendarViewDelegate{
     }
     
     @IBAction func onValueChange(_ picker : UIDatePicker) {
-        self.calendarView.setDisplayDate(date: picker.date, animated: true)
+        self.calendarView.setCurrentDate(date: picker.date, animated: true)
     }
     
     override var prefersStatusBarHidden: Bool {

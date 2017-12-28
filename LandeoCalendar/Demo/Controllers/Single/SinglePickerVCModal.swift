@@ -53,7 +53,7 @@ class SinglePickerVCModal: UIViewController, CalendarViewDelegate {
         super.viewDidAppear(animated)
         
         let today = Date()
-        calendarView.setDisplayDate(date: today, animated: false)
+        calendarView.setCurrentDate(date: today, animated: false)
     }
     
     @objc func handleTap() {
@@ -73,7 +73,7 @@ class SinglePickerVCModal: UIViewController, CalendarViewDelegate {
     }
     
     @IBAction func onValueChange(_ picker : UIDatePicker) {
-        self.calendarView.setDisplayDate(date: picker.date, animated: true)
+        self.calendarView.setCurrentDate(date: picker.date, animated: true)
     }
     
     override var prefersStatusBarHidden: Bool {

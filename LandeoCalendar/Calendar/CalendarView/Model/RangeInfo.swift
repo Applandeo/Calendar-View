@@ -17,7 +17,5 @@ class RangeInfo {
     var endIndexPath: IndexPath!
     var startlastDayIndex: Int!
     
-    init() {
-        
-    }
+    init() { }
 }

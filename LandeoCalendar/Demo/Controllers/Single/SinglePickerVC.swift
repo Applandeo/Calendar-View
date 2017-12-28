@@ -15,10 +15,10 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.delegate = self
-        calendarView.loadEkEvents = true
+        calendarView.showEkEvents = true
         
         let today = Date()
-        calendarView.setDisplayDate(date: today, animated: false)
+        calendarView.setCurrentDate(date: today, animated: false)
 
         CalendarStyle.cellEventColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         CalendarStyle.cellSelectionType = .single

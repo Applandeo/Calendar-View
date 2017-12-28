@@ -11,15 +11,15 @@ import UIKit
 extension CalendarView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        guard self.startDate <= self.endDate else { return 0 }
-        let firstDayOfMonth = self.calendar.firstDayOfMonth(from: startDate)
-        self.monthFirstDay = firstDayOfMonth
+        guard calendarModel.startDate <= calendarModel.endDate else { return 0 }
+        let firstDayOfMonth = self.calendar.firstDayOfMonth(from: calendarModel.startDate)
+        calendarModel.monthFirstDay = firstDayOfMonth
         
-        if (self.monthFirstDay ... self.endDate).contains(today) {
-            let distanceFromTodayComponents = self.calendar.dateComponents([.month, .day], from: self.monthFirstDay, to: today)
-            self.todayIndexPath = IndexPath(item: distanceFromTodayComponents.day!, section: distanceFromTodayComponents.month!)
+        if (calendarModel.monthFirstDay ... calendarModel.endDate).contains(today) {
+            let distanceFromTodayComponents = self.calendar.dateComponents([.month, .day], from: calendarModel.monthFirstDay, to: today)
+            calendarModel.todayIndexPath = IndexPath(item: distanceFromTodayComponents.day!, section: distanceFromTodayComponents.month!)
         }
-        return self.calendar.dateComponents([.month], from: startDate, to: endDate).month! + 1
+        return self.calendar.dateComponents([.month], from: calendarModel.startDate, to: calendarModel.endDate).month! + 1
     }
     
     func getMonthInfo(for date: Date) -> (firstDay: Int, daysTotal: Int)? {
@@ -35,21 +35,21 @@ extension CalendarView: UICollectionViewDataSource {
         var monthOffsetComponents = DateComponents()
         monthOffsetComponents.month = section
         
-        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: monthFirstDay) else { return 0 }
+        guard let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: calendarModel.monthFirstDay) else { return 0 }
         guard let info = self.getMonthInfo(for: correctMonthForSectionDate) else { return 0 }
         
-        self.monthInfoForSection[section] = info
+        calendarModel.monthInfoForSection[section] = info
         return 42
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let dayCell = collectionView.dequeueReusableCell(withReuseIdentifier: DayCell_ID, for: indexPath) as? DayCell else { return DayCell() }
-        guard let (firstDayIndex, numberOfDaysTotal) = self.monthInfoForSection[indexPath.section] else { return dayCell }
+        guard let (firstDayIndex, numberOfDaysTotal) = calendarModel.monthInfoForSection[indexPath.section] else { return dayCell }
         let fromStartOfMonthIndexPath = IndexPath(item: indexPath.item - firstDayIndex, section: indexPath.section)
         let lastDayIndex = firstDayIndex + numberOfDaysTotal
         
         isCellInMonthRange(firstDayIndex, lastDayIndex, indexPath, dayCell, fromStartOfMonthIndexPath)
-        dayCell.isSelected = selectedIndexPaths.contains(indexPath)
+        dayCell.isSelected = calendarModel.selectedIndexPaths.contains(indexPath)
         updateHeaderDate(indexPath, collectionView)
         checkIfCellIsToday(dayCell, indexPath, firstDayIndex)
         countEventsForCell(indexPath, dayCell)
@@ -74,13 +74,13 @@ extension CalendarView: UICollectionViewDataSource {
     }
     
     fileprivate func checkIfCellIsToday(_ dayCell: DayCell, _ indexPath: IndexPath, _ firstDayIndex: Int) {
-        if let index = todayIndexPath {
+        if let index = calendarModel.todayIndexPath {
             dayCell.isToday = (index.section == indexPath.section && index.item + firstDayIndex == indexPath.item)
         }
     }
     
     fileprivate func countEventsForCell(_ indexPath: IndexPath, _ dayCell: DayCell) {
-        if let eventsForDay = self.eventsByIndexPath[indexPath] {
+        if let eventsForDay = calendarModel.eventsByIndexPath[indexPath] {
             dayCell.eventsCount = eventsForDay.count
         } else {
             dayCell.eventsCount = 0
@@ -88,4 +88,3 @@ extension CalendarView: UICollectionViewDataSource {
     }
     
 }
-
