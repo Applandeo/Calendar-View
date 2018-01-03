@@ -20,5 +20,8 @@ class CalendarModel {
     var eventsByIndexPath : [IndexPath:[CalendarEvent]]!
     var monthInfoForSection : [Int:(firstDay:Int, daysTotal:Int)]!
     
-    init() { }
+    //TODO: Defaults in init
+    init() {
+//        self.selectedIndexPaths = selectedIndexPaths[IndexPath]()
+    }
 }

@@ -84,7 +84,7 @@ class CalendarView: UIView {
     var collectionView: UICollectionView!
 
     private func setup() {
-        self.setupModel()
+        self.initModel()
         self.setStartDate()
         self.setEndDate()
         self.clipsToBounds = true
@@ -152,9 +152,9 @@ class CalendarView: UIView {
         self.collectionView.frame = CGRect(x: 0.0, y: CalendarStyle.headerHeight, width: self.frame.size.width, height: self.frame.size.height - CalendarStyle.headerHeight)
         flowLayout.itemSize = self.cellSize(in: self.bounds)
         
-        self.resetDisplayDate()
-        guard let displayDate = currentDate else { return }
-        self.setCurrentDate(date: displayDate)
+        self.resetCurrentDate()
+        guard let current = currentDate else { return }
+        self.setCurrentDate(date: current)
     }
     
     private func cellSize(in bounds: CGRect) -> CGSize {
@@ -175,10 +175,10 @@ class CalendarView: UIView {
         self.displayDateOnHeader(date)
     }
     
-    fileprivate func resetDisplayDate() {
-        guard let displayDate = self.currentDate else { return }
+    fileprivate func resetCurrentDate() {
+        guard let currentDate = self.currentDate else { return }
         self.collectionView.setContentOffset(
-            self.scrollViewOffset(for: displayDate),
+            self.scrollViewOffset(for: currentDate),
             animated: false
         )
     }
@@ -198,7 +198,7 @@ class CalendarView: UIView {
         return point
     }
     
-    fileprivate func setupModel() {
+    fileprivate func initModel() {
         calendarModel.eventsByIndexPath = [IndexPath:[CalendarEvent]]()
         calendarModel.selectedIndexPaths = [IndexPath]()
         calendarModel.selectedDates = [Date]()

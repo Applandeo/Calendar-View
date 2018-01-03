@@ -17,13 +17,13 @@ class SelectionButtons: UIButton {
     }
     
     override func awakeFromNib() {
-        setStyling()
+//        setStyling()
     }
     
     func setStyling() {
         self.layer.cornerRadius = 9
         self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderColor = UIColor.black.cgColor
     }
     
     func setSelection() {

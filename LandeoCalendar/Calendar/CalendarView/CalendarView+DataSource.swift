@@ -12,8 +12,7 @@ extension CalendarView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard calendarModel.startDate <= calendarModel.endDate else { return 0 }
-        let firstDayOfMonth = self.calendar.firstDayOfMonth(from: calendarModel.startDate)
-        calendarModel.monthFirstDay = firstDayOfMonth
+        calendarModel.monthFirstDay = self.calendar.firstDayOfMonth(from: calendarModel.startDate)
         
         if (calendarModel.monthFirstDay ... calendarModel.endDate).contains(today) {
             let distanceFromTodayComponents = self.calendar.dateComponents([.month, .day], from: calendarModel.monthFirstDay, to: today)

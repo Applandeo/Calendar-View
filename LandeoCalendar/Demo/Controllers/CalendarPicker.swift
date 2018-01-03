@@ -21,29 +21,20 @@ class CalendarPicker: UIViewController {
     @IBOutlet weak var rangeStandard: SelectionButtons!
     @IBOutlet weak var rangeModal: SelectionButtons!
     
+    @IBOutlet weak var containerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        containerView.layer.cornerRadius = 12
+        containerView.addShadowView()
         // Do any additional setup after loading the view.
-        self.addGradient()
-        self.addButtonsStyling()
     }
     
 }
 
 //MARK: - Set UI
 
-extension CalendarPicker {
-    
-    func addGradient() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = gradientView.bounds
-        let topColor = #colorLiteral(red: 0.3293722868, green: 0.329434514, blue: 0.3293683529, alpha: 1)
-        let bottomColor = #colorLiteral(red: 0.1882103086, green: 0.1882497072, blue: 0.1882078648, alpha: 1)
-        gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
-        self.gradientView.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
-}
+
 
 //MARK: - Presentation section
 

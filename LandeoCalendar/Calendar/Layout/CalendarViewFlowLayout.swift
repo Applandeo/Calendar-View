@@ -29,10 +29,7 @@ class CalendarFlowLayout: UICollectionViewFlowLayout {
     }
     
     func applyLayoutAttributes(_ attributes : UICollectionViewLayoutAttributes) {
-        
-        if attributes.representedElementKind != nil {
-            return
-        }
+        if attributes.representedElementKind != nil { return }
         if let collectionView = self.collectionView {
             
             let stride = (self.scrollDirection == .horizontal) ? collectionView.frame.size.width : collectionView.frame.size.height
@@ -40,7 +37,7 @@ class CalendarFlowLayout: UICollectionViewFlowLayout {
             var xCellOffset : CGFloat = CGFloat((attributes.indexPath as NSIndexPath).item % 7) * self.itemSize.width
             var yCellOffset : CGFloat = CGFloat((attributes.indexPath as NSIndexPath).item / 7) * self.itemSize.height
             
-            if(self.scrollDirection == .horizontal) {
+            if self.scrollDirection == .horizontal {
                 xCellOffset += offset;
             } else {
                 yCellOffset += offset

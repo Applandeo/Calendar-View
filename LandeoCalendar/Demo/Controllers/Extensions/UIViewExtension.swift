@@ -19,7 +19,7 @@ extension UIView {
         let shadowView = UIView(frame: frame)
         shadowView.tag = 119900
         shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowOffset = CGSize(width: 4, height: 5)
+        shadowView.layer.shadowOffset = CGSize(width: 3, height: 2)
         shadowView.layer.masksToBounds = false
         
         shadowView.layer.shadowOpacity = 0.4
