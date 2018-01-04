@@ -1,4 +1,8 @@
-# ALCalendar
+
+
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/32479017/34562221-b1025fce-f14d-11e7-8ce7-2421320e11d9.png">
+</p>
 
  Simple, customizable calendar for your app!
 
@@ -18,7 +22,10 @@ After that simply go with:
 
 	pod install
 
+#### Demo App
+Demo app shows you most of functionality
 
+![](https://user-images.githubusercontent.com/32479017/34562328-2b72e0bc-f14e-11e7-9aab-7f929f6906b0.png)
 
 #### Setup
 
@@ -41,6 +48,8 @@ After that in viewDidLoad() simply set delegate, current date and ... that's all
         let today = Date()
         calendarView.setDisplayDate(date: today, animated: false)
     }
+    
+![](https://user-images.githubusercontent.com/32479017/34562273-dcc0d686-f14d-11e7-9040-27263897320c.png)
  
 	
 
@@ -57,6 +66,9 @@ Properties that you can modify:
     headerTextColor
     cellTextColor
     cellTodayTextColor
+    
+##### It can be displayed as a pop-up: 
+![](https://user-images.githubusercontent.com/32479017/34562284-e8dbf496-f14d-11e7-89f1-f1105b958fcf.png)
     
 #### Scroll Direction
 You can change scroll direction 
@@ -81,6 +93,8 @@ If you want to choose just one cell set
 For range picking set
 
 `CalendarStyle.cellSelectionType = .range`
+
+![](https://user-images.githubusercontent.com/32479017/34562291-f360489a-f14d-11e7-9284-bd5fbd8d4293.png)
 	
 #### Cell Shape
 You can choose cell shape
