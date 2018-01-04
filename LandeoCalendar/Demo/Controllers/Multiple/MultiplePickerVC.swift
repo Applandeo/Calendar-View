@@ -31,7 +31,6 @@ class MultiplePickerVC: UIViewController, CalendarViewDelegate {
         CalendarStyle.cellTextColor = UIColor.black
         CalendarStyle.cellTodayTextColor = UIColor.white
 
-        
     }
     
     @objc func handleTap() {

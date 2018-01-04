@@ -21,13 +21,15 @@ class CalendarPicker: UIViewController {
     @IBOutlet weak var rangeStandard: UIButton!
     @IBOutlet weak var rangeModal: UIButton!
     
-    @IBOutlet weak var containerView: ContainerView!
-    @IBOutlet weak var multipleContainerView: ContainerView!
-    @IBOutlet weak var rangeContainerView: ContainerView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var multipleContainerView: UIView!
+    @IBOutlet weak var rangeContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        containerView.layer.cornerRadius = 10
+        multipleContainerView.layer.cornerRadius = 10
+        rangeContainerView.layer.cornerRadius = 10
     }
     
 }
