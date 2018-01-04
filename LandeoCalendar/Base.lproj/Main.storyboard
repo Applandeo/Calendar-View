@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pig-oH-GVj">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -22,68 +22,26 @@
             <objects>
                 <viewController id="Pig-oH-GVj" customClass="CalendarPicker" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7aB-XL-h2W">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBf-ff-grD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZm-Xh-04X">
-                                        <rect key="frame" x="37" y="188.5" width="300" height="350"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZm-Xh-04X" customClass="ContainerView" customModule="LandeoCalendar" customModuleProvider="target">
+                                        <rect key="frame" x="183" y="221" width="300" height="71"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-in-npY">
-                                                <rect key="frame" x="10" y="163" width="82.5" height="30.5"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
-                                                <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZV-7b-8eq">
-                                                <rect key="frame" x="10" y="40" width="68.5" height="33"/>
+                                                <rect key="frame" x="21" y="19" width="68.5" height="33"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
                                                 <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP4-ul-Jm9">
-                                                <rect key="frame" x="10" y="283.5" width="64" height="30.5"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
-                                                <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9P7-4P-Thz">
-                                                <rect key="frame" x="128" y="282.5" width="164" height="33"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAs-M3-Kry" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="33"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="76" id="IHf-iF-xoA"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Standard">
-                                                            <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="rangeMarkButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="0CL-v1-gdg"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMo-MO-6bO" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
-                                                        <rect key="frame" x="88" y="0.0" width="76" height="33"/>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Modal">
-                                                            <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="rangeModalButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="UVS-Wh-LX6"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZeO-Bb-0UI">
-                                                <rect key="frame" x="128" y="31" width="164" height="51"/>
+                                                <rect key="frame" x="126" y="19" width="164" height="33"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-Xy-AWX" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="51"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-Xy-AWX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="76" id="2Ls-Er-irF"/>
                                                         </constraints>
@@ -96,8 +54,8 @@
                                                             <action selector="singleButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="hsX-uo-oXo"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RN-5t-kUm" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
-                                                        <rect key="frame" x="88" y="0.0" width="76" height="51"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RN-5t-kUm">
+                                                        <rect key="frame" x="88" y="0.0" width="76" height="33"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                         <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Modal">
@@ -109,10 +67,48 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.12773031000000001" green="0.6113714576" blue="0.9892446399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="vZV-7b-8eq" firstAttribute="centerY" secondItem="wZm-Xh-04X" secondAttribute="centerY" id="4hr-JS-ubq"/>
+                                            <constraint firstAttribute="height" constant="71" id="8FS-pf-9Xa"/>
+                                            <constraint firstItem="ZeO-Bb-0UI" firstAttribute="centerY" secondItem="wZm-Xh-04X" secondAttribute="centerY" id="WuC-lx-iHz"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZeO-Bb-0UI" secondAttribute="trailing" constant="10" id="fes-SQ-WZx"/>
+                                            <constraint firstAttribute="width" constant="300" id="sCe-tf-K0C"/>
+                                            <constraint firstItem="vZV-7b-8eq" firstAttribute="leading" secondItem="wZm-Xh-04X" secondAttribute="leading" constant="21" id="usw-bi-929"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="all what you need!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUo-iT-awb">
+                                        <rect key="frame" x="262.5" y="133" width="143.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="0.97436958549999997" green="0.36589217190000001" blue="0.43781411650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="28"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALCalendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i01-mu-OaG">
+                                        <rect key="frame" x="231" y="71" width="205" height="52"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="38"/>
+                                        <color key="textColor" red="0.12773031000000001" green="0.6113714576" blue="0.9892446399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="49"/>
+                                        </variation>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXR-Rs-AAt" customClass="ContainerView" customModule="LandeoCalendar" customModuleProvider="target">
+                                        <rect key="frame" x="183" y="332" width="300" height="71"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-in-npY">
+                                                <rect key="frame" x="21" y="20" width="82.5" height="30.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                                <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-k7-Xhv">
-                                                <rect key="frame" x="128" y="162" width="164" height="33"/>
+                                                <rect key="frame" x="128" y="19" width="164" height="33"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-uC-5mn" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-uC-5mn">
                                                         <rect key="frame" x="0.0" y="0.0" width="76" height="33"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="76" id="Xrq-Le-4vf"/>
@@ -126,7 +122,7 @@
                                                             <action selector="multipleButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="fwn-yh-3du"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rt9-Pe-38b" customClass="SelectionButtons" customModule="LandeoCalendar" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rt9-Pe-38b">
                                                         <rect key="frame" x="88" y="0.0" width="76" height="33"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                         <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -140,46 +136,92 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.84096774569999999" green="0.23762195589999999" blue="0.55738429209999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.12773031000000001" green="0.6113714576" blue="0.9892446399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="GaY-k7-Xhv" firstAttribute="centerY" secondItem="v0c-in-npY" secondAttribute="centerY" id="0Ac-OW-jif"/>
-                                            <constraint firstAttribute="trailing" secondItem="9P7-4P-Thz" secondAttribute="trailing" constant="8" id="4db-XV-POk"/>
-                                            <constraint firstItem="oP4-ul-Jm9" firstAttribute="top" secondItem="v0c-in-npY" secondAttribute="bottom" constant="90" id="HKN-IK-wpK"/>
-                                            <constraint firstItem="oP4-ul-Jm9" firstAttribute="leading" secondItem="wZm-Xh-04X" secondAttribute="leading" constant="10" id="Kn9-V2-jGD"/>
-                                            <constraint firstAttribute="height" constant="350" id="OnY-R0-bOo"/>
-                                            <constraint firstAttribute="width" constant="300" id="Uhf-N4-mXA"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZeO-Bb-0UI" secondAttribute="trailing" constant="8" id="Xep-2k-2r1"/>
-                                            <constraint firstItem="v0c-in-npY" firstAttribute="top" secondItem="vZV-7b-8eq" secondAttribute="bottom" constant="90" id="YLL-If-cUI"/>
-                                            <constraint firstItem="v0c-in-npY" firstAttribute="leading" secondItem="wZm-Xh-04X" secondAttribute="leading" constant="10" id="fq2-qk-Z8T"/>
-                                            <constraint firstItem="vZV-7b-8eq" firstAttribute="top" secondItem="wZm-Xh-04X" secondAttribute="top" constant="40" id="iuP-CT-F81"/>
-                                            <constraint firstItem="vZV-7b-8eq" firstAttribute="leading" secondItem="wZm-Xh-04X" secondAttribute="leading" constant="10" id="nay-FX-uVj"/>
-                                            <constraint firstItem="ZeO-Bb-0UI" firstAttribute="top" secondItem="wZm-Xh-04X" secondAttribute="top" constant="31" id="rTK-t2-qle"/>
-                                            <constraint firstItem="9P7-4P-Thz" firstAttribute="centerY" secondItem="oP4-ul-Jm9" secondAttribute="centerY" id="vdK-Gu-Xd9"/>
-                                            <constraint firstItem="ZeO-Bb-0UI" firstAttribute="centerY" secondItem="vZV-7b-8eq" secondAttribute="centerY" id="x5Q-gI-8ZJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="GaY-k7-Xhv" secondAttribute="trailing" constant="8" id="xAy-dk-tKt"/>
+                                            <constraint firstAttribute="width" constant="300" id="C7R-cN-ExJ"/>
+                                            <constraint firstItem="GaY-k7-Xhv" firstAttribute="centerY" secondItem="NXR-Rs-AAt" secondAttribute="centerY" id="I1i-cc-tfR"/>
+                                            <constraint firstItem="v0c-in-npY" firstAttribute="centerY" secondItem="NXR-Rs-AAt" secondAttribute="centerY" id="fIf-sN-RqW"/>
+                                            <constraint firstItem="v0c-in-npY" firstAttribute="leading" secondItem="NXR-Rs-AAt" secondAttribute="leading" constant="21" id="mWh-ss-ueG"/>
+                                            <constraint firstAttribute="height" constant="71" id="sEM-b8-q41"/>
+                                            <constraint firstAttribute="trailing" secondItem="GaY-k7-Xhv" secondAttribute="trailing" constant="8" id="w6u-7I-7Kx"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="all what you need!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUo-iT-awb">
-                                        <rect key="frame" x="116" y="98" width="143.5" height="23.5"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                        <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALCalendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i01-mu-OaG">
-                                        <rect key="frame" x="85" y="36" width="205" height="52"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="38"/>
-                                        <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeU-Pf-bqA" customClass="ContainerView" customModule="LandeoCalendar" customModuleProvider="target">
+                                        <rect key="frame" x="183" y="443" width="300" height="71"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP4-ul-Jm9">
+                                                <rect key="frame" x="21" y="20.5" width="64" height="30.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                                <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9P7-4P-Thz">
+                                                <rect key="frame" x="128" y="19" width="164" height="33"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAs-M3-Kry">
+                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="33"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="76" id="IHf-iF-xoA"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Standard">
+                                                            <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="rangeMarkButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="0CL-v1-gdg"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMo-MO-6bO">
+                                                        <rect key="frame" x="88" y="0.0" width="76" height="33"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                        <color key="tintColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Modal">
+                                                            <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="rangeModalButtonPressed:" destination="Pig-oH-GVj" eventType="touchUpInside" id="UVS-Wh-LX6"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="4Rt-Bu-OkG"/>
+                                                    <constraint firstAttribute="width" constant="164" id="kcv-UC-ofK"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.12773031000000001" green="0.6113714576" blue="0.9892446399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="9P7-4P-Thz" secondAttribute="trailing" constant="8" id="15X-v5-qEd"/>
+                                            <constraint firstAttribute="height" constant="71" id="Jbj-A3-eU8"/>
+                                            <constraint firstAttribute="width" constant="300" id="JeI-uV-M0k"/>
+                                            <constraint firstItem="oP4-ul-Jm9" firstAttribute="leading" secondItem="IeU-Pf-bqA" secondAttribute="leading" constant="21" id="qKN-xa-y79"/>
+                                            <constraint firstItem="9P7-4P-Thz" firstAttribute="centerY" secondItem="IeU-Pf-bqA" secondAttribute="centerY" id="wSv-lg-O04"/>
+                                            <constraint firstItem="oP4-ul-Jm9" firstAttribute="centerY" secondItem="IeU-Pf-bqA" secondAttribute="centerY" id="whG-IW-nkY"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomWave" translatesAutoresizingMaskIntoConstraints="NO" id="WMl-Ie-638">
+                                        <rect key="frame" x="0.0" y="310" width="667" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="PdG-23-MSW"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.12773031000000001" green="0.6113714576" blue="0.9892446399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="sUo-iT-awb" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="DEz-t1-6aG"/>
                                     <constraint firstItem="i01-mu-OaG" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="Ebq-ZA-jWT"/>
-                                    <constraint firstItem="i01-mu-OaG" firstAttribute="top" secondItem="sBf-ff-grD" secondAttribute="top" constant="36" id="MDP-qX-47e"/>
-                                    <constraint firstItem="wZm-Xh-04X" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="NyC-Kh-zXZ"/>
+                                    <constraint firstItem="WMl-Ie-638" firstAttribute="leading" secondItem="sBf-ff-grD" secondAttribute="leading" id="Ld7-ME-Gym"/>
+                                    <constraint firstItem="i01-mu-OaG" firstAttribute="top" secondItem="sBf-ff-grD" secondAttribute="top" constant="71" id="MDP-qX-47e"/>
+                                    <constraint firstItem="NXR-Rs-AAt" firstAttribute="top" secondItem="wZm-Xh-04X" secondAttribute="bottom" constant="40" id="MvR-Vg-dRZ"/>
                                     <constraint firstItem="sUo-iT-awb" firstAttribute="top" secondItem="i01-mu-OaG" secondAttribute="bottom" constant="10" id="P1Z-Uq-wSx"/>
-                                    <constraint firstItem="wZm-Xh-04X" firstAttribute="centerY" secondItem="sBf-ff-grD" secondAttribute="centerY" constant="30" id="U5q-YK-FpX"/>
+                                    <constraint firstAttribute="trailing" secondItem="WMl-Ie-638" secondAttribute="trailing" id="aqm-KJ-JTQ"/>
+                                    <constraint firstItem="wZm-Xh-04X" firstAttribute="top" secondItem="sUo-iT-awb" secondAttribute="bottom" constant="64.5" id="dJg-XM-mhm"/>
+                                    <constraint firstAttribute="bottom" secondItem="WMl-Ie-638" secondAttribute="bottom" id="ddb-Ju-hIT"/>
+                                    <constraint firstItem="IeU-Pf-bqA" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="eyk-53-kJ0"/>
+                                    <constraint firstItem="NXR-Rs-AAt" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="mSA-Zs-NWK"/>
+                                    <constraint firstItem="IeU-Pf-bqA" firstAttribute="top" secondItem="NXR-Rs-AAt" secondAttribute="bottom" constant="40" id="nnI-T6-z34"/>
+                                    <constraint firstItem="wZm-Xh-04X" firstAttribute="centerX" secondItem="sBf-ff-grD" secondAttribute="centerX" id="q2U-xV-wYt"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -195,8 +237,10 @@
                     <connections>
                         <outlet property="containerView" destination="wZm-Xh-04X" id="ywE-Tx-D7q"/>
                         <outlet property="gradientView" destination="sBf-ff-grD" id="HYj-80-COw"/>
+                        <outlet property="multipleContainerView" destination="NXR-Rs-AAt" id="5id-rc-cDa"/>
                         <outlet property="multipleModal" destination="Rt9-Pe-38b" id="ACc-C7-uOP"/>
                         <outlet property="multipleStandard" destination="hEd-uC-5mn" id="Cde-42-eE1"/>
+                        <outlet property="rangeContainerView" destination="IeU-Pf-bqA" id="1oH-9I-nCL"/>
                         <outlet property="rangeModal" destination="kMo-MO-6bO" id="0ni-6c-IBj"/>
                         <outlet property="rangeStandard" destination="WAs-M3-Kry" id="5Tg-b1-JML"/>
                         <outlet property="singleModal" destination="8RN-5t-kUm" id="U6t-Xg-Cn9"/>
@@ -212,15 +256,15 @@
             <objects>
                 <viewController storyboardIdentifier="MultiplePickerModal" id="hx4-vd-WUa" customClass="MultiplePickerVCModal" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cHs-WS-qUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anR-h3-33r">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <color key="backgroundColor" red="0.0774975712435233" green="0.0774975712435233" blue="0.0774975712435233" alpha="0.32218309859154931" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMy-w5-ksL" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
-                                <rect key="frame" x="37" y="158" width="300" height="350"/>
+                                <rect key="frame" x="183.5" y="12.5" width="300" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="747-gG-1kc"/>
@@ -253,14 +297,14 @@
             <objects>
                 <viewController storyboardIdentifier="RangePickerModal" id="Gba-Bk-lsb" customClass="RangePickerVCModal" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9YA-sw-Zs2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2D5-4J-CPc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-0h-cW6" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
-                                        <rect key="frame" x="37" y="158" width="300" height="350"/>
+                                        <rect key="frame" x="183" y="12" width="300" height="350"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="JfV-38-e9C"/>
@@ -298,11 +342,11 @@
             <objects>
                 <viewController storyboardIdentifier="RangePicker" id="b8o-u2-9FX" customClass="RangePickerVC" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yC3-QF-Nnd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76h-OO-cW7" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="375" height="350"/>
+                                <rect key="frame" x="0.0" y="64" width="667" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="350" id="Cao-2k-7Qn"/>
@@ -310,7 +354,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-LP-uee">
-                                <rect key="frame" x="157" y="454" width="60" height="37"/>
+                                <rect key="frame" x="303.5" y="434" width="60" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="OWK-tT-BNN"/>
                                 </constraints>
@@ -346,18 +390,18 @@
             <objects>
                 <viewController storyboardIdentifier="MultiplePicker" id="TC9-Cf-fTu" customClass="MultiplePickerVC" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aoy-rU-bxx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cy9-Nz-cI2" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="375" height="350"/>
+                                <rect key="frame" x="0.0" y="64" width="667" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="BGp-2l-U0r"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEf-OB-4md">
-                                <rect key="frame" x="157" y="454" width="60" height="37"/>
+                                <rect key="frame" x="303.5" y="434" width="60" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="6rQ-3S-qxh"/>
                                 </constraints>
@@ -394,15 +438,15 @@
             <objects>
                 <viewController storyboardIdentifier="SinglePickerModal" id="BYZ-38-t0r" customClass="SinglePickerVCModal" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUt-ST-FIh">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-R7-WDu" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
-                                <rect key="frame" x="37" y="158.5" width="300" height="350"/>
+                                <rect key="frame" x="183.5" y="12.5" width="300" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="6ot-Q4-PDD"/>
@@ -435,18 +479,23 @@
             <objects>
                 <viewController storyboardIdentifier="SinglePicker" id="L9h-Xg-M81" customClass="SinglePickerVC" customModule="LandeoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XB0-Pz-oTh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jXq-AY-eW7">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amg-Jx-GTI" customClass="CalendarView" customModule="LandeoCalendar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="51" width="375" height="433"/>
+                                <rect key="frame" x="0.0" y="31" width="667" height="433"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="433" id="qeJ-c8-4Xe"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBC-21-eNM">
-                                <rect key="frame" x="157" y="504" width="60" height="37"/>
+                                <rect key="frame" x="303.5" y="484" width="60" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="fdb-x8-bYH"/>
                                 </constraints>
@@ -478,4 +527,7 @@
             <point key="canvasLocation" x="1132" y="-383.65817091454278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bottomWave" width="375" height="67"/>
+    </resources>
 </document>

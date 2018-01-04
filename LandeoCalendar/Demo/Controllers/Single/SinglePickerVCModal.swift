@@ -23,6 +23,9 @@ class SinglePickerVCModal: UIViewController, CalendarViewDelegate {
     func setUpCalendar() {
         calendarView.direction = .horizontal
         
+        let today = Date()
+        calendarView.setCurrentDate(date: today, animated: false)
+        
         calendarView.backgroundColor = UIColor.white
         calendarView.delegate = self
         calendarView.layer.cornerRadius = 8
@@ -52,8 +55,7 @@ class SinglePickerVCModal: UIViewController, CalendarViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let today = Date()
-        calendarView.setCurrentDate(date: today, animated: false)
+        
     }
     
     @objc func handleTap() {

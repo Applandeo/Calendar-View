@@ -16,45 +16,26 @@ class MultiplePickerVCModal: UIViewController, CalendarViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setUpCalendar()
-    }
-    
-    func setUpCalendar() {
-        calendarView.direction = .horizontal
-        
-        calendarView.backgroundColor = UIColor.white
         calendarView.delegate = self
-        calendarView.layer.cornerRadius = 8
+        calendarView.showEkEvents = true
+        calendarView.direction = .vertical
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        let today = Date()
+        calendarView.setCurrentDate(date: today, animated: false)
         
-        self.backgroundDismissView.addGestureRecognizer(tap)
-        
-        var tomorrowComponents = DateComponents()
-        tomorrowComponents.day = 1
-        
+        CalendarStyle.cellEventColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         CalendarStyle.cellSelectionType = .multiple
-        CalendarStyle.cellShape = .round
+        CalendarStyle.cellShape = .square
         CalendarStyle.cellBackgroundColor = UIColor.clear
-        CalendarStyle.cellTodayBackgroundColor = #colorLiteral(red: 0.9782553315, green: 0.3780350089, blue: 0.4415892363, alpha: 1)
+        CalendarStyle.cellTodayBackgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
         CalendarStyle.cellBorderColor = #colorLiteral(red: 0.1664928794, green: 0.7488424182, blue: 0.8295294642, alpha: 1)
-        CalendarStyle.cellEventColor = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
         CalendarStyle.headerTextColor = UIColor.black
         CalendarStyle.cellTextColor = UIColor.black
         CalendarStyle.cellTodayTextColor = UIColor.white
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let today = Date()
-        calendarView.setCurrentDate(date: today, animated: false)
-        
+        self.backgroundDismissView.addGestureRecognizer(tap)
     }
     
     @objc func handleTap() {

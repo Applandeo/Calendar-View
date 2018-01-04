@@ -36,10 +36,7 @@ class RangePickerVC: UIViewController, CalendarViewDelegate {
         CalendarStyle.headerTextColor = UIColor.black
         CalendarStyle.cellTextColor = UIColor.black
         CalendarStyle.cellTodayTextColor = UIColor.white
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
         let today = Date()
         calendarView.setCurrentDate(date: today, animated: false)
     }

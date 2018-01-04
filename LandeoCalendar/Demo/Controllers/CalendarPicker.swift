@@ -12,30 +12,25 @@ class CalendarPicker: UIViewController {
     
     @IBOutlet weak var gradientView: UIView!
     
-    @IBOutlet weak var singleStandard: SelectionButtons!
-    @IBOutlet weak var singleModal: SelectionButtons!
+    @IBOutlet weak var singleStandard: UIButton!
+    @IBOutlet weak var singleModal: UIButton!
     
-    @IBOutlet weak var multipleStandard: SelectionButtons!
-    @IBOutlet weak var multipleModal: SelectionButtons!
+    @IBOutlet weak var multipleStandard: UIButton!
+    @IBOutlet weak var multipleModal: UIButton!
     
-    @IBOutlet weak var rangeStandard: SelectionButtons!
-    @IBOutlet weak var rangeModal: SelectionButtons!
+    @IBOutlet weak var rangeStandard: UIButton!
+    @IBOutlet weak var rangeModal: UIButton!
     
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerView: ContainerView!
+    @IBOutlet weak var multipleContainerView: ContainerView!
+    @IBOutlet weak var rangeContainerView: ContainerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        containerView.layer.cornerRadius = 12
-        containerView.addShadowView()
-        // Do any additional setup after loading the view.
-
+        
     }
     
 }
-
-//MARK: - Set UI
-
-
 
 //MARK: - Presentation section
 

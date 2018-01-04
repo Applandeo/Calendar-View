@@ -16,6 +16,7 @@ class SinglePickerVC: UIViewController, CalendarViewDelegate {
         super.viewDidLoad()
         calendarView.delegate = self
         calendarView.showEkEvents = true
+        calendarView.direction = .vertical
         
         let today = Date()
         calendarView.setCurrentDate(date: today, animated: false)
