@@ -1,7 +1,7 @@
 
 
 <p align="center"> 
-<img src="(https://user-images.githubusercontent.com/32479017/34562680-ba5fd78e-f14f-11e7-8b0e-8c559c8753d9.png">
+<img src="https://user-images.githubusercontent.com/32479017/34562221-b1025fce-f14d-11e7-8ce7-2421320e11d9.png">
 </p>
 
  Simple, customizable calendar for your app!
