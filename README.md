@@ -15,7 +15,7 @@
 	use_frameworks!
 
 	target '<Your Target Name>' do
-    	pod 'ALCalendar', '~> 4.5'
+    	pod 'ALCalendar'
 	end
 
 After that simply go with:
