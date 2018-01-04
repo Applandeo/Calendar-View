@@ -9,6 +9,12 @@
 import UIKit
 import EventKit
 
+    /**
+        An instance of ALCalendarView, or simply calendarView which
+        displays and interacts grid view of Day-Cells.
+ 
+    */
+
 class CalendarView: UIView {
 
     var delegate : CalendarViewDelegate?
@@ -21,6 +27,12 @@ class CalendarView: UIView {
         return gregorian
     }()
     
+    /**
+        Calendar scroll direction
+        - .horizontal
+        - .vertical
+    */
+    
     var direction : UICollectionViewScrollDirection = .horizontal {
         didSet {
             flowLayout.scrollDirection = direction
@@ -28,13 +40,22 @@ class CalendarView: UIView {
         }
     }
     
+    /**
+        Show EKEvents on map.
+        Set true to show dotview under day label on cell representing event
+    */
+    
     var showEkEvents : Bool = false {
         didSet {
             if showEkEvents {
-                self.loadEvents()
+                self.loadEKEvents()
             }
         }
     }
+    
+    /**
+        Set property as true to highlight today cell
+    */
     
     var showToday: Bool = true {
         didSet {
@@ -57,13 +78,14 @@ class CalendarView: UIView {
             DispatchQueue.main.async { self.collectionView.reloadData() }
         }
     }
-
+    
     var allowMultipleSelection : Bool = false {
         didSet {
             self.collectionView.allowsMultipleSelection = allowMultipleSelection
         }
     }
     
+    //Initializer used to create calendarView instance
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
@@ -102,6 +124,7 @@ class CalendarView: UIView {
         setupCollectionView(layout: layout)
     }
     
+    //Setup collectionView properties
     fileprivate func setupCollectionView(layout: CalendarFlowLayout) {
         self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         self.collectionView.dataSource = self
@@ -112,10 +135,11 @@ class CalendarView: UIView {
         self.collectionView.showsVerticalScrollIndicator = false
         self.collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell_ID)
         self.addSubview(self.collectionView)
-        checkSelectionStyle()
+        checkSelectionType()
     }
     
-    fileprivate func checkSelectionStyle() {
+    //Check collectionView selection type
+    fileprivate func checkSelectionType() {
         switch CalendarStyle.cellSelectionType {
         case .single:
             self.collectionView.allowsMultipleSelection = false
@@ -126,7 +150,7 @@ class CalendarView: UIView {
         }
     }
     
-    private func loadEvents() {
+    private func loadEKEvents() {
         var startDateComponents = DateComponents()
         startDateComponents.year = -2
         guard let startDate = self.calendar.date(byAdding: startDateComponents, to: today) else { return }
@@ -142,6 +166,7 @@ class CalendarView: UIView {
         }
     }
     
+    //Override flowLayout with custom one
     fileprivate var flowLayout: CalendarFlowLayout {
         return self.collectionView.collectionViewLayout as! CalendarFlowLayout
     }
