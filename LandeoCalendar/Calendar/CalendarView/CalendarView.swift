@@ -89,6 +89,7 @@ class CalendarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
+        self.layoutIfNeeded()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -106,9 +107,11 @@ class CalendarView: UIView {
     var collectionView: UICollectionView!
 
     private func setup() {
-        self.initModel()
+        
         self.setStartDate()
         self.setEndDate()
+        self.initModel()
+        
         self.clipsToBounds = true
         
         self.headerView = CalendarHeaderView(frame:CGRect.zero)
@@ -121,20 +124,23 @@ class CalendarView: UIView {
         layout.minimumLineSpacing = 0
         layout.itemSize = self.cellSize(in: self.bounds)
         
+        self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        self.addSubview(self.collectionView)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        
         setupCollectionView(layout: layout)
     }
     
     //Setup collectionView properties
     fileprivate func setupCollectionView(layout: CalendarFlowLayout) {
-        self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        
         self.collectionView.isPagingEnabled = true
         self.collectionView.backgroundColor = UIColor.clear
         self.collectionView.showsHorizontalScrollIndicator = false
         self.collectionView.showsVerticalScrollIndicator = false
         self.collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell_ID)
-        self.addSubview(self.collectionView)
+        self.reloadData()
         checkSelectionType()
     }
     
