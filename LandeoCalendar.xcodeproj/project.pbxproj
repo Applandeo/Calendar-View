@@ -30,6 +30,7 @@
 		9ECC556D1FDFC29500C8FFEB /* CalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC556C1FDFC29500C8FFEB /* CalendarStyle.swift */; };
 		9ED871081FED3395005B3146 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED871071FED3395005B3146 /* DateConverter.swift */; };
 		9ED8710A1FED33C0005B3146 /* CalendarViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED871091FED33C0005B3146 /* CalendarViewExtension.swift */; };
+		9EEF1D3420161EF600A4C0AB /* CalendarViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEF1D3320161EF600A4C0AB /* CalendarViewVC.swift */; };
 		C245B62A1F72C4FB0071D30F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245B6291F72C4FB0071D30F /* AppDelegate.swift */; };
 		C245B62F1F72C4FB0071D30F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C245B62D1F72C4FB0071D30F /* Main.storyboard */; };
 		C245B6311F72C4FB0071D30F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C245B6301F72C4FB0071D30F /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		9ECC556C1FDFC29500C8FFEB /* CalendarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStyle.swift; sourceTree = "<group>"; };
 		9ED871071FED3395005B3146 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		9ED871091FED33C0005B3146 /* CalendarViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewExtension.swift; sourceTree = "<group>"; };
+		9EEF1D3320161EF600A4C0AB /* CalendarViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewVC.swift; sourceTree = "<group>"; };
 		C245B6261F72C4FB0071D30F /* LandeoCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandeoCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C245B6291F72C4FB0071D30F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C245B62E1F72C4FB0071D30F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				C2857F871F73F64C00A6BA5C /* CalendarViewHeader.swift */,
 				9E85D8241FDEBACA00AACE9D /* CalendarView+DataSource.swift */,
 				9E85D8261FDEBACB00AACE9D /* CalendarView+Delegate.swift */,
+				9EEF1D3320161EF600A4C0AB /* CalendarViewVC.swift */,
 				9E1E67781FF3B94700767201 /* DayCell.swift */,
 			);
 			path = CalendarView;
@@ -370,6 +373,7 @@
 				9EC45B751FE7E26200F6E97C /* SinglePickerVCModal.swift in Sources */,
 				9EC45B731FE7E26200F6E97C /* MultiplePickerVCModal.swift in Sources */,
 				9EC45B741FE7E26200F6E97C /* SinglePickerVC.swift in Sources */,
+				9EEF1D3420161EF600A4C0AB /* CalendarViewVC.swift in Sources */,
 				9EAADD521FE148880002980F /* IndexPathExtension.swift in Sources */,
 				C245B62A1F72C4FB0071D30F /* AppDelegate.swift in Sources */,
 				9E9AB53A1F8E133A00ED1DAE /* DateExtension.swift in Sources */,

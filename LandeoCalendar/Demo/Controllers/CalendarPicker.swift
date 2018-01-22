@@ -32,6 +32,11 @@ class CalendarPicker: UIViewController {
         rangeContainerView.layer.cornerRadius = 10
     }
     
+    @IBAction func testButtonPressed(_ sender: Any) {
+        let vc = CalendarViewVC(nibName: nil, bundle: nil)
+        present(vc, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: - Presentation section
