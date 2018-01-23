@@ -33,7 +33,9 @@ class CalendarPicker: UIViewController {
     }
     
     @IBAction func testButtonPressed(_ sender: Any) {
-        let vc = CalendarViewVC(nibName: nil, bundle: nil)
+        let vc = CalendarViewVC()
+        vc.view.frame.size = UIScreen.main.bounds.size
+        vc.view.backgroundColor = UIColor.green
         present(vc, animated: true, completion: nil)
     }
     
@@ -49,7 +51,6 @@ extension CalendarPicker {
     
     @IBAction func singleModalPressed(_ sender: Any) {
         let calendarView = self.storyboard?.instantiateViewController(withIdentifier: "SinglePickerModal") as! SinglePickerVCModal
-        
         calendarView.modalPresentationStyle = .overCurrentContext
         calendarView.modalTransitionStyle = .crossDissolve
         present(calendarView, animated: true, completion: nil)
