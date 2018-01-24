@@ -1,0 +1,6 @@
+framework module ALCalendar {
+  umbrella header "ALCalendar-umbrella.h"
+
+  export *
+  module * { export * }
+}

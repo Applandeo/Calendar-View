@@ -1,0 +1,16 @@
+PODS:
+  - ALCalendar (0.1.0)
+
+DEPENDENCIES:
+  - ALCalendar (from `../`)
+
+EXTERNAL SOURCES:
+  ALCalendar:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ALCalendar: d45b6c33bda76ee8eb3033adc98b4943a6866fc9
+
+PODFILE CHECKSUM: 18b560c44ed4eb142882d5f2ae452097970d5cf0
+
+COCOAPODS: 1.3.1

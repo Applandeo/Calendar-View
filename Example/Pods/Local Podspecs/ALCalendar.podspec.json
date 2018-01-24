@@ -1,0 +1,22 @@
+{
+  "name": "ALCalendar",
+  "version": "0.1.0",
+  "summary": "A short description of ALCalendar.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/sgrabinski12@gmail.com/ALCalendar",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sgrabinski12@gmail.com": "sebastian.grabinski@applandeo.com"
+  },
+  "source": {
+    "git": "https://github.com/sgrabinski12@gmail.com/ALCalendar.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ALCalendar/Classes/**/*"
+}
