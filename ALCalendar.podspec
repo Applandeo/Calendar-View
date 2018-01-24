@@ -8,35 +8,18 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ALCalendar'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of ALCalendar.'
+  s.version          = '0.9'
+  s.summary          = 'Simple customizable calendar writen in Swift'
+  s.description      = 'Simple visual calendar writen in Swift(4.0). '
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.homepage         = 'https://github.com/Applandeo/Calendar-View'
+  s.screenshots     = 'https://user-images.githubusercontent.com/32479017/34562328-2b72e0bc-f14e-11e7-9aab-7f929f6906b0.png',
+    'https://user-images.githubusercontent.com/32479017/34562273-dcc0d686-f14d-11e7-9040-27263897320c.png'
+  s.license          = { :type => 'Apache 2.0', :file => 'LICENSE' }
+s.author           = { 'Sebastian Grabinski' => 'sebastian.grabinski@applandeo.com'}
+  s.source           = { :git => 'https://github.com/Applandeo/Calendar-View.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://www.facebook.com/applandeo/'
+  s.ios.deployment_target = '10.0'
+s.source_files = 'ALCalendar/Calendar/**/*'
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/sgrabinski12@gmail.com/ALCalendar'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'sgrabinski12@gmail.com' => 'sebastian.grabinski@applandeo.com' }
-  s.source           = { :git => 'https://github.com/sgrabinski12@gmail.com/ALCalendar.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'ALCalendar/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'ALCalendar' => ['ALCalendar/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

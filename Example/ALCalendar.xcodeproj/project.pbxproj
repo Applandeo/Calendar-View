@@ -11,10 +11,17 @@
 		332CAA9C39919214B6D64371 /* Pods_ALCalendar_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 859FBAAD1E0FC9F0E96CE55E /* Pods_ALCalendar_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		9EF6E2F72018B6D700D629F6 /* MultiplePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2EC2018B6D700D629F6 /* MultiplePickerVC.swift */; };
+		9EF6E2F82018B6D700D629F6 /* MultiplePickerVCModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2ED2018B6D700D629F6 /* MultiplePickerVCModal.swift */; };
+		9EF6E2F92018B6D700D629F6 /* SinglePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2EF2018B6D700D629F6 /* SinglePickerVC.swift */; };
+		9EF6E2FA2018B6D700D629F6 /* SinglePickerVCModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2F02018B6D700D629F6 /* SinglePickerVCModal.swift */; };
+		9EF6E2FB2018B6D700D629F6 /* CalendarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2F22018B6D700D629F6 /* CalendarPicker.swift */; };
+		9EF6E2FC2018B6D700D629F6 /* RangePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2F42018B6D700D629F6 /* RangePickerVC.swift */; };
+		9EF6E2FD2018B6D700D629F6 /* RangePickerVCModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2F52018B6D700D629F6 /* RangePickerVCModal.swift */; };
+		9EF6E2FF2018B6F300D629F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EF6E2FE2018B6F200D629F6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,23 +35,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07A72AD29152EE8C6535DC9F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		07A72AD29152EE8C6535DC9F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1AA352F125E1B6FE1F6CE7F8 /* Pods-ALCalendar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendar_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendar_Example/Pods-ALCalendar_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		1AF34845E26F8EFEBB68E0DB /* ALCalendar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ALCalendar.podspec; path = ../ALCalendar.podspec; sourceTree = "<group>"; };
+		1AF34845E26F8EFEBB68E0DB /* ALCalendar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ALCalendar.podspec; path = ../ALCalendar.podspec; sourceTree = "<group>"; };
 		2FA02C5F606B697AF7C631CF /* Pods_ALCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALCalendar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B903462298A1218B4C1DD89 /* Pods-ALCalendar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendar_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendar_Example/Pods-ALCalendar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ALCalendar_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALCalendar_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* ALCalendar_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALCalendar_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		75E3674A758A49CEB51DA35D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		75E3674A758A49CEB51DA35D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		859FBAAD1E0FC9F0E96CE55E /* Pods_ALCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALCalendar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EF6E2EC2018B6D700D629F6 /* MultiplePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplePickerVC.swift; sourceTree = "<group>"; };
+		9EF6E2ED2018B6D700D629F6 /* MultiplePickerVCModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplePickerVCModal.swift; sourceTree = "<group>"; };
+		9EF6E2EF2018B6D700D629F6 /* SinglePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePickerVC.swift; sourceTree = "<group>"; };
+		9EF6E2F02018B6D700D629F6 /* SinglePickerVCModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePickerVCModal.swift; sourceTree = "<group>"; };
+		9EF6E2F22018B6D700D629F6 /* CalendarPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPicker.swift; sourceTree = "<group>"; };
+		9EF6E2F42018B6D700D629F6 /* RangePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangePickerVC.swift; sourceTree = "<group>"; };
+		9EF6E2F52018B6D700D629F6 /* RangePickerVCModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangePickerVCModal.swift; sourceTree = "<group>"; };
+		9EF6E2FE2018B6F200D629F6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CA81434CBFCF727FE5C40BF9 /* Pods-ALCalendar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendar_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendar_Tests/Pods-ALCalendar_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DAC106909062EA3B3676D657 /* Pods-ALCalendar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendar_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendar_Tests/Pods-ALCalendar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,11 +118,12 @@
 		607FACD21AFB9204008FA782 /* Example for ALCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				9EF6E2E92018B6D700D629F6 /* Demo */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				9EF6E2FE2018B6F200D629F6 /* Main.storyboard */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for ALCalendar";
@@ -157,6 +172,60 @@
 				859FBAAD1E0FC9F0E96CE55E /* Pods_ALCalendar_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EF6E2E92018B6D700D629F6 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				9EF6E2EA2018B6D700D629F6 /* Controllers */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		9EF6E2EA2018B6D700D629F6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9EF6E2EB2018B6D700D629F6 /* Multiple */,
+				9EF6E2EE2018B6D700D629F6 /* Single */,
+				9EF6E2F12018B6D700D629F6 /* Extensions */,
+				9EF6E2F22018B6D700D629F6 /* CalendarPicker.swift */,
+				9EF6E2F32018B6D700D629F6 /* Range */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9EF6E2EB2018B6D700D629F6 /* Multiple */ = {
+			isa = PBXGroup;
+			children = (
+				9EF6E2EC2018B6D700D629F6 /* MultiplePickerVC.swift */,
+				9EF6E2ED2018B6D700D629F6 /* MultiplePickerVCModal.swift */,
+			);
+			path = Multiple;
+			sourceTree = "<group>";
+		};
+		9EF6E2EE2018B6D700D629F6 /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				9EF6E2EF2018B6D700D629F6 /* SinglePickerVC.swift */,
+				9EF6E2F02018B6D700D629F6 /* SinglePickerVCModal.swift */,
+			);
+			path = Single;
+			sourceTree = "<group>";
+		};
+		9EF6E2F12018B6D700D629F6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9EF6E2F32018B6D700D629F6 /* Range */ = {
+			isa = PBXGroup;
+			children = (
+				9EF6E2F42018B6D700D629F6 /* RangePickerVC.swift */,
+				9EF6E2F52018B6D700D629F6 /* RangePickerVCModal.swift */,
+			);
+			path = Range;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +284,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 39ZKQ9YZS2;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -248,9 +318,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				9EF6E2FF2018B6F300D629F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,8 +440,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EF6E2FA2018B6D700D629F6 /* SinglePickerVCModal.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				9EF6E2FC2018B6D700D629F6 /* RangePickerVC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				9EF6E2F82018B6D700D629F6 /* MultiplePickerVCModal.swift in Sources */,
+				9EF6E2F72018B6D700D629F6 /* MultiplePickerVC.swift in Sources */,
+				9EF6E2FD2018B6D700D629F6 /* RangePickerVCModal.swift in Sources */,
+				9EF6E2F92018B6D700D629F6 /* SinglePickerVC.swift in Sources */,
+				9EF6E2FB2018B6D700D629F6 /* CalendarPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,14 +471,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -458,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -504,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -517,7 +586,9 @@
 			baseConfigurationReference = 1AA352F125E1B6FE1F6CE7F8 /* Pods-ALCalendar_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39ZKQ9YZS2;
 				INFOPLIST_FILE = ALCalendar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -532,7 +603,9 @@
 			baseConfigurationReference = 3B903462298A1218B4C1DD89 /* Pods-ALCalendar_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39ZKQ9YZS2;
 				INFOPLIST_FILE = ALCalendar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
