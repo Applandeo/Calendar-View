@@ -10,21 +10,18 @@ import UIKit
 import ALCalendar
 
 class SinglePickerVC: UIViewController, CalendarViewDelegate {
-
-//    @IBOutlet weak var calendarView: CalendarView!
     
-    let calendarView = CalendarView(frame: CGRect(x: 0, y: 0, width: 300, height: 350))
-    
+    @IBOutlet weak var calendarView: CalendarView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
+            
+        self.view.addSubview(calendarView)
         
         calendarView.delegate = self
         calendarView.showEkEvents = true
         calendarView.direction = .vertical
-        
-        calendarView.backgroundColor = UIColor.red
         
         let today = Date()
         calendarView.setCurrentDate(date: today, animated: false)

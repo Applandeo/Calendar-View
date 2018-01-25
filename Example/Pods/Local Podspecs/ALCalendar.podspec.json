@@ -1,22 +1,27 @@
 {
   "name": "ALCalendar",
-  "version": "0.1.0",
-  "summary": "A short description of ALCalendar.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/sgrabinski12@gmail.com/ALCalendar",
+  "version": "0.9",
+  "summary": "Simple customizable calendar writen in Swift",
+  "description": "Simple visual calendar writen in Swift(4.0).",
+  "homepage": "https://github.com/Applandeo/Calendar-View",
+  "screenshots": [
+    "https://user-images.githubusercontent.com/32479017/34562328-2b72e0bc-f14e-11e7-9aab-7f929f6906b0.png",
+    "https://user-images.githubusercontent.com/32479017/34562273-dcc0d686-f14d-11e7-9040-27263897320c.png"
+  ],
   "license": {
-    "type": "MIT",
+    "type": "Apache 2.0",
     "file": "LICENSE"
   },
   "authors": {
-    "sgrabinski12@gmail.com": "sebastian.grabinski@applandeo.com"
+    "Sebastian Grabinski": "sebastian.grabinski@applandeo.com"
   },
   "source": {
-    "git": "https://github.com/sgrabinski12@gmail.com/ALCalendar.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/Applandeo/Calendar-View.git",
+    "tag": "0.9"
   },
+  "social_media_url": "https://www.facebook.com/applandeo/",
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "ALCalendar/Classes/**/*"
+  "source_files": "ALCalendar/Calendar/**/*"
 }

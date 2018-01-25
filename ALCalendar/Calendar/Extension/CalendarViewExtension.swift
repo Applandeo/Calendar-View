@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
     
-extension CalendarView {
+public extension CalendarView {
         
     fileprivate func selectDate(_ date : Date) {
         guard let indexPath = self.indexPathForDate(date) else { return }

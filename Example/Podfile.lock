@@ -1,5 +1,5 @@
 PODS:
-  - ALCalendar (0.1.0)
+  - ALCalendar (0.9)
 
 DEPENDENCIES:
   - ALCalendar (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ALCalendar: d45b6c33bda76ee8eb3033adc98b4943a6866fc9
+  ALCalendar: b494c384bbadd65bf41a3c3272b856305abe7649
 
 PODFILE CHECKSUM: 18b560c44ed4eb142882d5f2ae452097970d5cf0
 

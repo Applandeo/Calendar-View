@@ -296,6 +296,38 @@
             </objects>
             <point key="canvasLocation" x="-583.20000000000005" y="117.39130434782609"/>
         </scene>
+        <!--Single PickerVC-->
+        <scene sceneID="5PY-ah-1xi">
+            <objects>
+                <viewController storyboardIdentifier="SinglePickerVC" id="bG2-I3-roq" customClass="SinglePickerVC" customModule="ALCalendar_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6G6-ld-cgl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeY-rq-6Zn" customClass="CalendarView" customModule="ALCalendar">
+                                <rect key="frame" x="0.0" y="54" width="375" height="373"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="373" id="NzJ-YY-nuI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BeY-rq-6Zn" firstAttribute="leading" secondItem="3NH-mw-uQi" secondAttribute="leading" id="AL3-fV-wOV"/>
+                            <constraint firstItem="BeY-rq-6Zn" firstAttribute="top" secondItem="3NH-mw-uQi" secondAttribute="top" constant="34" id="OCC-49-Jfo"/>
+                            <constraint firstItem="BeY-rq-6Zn" firstAttribute="trailing" secondItem="3NH-mw-uQi" secondAttribute="trailing" id="wWf-S6-R31"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3NH-mw-uQi"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="BeY-rq-6Zn" id="Pp3-WN-l2y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gd-ZM-l1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="357.60000000000002" y="-366.56671664167919"/>
+        </scene>
         <!--Multiple PickerVC Modal-->
         <scene sceneID="MuS-AE-poJ">
             <objects>
@@ -464,7 +496,6 @@
                                     <color key="titleColor" red="0.76347452400000004" green="0.061452023680000002" blue="0.22332000730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="doneButtonPressed:" destination="L9h-Xg-M81" eventType="touchUpInside" id="8JP-uI-Brq"/>
                                     <action selector="doneButtonPressed:" destination="TC9-Cf-fTu" eventType="touchUpInside" id="c3v-tQ-RIX"/>
                                 </connections>
                             </button>
@@ -492,107 +523,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpr-Yw-X6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1148" y="337.78110944527737"/>
-        </scene>
-        <!--Single PickerVC Modal-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="SinglePickerModal" id="BYZ-38-t0r" customClass="SinglePickerVCModal" customModule="ALCalendar_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUt-ST-FIh">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-R7-WDu" customClass="CalendarView">
-                                <rect key="frame" x="37.5" y="158.5" width="300" height="350"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="6ot-Q4-PDD"/>
-                                    <constraint firstAttribute="width" constant="300" id="9ZP-HL-xgs"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.32119278169014087" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="wUt-ST-FIh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1mM-vp-ViO"/>
-                            <constraint firstItem="wUt-ST-FIh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Mx-Ec-vzO"/>
-                            <constraint firstItem="eRg-R7-WDu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jf5-Su-t3p"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wUt-ST-FIh" secondAttribute="bottom" id="jRs-QD-Swn"/>
-                            <constraint firstItem="eRg-R7-WDu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lwy-f6-WCb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wUt-ST-FIh" secondAttribute="trailing" id="qtS-00-HpZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundDismissView" destination="wUt-ST-FIh" id="P7l-lA-g5f"/>
-                        <outlet property="calendarView" destination="eRg-R7-WDu" id="vVU-Dz-uUi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="361" y="-383"/>
-        </scene>
-        <!--Single PickerVC-->
-        <scene sceneID="9at-xT-zsl">
-            <objects>
-                <viewController storyboardIdentifier="SinglePicker" id="L9h-Xg-M81" customClass="SinglePickerVC" customModule="ALCalendar_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XB0-Pz-oTh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jXq-AY-eW7">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amg-Jx-GTI">
-                                <rect key="frame" x="0.0" y="51" width="375" height="433"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="433" id="qeJ-c8-4Xe">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="300"/>
-                                    </constraint>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBC-21-eNM">
-                                <rect key="frame" x="157.5" y="504" width="60" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="fdb-x8-bYH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="Okay!">
-                                    <color key="titleColor" red="0.76347452400000004" green="0.061452023680000002" blue="0.22332000730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="doneButtonPressed:" destination="L9h-Xg-M81" eventType="touchUpInside" id="AmD-uR-ROv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="amg-Jx-GTI" firstAttribute="trailing" secondItem="Zgr-P6-jrL" secondAttribute="trailing" id="09M-zD-jbV">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-30"/>
-                            </constraint>
-                            <constraint firstItem="amg-Jx-GTI" firstAttribute="top" secondItem="Zgr-P6-jrL" secondAttribute="top" constant="31" id="4Wn-rz-2or">
-                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="EBC-21-eNM" firstAttribute="centerX" secondItem="XB0-Pz-oTh" secondAttribute="centerX" id="8zg-ZP-xvE"/>
-                            <constraint firstItem="EBC-21-eNM" firstAttribute="top" secondItem="amg-Jx-GTI" secondAttribute="bottom" constant="20" id="DUE-V7-O7A"/>
-                            <constraint firstItem="amg-Jx-GTI" firstAttribute="leading" secondItem="Zgr-P6-jrL" secondAttribute="leading" id="fHr-Ln-vq5">
-                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
-                            </constraint>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Zgr-P6-jrL"/>
-                    </view>
-                    <connections>
-                        <outlet property="calendarView" destination="amg-Jx-GTI" id="BGd-MJ-jn4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jXb-hH-1IY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1132" y="-383.65817091454278"/>
         </scene>
     </scenes>
     <resources>

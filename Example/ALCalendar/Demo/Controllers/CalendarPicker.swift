@@ -52,7 +52,7 @@ class CalendarPicker: UIViewController {
 extension CalendarPicker {
     
     @IBAction func singleButtonPressed(_ sender: Any) {
-        let calendarView = SinglePickerVC(nibName: nil, bundle: nil)
+        let calendarView = self.storyboard?.instantiateViewController(withIdentifier: "SinglePickerVC") as! SinglePickerVC
         present(calendarView, animated: true, completion: nil)
     }
     

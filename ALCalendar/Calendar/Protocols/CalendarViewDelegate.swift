@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CalendarViewDelegate {
+public protocol CalendarViewDelegate: class {
     
     func calendar(_ calendar : CalendarView, canSelectDate date : Date) -> Bool
     func calendar(_ calendar : CalendarView, didScrollToMonth date : Date) -> Void
