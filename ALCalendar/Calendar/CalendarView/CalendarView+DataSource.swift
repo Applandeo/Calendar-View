@@ -48,12 +48,22 @@ extension CalendarView: UICollectionViewDataSource {
         let lastDayIndex = firstDayIndex + numberOfDaysTotal
         
         isCellInMonthRange(firstDayIndex, lastDayIndex, indexPath, dayCell, fromStartOfMonthIndexPath)
-        dayCell.isSelected = calendarModel.selectedIndexPaths.contains(indexPath)
+        let isToday = setToday(firstDayIndex, calendarModel, indexPath)
+        let isSelected = isCellSelected(indexPath)
+        
+        dayCell.manageStyle(isToday: isToday, isSelected: isSelected)
         updateHeaderDate(indexPath, collectionView)
-        checkIfCellIsToday(dayCell, indexPath, firstDayIndex)
         countEventsForCell(indexPath, dayCell)
         
         return dayCell
+    }
+    
+    fileprivate func setToday(_ firstDayIndex: Int,_ calendarModel: CalendarModel,_ indexPath: IndexPath) -> Bool {
+        return (calendarModel.todayIndexPath != nil) ? (calendarModel.todayIndexPath.section == indexPath.section) && calendarModel.todayIndexPath.item + firstDayIndex == indexPath.item : false
+    }
+    
+    fileprivate func isCellSelected(_ indexPath: IndexPath) -> Bool {
+        return calendarModel.selectedIndexPaths.contains(indexPath)
     }
     
     fileprivate func updateHeaderDate(_ indexPath: IndexPath, _ collectionView: UICollectionView) {
@@ -69,12 +79,6 @@ extension CalendarView: UICollectionViewDataSource {
         } else {
             dayCell.textLabel.text = ""
             dayCell.isHidden = true
-        }
-    }
-    
-    fileprivate func checkIfCellIsToday(_ dayCell: DayCell, _ indexPath: IndexPath, _ firstDayIndex: Int) {
-        if let index = calendarModel.todayIndexPath {
-            dayCell.isToday = (index.section == indexPath.section && index.item + firstDayIndex == indexPath.item)
         }
     }
     

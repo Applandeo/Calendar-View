@@ -32,31 +32,10 @@ open class DayCell: UICollectionViewCell {
             self.layoutIfNeeded()
         }
     }
-    
-    var isToday : Bool = false {
-        didSet {
-            switch isToday {
-            case true:
-                self.setCellColor(backroundColor: CalendarStyle.cellTodayBackgroundColor, textColor: CalendarStyle.cellTodayTextColor)
-            case false:
-                self.setCellColor(backroundColor: CalendarStyle.cellBackgroundColor, textColor: CalendarStyle.cellTextColor)
-            }
-        }
-    }
-    
+
     fileprivate func setBackgroundBorder(borderColor: UIColor, borderWidth: CGFloat) {
         self.background.layer.borderColor = borderColor.cgColor
         self.background.layer.borderWidth = borderWidth
-    }
-    
-    override open var isSelected : Bool {
-        didSet {
-            if isSelected {
-                setBackgroundBorder(borderColor: CalendarStyle.cellBorderColor, borderWidth: CalendarStyle.cellBorderWidth)
-            } else {
-                setBackgroundBorder(borderColor: UIColor.clear ,borderWidth: 0.0)
-            }
-        }
     }
     
     func setCellColor(backroundColor: UIColor, textColor: UIColor) {
@@ -110,4 +89,32 @@ open class DayCell: UICollectionViewCell {
         self.dotsView.center = CGPoint(x: self.textLabel.center.x, y: self.bounds.height - (2.5 * size))
         self.dotsView.layer.cornerRadius = size * 0.5
     }
+}
+
+extension DayCell {
+    
+    func manageStyle(isToday: Bool, isSelected: Bool) {
+        
+        if isToday {
+            if isSelected {
+                textLabel.textColor = CalendarStyle.cellTodayTextColor
+                background.backgroundColor = CalendarStyle.cellBorderColor
+                background.layer.borderWidth = CalendarStyle.cellBorderWidth
+            } else {
+                self.setCellColor(backroundColor: CalendarStyle.cellTodayBackgroundColor,
+                                  textColor: CalendarStyle.cellTextColor)
+            }
+        } else if isSelected {
+            textLabel.textColor = CalendarStyle.cellTodayTextColor
+            background.backgroundColor = CalendarStyle.cellBorderColor
+            background.layer.borderWidth = CalendarStyle.cellBorderWidth
+        } else {
+            background.layer.borderWidth = 0.0
+            background.backgroundColor = UIColor.clear
+            background.layer.borderColor = UIColor.clear.cgColor
+            textLabel.textColor = CalendarStyle.cellTextColor
+        }
+        
+    }
+
 }

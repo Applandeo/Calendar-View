@@ -15,24 +15,27 @@ public class CalendarViewVC: UIViewController, CalendarViewDelegate {
     var cancelButton: UIButton!
     var stackView: UIStackView!
     
-    public var cellEventColor: UIColor? = #colorLiteral(red: 0.9593754411, green: 0.2246205509, blue: 0.2793699503, alpha: 1)
+    public var cellEventColor: UIColor? = #colorLiteral(red: 0.9888451695, green: 0.9434358478, blue: 0.2444635034, alpha: 1)
     public var cellSelectionType: CalendarStyle.CellSelectionType? = .single
     public var cellShape : CalendarStyle.CellShapeOptions? = .round
-    public var cellBackgroundColor : UIColor? = #colorLiteral(red: 0.9593754411, green: 0.2246205509, blue: 0.2793699503, alpha: 1)
-    public var cellTodayBackgroundColor : UIColor? = #colorLiteral(red: 0.9593754411, green: 0.2246205509, blue: 0.2793699503, alpha: 1)
-    public var cellBorderColor : UIColor? = #colorLiteral(red: 0.9593754411, green: 0.2246205509, blue: 0.2793699503, alpha: 1)
-    public var headerTextColor : UIColor? = #colorLiteral(red: 0.9593754411, green: 0.2246205509, blue: 0.2793699503, alpha: 1)
+    public var cellBackgroundColor : UIColor? = #colorLiteral(red: 0.1594840586, green: 0.1951329112, blue: 0.2491612434, alpha: 1)
+    public var cellTodayBackgroundColor : UIColor? = #colorLiteral(red: 0.9905124307, green: 0.9440224767, blue: 0.244779706, alpha: 1)
+    public var cellBorderColor : UIColor? = #colorLiteral(red: 0.9888451695, green: 0.9434358478, blue: 0.2444635034, alpha: 1)
+    public var headerTextColor : UIColor? = #colorLiteral(red: 0.9888451695, green: 0.9434358478, blue: 0.2444635034, alpha: 1)
     public var cellTextColor : UIColor? = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    public var cellTodayTextColor : UIColor? = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    public var cellTodayTextColor : UIColor? = #colorLiteral(red: 0.1581553817, green: 0.1959567666, blue: 0.2506937683, alpha: 1)
     
     override public func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupUI()
-            
+                
         calendarView.delegate = self
         calendarView.showEkEvents = true
         calendarView.direction = .horizontal
+        calendarView.allowMultipleSelection = true
+        calendarView.backgroundColor = #colorLiteral(red: 0.1594840586, green: 0.1951329112, blue: 0.2491612434, alpha: 1)
+        
         
         let today = Date()
         calendarView.setCurrentDate(date: today, animated: false)
@@ -84,10 +87,10 @@ public class CalendarViewVC: UIViewController, CalendarViewDelegate {
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        calendarView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 40).isActive = true
-        calendarView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -120).isActive = true
-        calendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        calendarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        calendarView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 120).isActive = true
+        calendarView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -150).isActive = true
+        calendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30).isActive = true
+        calendarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30).isActive = true
         
         stackView.leadingAnchor.constraint(equalTo: self.calendarView.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.calendarView.trailingAnchor).isActive = true
@@ -99,7 +102,16 @@ public class CalendarViewVC: UIViewController, CalendarViewDelegate {
         super.init(nibName: nil, bundle: nil)
     }
     
-    convenience public init(cellEventColor: UIColor?, cellSelectionType: CalendarStyle.CellSelectionType?, cellShape: CalendarStyle.CellShapeOptions? , cellBackgroundColor: UIColor?, cellTodayBackgroundColor: UIColor? , cellBorderColor: UIColor?, headerTextColor: UIColor?, cellTextColor: UIColor?, cellTodayTextColor: UIColor?) {
+    convenience public init (cellEventColor: UIColor?,
+                            cellSelectionType: CalendarStyle.CellSelectionType?,
+                            cellShape: CalendarStyle.CellShapeOptions? ,
+                            cellBackgroundColor: UIColor?,
+                            cellTodayBackgroundColor: UIColor? ,
+                            cellBorderColor: UIColor?,
+                            headerTextColor: UIColor?,
+                            cellTextColor: UIColor?,
+                            cellTodayTextColor: UIColor?) {
+        
         self.init()
 
         self.cellEventColor = cellEventColor
@@ -135,6 +147,10 @@ public class CalendarViewVC: UIViewController, CalendarViewDelegate {
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    deinit {
+        print("DEINIT")
     }
     
 }

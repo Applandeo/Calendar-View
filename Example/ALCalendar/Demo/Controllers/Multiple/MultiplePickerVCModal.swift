@@ -15,7 +15,6 @@ class MultiplePickerVCModal: UIViewController, CalendarViewDelegate {
         return true
     }
     
-    
     @IBOutlet weak var calendarView: CalendarView!
     @IBOutlet weak var backgroundDismissView: UIView!
     

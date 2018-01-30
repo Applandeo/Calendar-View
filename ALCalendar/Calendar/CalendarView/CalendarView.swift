@@ -16,7 +16,7 @@ import EventKit
 
 public class CalendarView: UIView {
 
-    public var delegate : CalendarViewDelegate?
+    public weak var delegate : CalendarViewDelegate?
     public var eventsLoader = EventsLoader()
     var calendarModel = CalendarModel()
     
@@ -74,11 +74,11 @@ public class CalendarView: UIView {
                 eventsForIndexPath.append(event)
                 calendarModel.eventsByIndexPath[indexPath] = eventsForIndexPath
             }
-            DispatchQueue.main.async { self.collectionView.reloadData() }
+            DispatchQueue.main.async { self.reloadData() }
         }
     }
     
-    public var allowMultipleSelection : Bool = false {
+    public var allowMultipleSelection : Bool = true {
         didSet {
             self.collectionView.allowsMultipleSelection = allowMultipleSelection
         }
@@ -252,4 +252,5 @@ extension CalendarView {
         guard let current = currentDate else { return }
         self.setCurrentDate(date: current)
     }
+    
 }

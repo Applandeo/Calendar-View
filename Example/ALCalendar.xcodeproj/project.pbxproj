@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		204667DBC4EC9691B3C17E38 /* Pods_ALCalendar_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA02C5F606B697AF7C631CF /* Pods_ALCalendar_Example.framework */; };
 		332CAA9C39919214B6D64371 /* Pods_ALCalendar_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 859FBAAD1E0FC9F0E96CE55E /* Pods_ALCalendar_Tests.framework */; };
-		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		9E309ED12019E8A600C8FF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E309ED02019E8A500C8FF13 /* AppDelegate.swift */; };
 		9EF6E2F72018B6D700D629F6 /* MultiplePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2EC2018B6D700D629F6 /* MultiplePickerVC.swift */; };
 		9EF6E2F82018B6D700D629F6 /* MultiplePickerVCModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2ED2018B6D700D629F6 /* MultiplePickerVCModal.swift */; };
 		9EF6E2F92018B6D700D629F6 /* SinglePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6E2EF2018B6D700D629F6 /* SinglePickerVC.swift */; };
@@ -42,8 +41,6 @@
 		3B903462298A1218B4C1DD89 /* Pods-ALCalendar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendar_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendar_Example/Pods-ALCalendar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ALCalendar_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALCalendar_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* ALCalendar_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALCalendar_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +48,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		75E3674A758A49CEB51DA35D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		859FBAAD1E0FC9F0E96CE55E /* Pods_ALCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALCalendar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E309ED02019E8A500C8FF13 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EF6E2EC2018B6D700D629F6 /* MultiplePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplePickerVC.swift; sourceTree = "<group>"; };
 		9EF6E2ED2018B6D700D629F6 /* MultiplePickerVCModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplePickerVCModal.swift; sourceTree = "<group>"; };
 		9EF6E2EF2018B6D700D629F6 /* SinglePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePickerVC.swift; sourceTree = "<group>"; };
@@ -118,9 +116,8 @@
 		607FACD21AFB9204008FA782 /* Example for ALCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				9E309ED02019E8A500C8FF13 /* AppDelegate.swift */,
 				9EF6E2E92018B6D700D629F6 /* Demo */,
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				9EF6E2FE2018B6F200D629F6 /* Main.storyboard */,
@@ -185,10 +182,9 @@
 		9EF6E2EA2018B6D700D629F6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9EF6E2F22018B6D700D629F6 /* CalendarPicker.swift */,
 				9EF6E2EB2018B6D700D629F6 /* Multiple */,
 				9EF6E2EE2018B6D700D629F6 /* Single */,
-				9EF6E2F12018B6D700D629F6 /* Extensions */,
-				9EF6E2F22018B6D700D629F6 /* CalendarPicker.swift */,
 				9EF6E2F32018B6D700D629F6 /* Range */,
 			);
 			path = Controllers;
@@ -210,13 +206,6 @@
 				9EF6E2F02018B6D700D629F6 /* SinglePickerVCModal.swift */,
 			);
 			path = Single;
-			sourceTree = "<group>";
-		};
-		9EF6E2F12018B6D700D629F6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9EF6E2F32018B6D700D629F6 /* Range */ = {
@@ -289,6 +278,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 39ZKQ9YZS2;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -440,10 +430,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E309ED12019E8A600C8FF13 /* AppDelegate.swift in Sources */,
 				9EF6E2FA2018B6D700D629F6 /* SinglePickerVCModal.swift in Sources */,
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				9EF6E2FC2018B6D700D629F6 /* RangePickerVC.swift in Sources */,
-				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				9EF6E2F82018B6D700D629F6 /* MultiplePickerVCModal.swift in Sources */,
 				9EF6E2F72018B6D700D629F6 /* MultiplePickerVC.swift in Sources */,
 				9EF6E2FD2018B6D700D629F6 /* RangePickerVCModal.swift in Sources */,
@@ -619,6 +608,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DAC106909062EA3B3676D657 /* Pods-ALCalendar_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 39ZKQ9YZS2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -640,6 +630,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CA81434CBFCF727FE5C40BF9 /* Pods-ALCalendar_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 39ZKQ9YZS2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

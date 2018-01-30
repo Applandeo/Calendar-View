@@ -29,6 +29,7 @@ class RangePickerVC: UIViewController, CalendarViewDelegate {
         calendarView.backgroundColor = UIColor.white
         calendarView.delegate = self
         calendarView.layer.cornerRadius = 8
+        calendarView.allowMultipleSelection = false
         
         var tomorrowComponents = DateComponents()
         tomorrowComponents.day = 1

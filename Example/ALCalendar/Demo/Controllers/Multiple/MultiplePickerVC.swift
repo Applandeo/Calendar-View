@@ -11,13 +11,6 @@ import ALCalendar
 
 class MultiplePickerVC: UIViewController, CalendarViewDelegate {
     
-    
-    func calendar(_ calendar: CalendarView, canSelectDate date: Date) -> Bool {
-        return true
-    }
-    
-    
-  
     @IBOutlet weak var calendarView: CalendarView!
     
     override func viewDidLoad() {
@@ -25,6 +18,7 @@ class MultiplePickerVC: UIViewController, CalendarViewDelegate {
         calendarView.delegate = self
         calendarView.showEkEvents = true
         calendarView.direction = .vertical
+        calendarView.allowMultipleSelection = true
         
         let today = Date()
         calendarView.setCurrentDate(date: today, animated: false)
@@ -38,10 +32,10 @@ class MultiplePickerVC: UIViewController, CalendarViewDelegate {
         CalendarStyle.headerTextColor = UIColor.black
         CalendarStyle.cellTextColor = UIColor.black
         CalendarStyle.cellTodayTextColor = UIColor.white
-
     }
     
     @objc func handleTap() {
+        self.calendarView.removeFromSuperview()
         dismiss(animated: true, completion: nil)
     }
     
@@ -59,7 +53,7 @@ class MultiplePickerVC: UIViewController, CalendarViewDelegate {
     }
     
     func calendar(_ calendar: CalendarView, didDeselectDate date: Date) {
-        print("yeap")
+        print("didDeselectDate")
     }
     
     override var prefersStatusBarHidden: Bool {

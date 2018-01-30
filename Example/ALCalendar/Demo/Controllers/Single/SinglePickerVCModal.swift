@@ -54,8 +54,6 @@ class SinglePickerVCModal: UIViewController, CalendarViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
     }
     
     @objc func handleTap() {

@@ -12,7 +12,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let date = self.dateFromIndexPath(indexPath) else { return }
-        if let index = calendarModel.selectedIndexPaths.index(of: indexPath) {
+        if let index = self.calendarModel.selectedIndexPaths.index(of: indexPath) {
             deselectCell(date: date, index: index, indexPath: indexPath)
         } else {
             selectCell(date: date, indexPath: indexPath)
@@ -20,7 +20,11 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         self.reloadData()
     }
     
-    fileprivate func deselectCell(date: Date, index: Int, indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    public func deselectCell(date: Date, index: Int, indexPath: IndexPath) {
         if CalendarStyle.cellSelectionType == .range {
             calendarModel.selectedIndexPaths.removeAll()
             calendarModel.selectedDates.removeAll()
@@ -28,10 +32,10 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             calendarModel.selectedIndexPaths.append(indexPath)
             calendarModel.selectedDates.append(date)
         } else {
+            delegate?.calendar(self, didDeselectDate: date)
             calendarModel.selectedIndexPaths.remove(at: index)
             calendarModel.selectedDates.remove(at: index)
         }
-        delegate?.calendar(self, didDeselectDate: date)
     }
     
     fileprivate func selectCell(date: Date, indexPath: IndexPath) {
@@ -41,9 +45,20 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             
             rangeSelection(indexPath, date)
         case .multiple:
-            multipleSelection(date, indexPath)
+            calendarModel.selectedIndexPaths.append(indexPath)
+            calendarModel.selectedDates.append(date)
+            
+            let eventsForDaySelected = calendarModel.eventsByIndexPath[indexPath] ?? []
+            delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
         case .single:
-            singleSelection(date, indexPath)
+            
+            calendarModel.selectedDates.removeAll()
+            calendarModel.selectedIndexPaths.removeAll()
+            
+            calendarModel.selectedDates.append(date)
+            calendarModel.selectedIndexPaths.append(indexPath)
+            let eventsForDaySelected = calendarModel.eventsByIndexPath[indexPath] ?? []
+            delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)            
         }
     }
     
@@ -107,13 +122,7 @@ extension CalendarView {
     }
     
     fileprivate func singleSelection(_ date: Date, _ indexPath: IndexPath) {
-        calendarModel.selectedDates.removeAll()
-        calendarModel.selectedIndexPaths.removeAll()
         
-        calendarModel.selectedDates.append(date)
-        calendarModel.selectedIndexPaths.append(indexPath)
-        let eventsForDaySelected = calendarModel.eventsByIndexPath[indexPath] ?? []
-        delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
     }
     
     fileprivate func rangeSelection(_ indexPath: IndexPath, _ date: Date) {

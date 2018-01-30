@@ -36,12 +36,10 @@ class CalendarPicker: UIViewController {
     }
     
     @IBAction func testButtonPressed(_ sender: Any) {
-        let vc = CalendarViewVC(cellEventColor: #colorLiteral(red: 0.12773031, green: 0.6113714576, blue: 0.9892446399, alpha: 1), cellSelectionType: .single, cellShape: .square, cellBackgroundColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), cellTodayBackgroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellBorderColor: #colorLiteral(red: 0.9593754411, green: 0.2246205509, blue: 0.2793699503, alpha: 1), headerTextColor: #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1), cellTextColor: #colorLiteral(red: 0.12773031, green: 0.6113714576, blue: 0.9892446399, alpha: 1), cellTodayTextColor: #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1))
-        
-        vc.view.superview?.frame.size = CGSize(width: 300, height: 350)
-        vc.modalPresentationStyle = .overCurrentContext
+        let vc = CalendarViewVC(cellEventColor: #colorLiteral(red: 0.9905124307, green: 0.9440224767, blue: 0.244779706, alpha: 1), cellSelectionType: .single, cellShape: .round , cellBackgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTodayBackgroundColor: #colorLiteral(red: 0.9905124307, green: 0.9440224767, blue: 0.244779706, alpha: 1), cellBorderColor: #colorLiteral(red: 0.9905124307, green: 0.9440224767, blue: 0.244779706, alpha: 1), headerTextColor: #colorLiteral(red: 0.9905009866, green: 0.9394227862, blue: 0.3849801421, alpha: 1), cellTextColor: #colorLiteral(red: 0.9996390939, green: 1, blue: 0.9997561574, alpha: 1), cellTodayTextColor: #colorLiteral(red: 0.1594840586, green: 0.1951329112, blue: 0.2491612434, alpha: 1))
+        vc.modalPresentationStyle = .currentContext
         vc.modalTransitionStyle = .crossDissolve
-        vc.view.backgroundColor = UIColor.white
+        vc.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6888204225)
         present(vc, animated: true, completion: nil)
     }
     
