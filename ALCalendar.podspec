@@ -20,7 +20,7 @@ s.author           = { 'Sebastian Grabinski' => 'sebastian.grabinski@applandeo.c
   s.source           = { :git => 'https://github.com/Applandeo/Calendar-View.git', :tag => s.version.to_s }
   s.social_media_url = 'https://www.facebook.com/applandeo/'
   s.ios.deployment_target = '10.0'
-    s.source_files = 'Calendar/**/*'
+    s.source_files = 'ALCalendar/*'
 
 
 #  Be sure to run `pod spec lint ALCalendar.podspec' to ensure this is a
