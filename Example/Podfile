@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ALCalendar_Example' do
+  pod 'ALCalendar', :path => '../'
+
+  target 'ALCalendar_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
