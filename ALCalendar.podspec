@@ -13,7 +13,7 @@ s.license      =  { :type => 'Apache 2.0', :file => 'LICENSE' }
 s.homepage     =  'https://github.com/Applandeo/Calendar-View/'
 s.authors      =  { 'Sebastian' => 'sebastian.grabinski@applandeo.com' }
 s.source       =  { :git => 'https://github.com/Applandeo/Calendar-View.git', :tag => 1.0 }
-s.source_files = 'Source/*'
+s.source_files = 'Source/*.swift'
 
 s.ios.deployment_target  = '10.0'
 
