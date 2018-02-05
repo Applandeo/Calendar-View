@@ -1,0 +1,25 @@
+{
+  "name": "ALCalendar",
+  "version": "1.0",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/Applandeo/Calendar-View/",
+  "authors": {
+    "Sebastian": "sebastian.grabinski@applandeo.com"
+  },
+  "source": {
+    "git": "https://github.com/Applandeo/Calendar-View.git",
+    "tag": 1.0
+  },
+  "summary": "Just a simple podspec, no working code.",
+  "description": "Just a simple podspec for 2 files of Objective-C.",
+  "source_files": "ALCalendar/Calendar/**/*",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}

@@ -10,10 +10,17 @@
 		54AA7C43D357BD2077EAA280 /* Pods_ALCalendar_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E4C88DD9C89C1BF9D36EB4 /* Pods_ALCalendar_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		9EBAD28120284E1E00263347 /* MultiplePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBAD27820284E1E00263347 /* MultiplePickerVC.swift */; };
+		9EBAD28220284E1E00263347 /* MultiplePickerVCModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBAD27920284E1E00263347 /* MultiplePickerVCModal.swift */; };
+		9EBAD28320284E1E00263347 /* SinglePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBAD27B20284E1E00263347 /* SinglePickerVC.swift */; };
+		9EBAD28420284E1E00263347 /* SinglePickerVCModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBAD27C20284E1E00263347 /* SinglePickerVCModal.swift */; };
+		9EBAD28520284E1E00263347 /* CalendarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBAD27D20284E1E00263347 /* CalendarPicker.swift */; };
+		9EBAD28620284E1E00263347 /* RangePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBAD27F20284E1E00263347 /* RangePickerVC.swift */; };
+		9EBAD28720284E1E00263347 /* RangePickerVCModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBAD28020284E1E00263347 /* RangePickerVCModal.swift */; };
+		9EBAD28920284E4600263347 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EBAD28820284E4500263347 /* Main.storyboard */; };
 		D8E2A90D0ADC735CB48E36BD /* Pods_ALCalendar_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C70C4B2995CFD4319259B3 /* Pods_ALCalendar_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,21 +39,28 @@
 		4515F1B6DB01CE0068ECE562 /* Pods-ALCalendar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendar_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendar_Tests/Pods-ALCalendar_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		46DCB43CEA4DCD4A94782730 /* Pods-ALCalendar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendar_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendar_Tests/Pods-ALCalendar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		58C70C4B2995CFD4319259B3 /* Pods_ALCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALCalendar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DE71BE4B040661B830CA201 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5DE71BE4B040661B830CA201 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ALCalendar_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALCalendar_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* ALCalendar_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALCalendar_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		76035E629270BEED37019950 /* ALCalendar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ALCalendar.podspec; path = ../ALCalendar.podspec; sourceTree = "<group>"; };
+		76035E629270BEED37019950 /* ALCalendar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ALCalendar.podspec; path = ../ALCalendar.podspec; sourceTree = "<group>"; };
+		9EBAD27820284E1E00263347 /* MultiplePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplePickerVC.swift; sourceTree = "<group>"; };
+		9EBAD27920284E1E00263347 /* MultiplePickerVCModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplePickerVCModal.swift; sourceTree = "<group>"; };
+		9EBAD27B20284E1E00263347 /* SinglePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePickerVC.swift; sourceTree = "<group>"; };
+		9EBAD27C20284E1E00263347 /* SinglePickerVCModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePickerVCModal.swift; sourceTree = "<group>"; };
+		9EBAD27D20284E1E00263347 /* CalendarPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPicker.swift; sourceTree = "<group>"; };
+		9EBAD27F20284E1E00263347 /* RangePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangePickerVC.swift; sourceTree = "<group>"; };
+		9EBAD28020284E1E00263347 /* RangePickerVCModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangePickerVCModal.swift; sourceTree = "<group>"; };
+		9EBAD28820284E4500263347 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A3E4C88DD9C89C1BF9D36EB4 /* Pods_ALCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALCalendar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79D042245B9610923809877 /* Pods-ALCalendar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendar_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendar_Example/Pods-ALCalendar_Example.release.xcconfig"; sourceTree = "<group>"; };
-		E5FFCD261C72A8E7445F26A1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E5FFCD261C72A8E7445F26A1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +116,10 @@
 		607FACD21AFB9204008FA782 /* Example for ALCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				9EBAD28820284E4500263347 /* Main.storyboard */,
+				9EBAD27520284E1E00263347 /* Demo */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -146,6 +161,52 @@
 				5DE71BE4B040661B830CA201 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		9EBAD27520284E1E00263347 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				9EBAD27620284E1E00263347 /* Controllers */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		9EBAD27620284E1E00263347 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9EBAD27720284E1E00263347 /* Multiple */,
+				9EBAD27A20284E1E00263347 /* Single */,
+				9EBAD27D20284E1E00263347 /* CalendarPicker.swift */,
+				9EBAD27E20284E1E00263347 /* Range */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9EBAD27720284E1E00263347 /* Multiple */ = {
+			isa = PBXGroup;
+			children = (
+				9EBAD27820284E1E00263347 /* MultiplePickerVC.swift */,
+				9EBAD27920284E1E00263347 /* MultiplePickerVCModal.swift */,
+			);
+			path = Multiple;
+			sourceTree = "<group>";
+		};
+		9EBAD27A20284E1E00263347 /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				9EBAD27B20284E1E00263347 /* SinglePickerVC.swift */,
+				9EBAD27C20284E1E00263347 /* SinglePickerVCModal.swift */,
+			);
+			path = Single;
+			sourceTree = "<group>";
+		};
+		9EBAD27E20284E1E00263347 /* Range */ = {
+			isa = PBXGroup;
+			children = (
+				9EBAD27F20284E1E00263347 /* RangePickerVC.swift */,
+				9EBAD28020284E1E00263347 /* RangePickerVCModal.swift */,
+			);
+			path = Range;
 			sourceTree = "<group>";
 		};
 		A1D8482EC7A93CC4EF196880 /* Pods */ = {
@@ -248,9 +309,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				9EBAD28920284E4600263347 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,8 +431,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EBAD28420284E1E00263347 /* SinglePickerVCModal.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				9EBAD28620284E1E00263347 /* RangePickerVC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				9EBAD28220284E1E00263347 /* MultiplePickerVCModal.swift in Sources */,
+				9EBAD28120284E1E00263347 /* MultiplePickerVC.swift in Sources */,
+				9EBAD28720284E1E00263347 /* RangePickerVCModal.swift in Sources */,
+				9EBAD28320284E1E00263347 /* SinglePickerVC.swift in Sources */,
+				9EBAD28520284E1E00263347 /* CalendarPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,14 +462,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -518,6 +578,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ALCalendar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -533,6 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ALCalendar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
