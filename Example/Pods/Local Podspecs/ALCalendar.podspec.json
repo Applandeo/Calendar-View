@@ -18,5 +18,5 @@
   },
   "summary": "Just a simple podspec, no working code.",
   "description": "Just a simple podspec for 2 files of Objective-C.",
-  "source_files": "ALCalendar/Calendar/**/*"
+  "source_files": "Source/*.swift"
 }
