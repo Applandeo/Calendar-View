@@ -1,29 +1,45 @@
 import UIKit
 import XCTest
-import ALCalendar
+@testable import ALCalendar
 
 class Tests: XCTestCase {
     
+    var calendar = CalendarView()
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        calendar.setCurrentDate(date: Date())
+        
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+}
+
+public class CalendarViewTestingController: UIViewController {
+    
+    var calendarView: CalendarView!
+    
+    override public func viewDidLoad() {
+         super.viewDidLoad()
+        
+        calendarView.delegate = self
+        calendarView.allowMultipleSelection = true
+        calendarView.frame = view.frame
+        calendarView.layoutSubviews()
+        
+
+        self.view.addSubview(calendarView)
+        print("ok")
+    }
+}
+
+extension CalendarViewTestingController: CalendarViewDelegate {
+    
+    public func calendar(_ calendar : CalendarView, didSelectDate date : Date, withEvents: [CalendarEvent])  {
+
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    public func calendar(_ calendar : CalendarView, didScrollToMonth date : Date) {
+        
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+
 }

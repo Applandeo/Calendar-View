@@ -30,7 +30,6 @@ public class CalendarStyle {
         case range
     }
     
-    //Defaults
     public static var cellBackgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3926056338)
     public static var cellTextColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     public static var cellTodayTextColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -39,8 +38,12 @@ public class CalendarStyle {
     public static var cellBorderWidth: CGFloat = 2.0
     public static var cellEventColor = UIColor(red: 254.0/255.0, green: 73.0/255.0, blue: 64.0/255.0, alpha: 0.8)
     public static var cellShape = CellShapeOptions.round
-    public static var headerFontName: String = "Helvetica"
-    public static var headerTextColor = UIColor.gray
-    public static var headerHeight: CGFloat = 80.0
     public static var cellSelectionType = CellSelectionType.single
+    
+    public static var headerTextColor = UIColor.red
+    public static var headerWeekdayFontSize: CGFloat = 14.0
+    public static var headerHeight: CGFloat = 120.0
+    public static var textAlligment: NSTextAlignment = .center
+    public static var headerFontName: String = "Helvetica"
+    public static var headerFontSize: CGFloat = 20.0
 }

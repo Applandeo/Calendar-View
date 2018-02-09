@@ -10,10 +10,13 @@ import UIKit
 
 open class CalendarHeaderView: UIView {
     
-    lazy var monthLabel : UILabel = {
-        let label = UILabel()
-        label.textAlignment = NSTextAlignment.center
-        label.font = UIFont(name: CalendarStyle.headerFontName, size: 20.0)
+    var month: String?
+    var year: Int?
+    
+    lazy var monthLabel : PaddingLabel = {
+        let label = PaddingLabel()
+        label.textAlignment = CalendarStyle.textAlligment
+        label.font = UIFont(name: CalendarStyle.headerFontName, size: CalendarStyle.headerFontSize)
         label.textColor = CalendarStyle.headerTextColor
         
         self.addSubview(label)
@@ -26,7 +29,7 @@ open class CalendarHeaderView: UIView {
         
         for index in 1...7 {
             let weekdayLabel = UILabel()
-            weekdayLabel.font = UIFont(name: CalendarStyle.headerFontName, size: 14.0)
+            weekdayLabel.font = UIFont(name: CalendarStyle.headerFontName, size: CalendarStyle.headerWeekdayFontSize)
             weekdayLabel.text = formatter.shortWeekdaySymbols[(index % 7)]
             weekdayLabel.textColor = CalendarStyle.headerTextColor
             weekdayLabel.textAlignment = NSTextAlignment.center
@@ -35,6 +38,11 @@ open class CalendarHeaderView: UIView {
         self.addSubview(containerView)
         return containerView
     }()
+    
+    open override func setNeedsDisplay() {
+        super.setNeedsDisplay()
+        
+    }
     
     override open func layoutSubviews() {
         super.layoutSubviews()
@@ -55,6 +63,7 @@ open class CalendarHeaderView: UIView {
             label.frame = labelFrame
             labelFrame.origin.x += labelFrame.size.width
         }
+        
     }
     
 }

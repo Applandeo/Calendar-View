@@ -88,7 +88,6 @@ public class CalendarView: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
-        self.layoutIfNeeded()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -98,13 +97,24 @@ public class CalendarView: UIView {
     override public func awakeFromNib() {
         super.awakeFromNib()
         self.setup()
-        self.layoutIfNeeded()
     }
     
     // MARK: Create Subviews
     var headerView: CalendarHeaderView!
     var collectionView: UICollectionView!
 
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        self.headerView.frame = CGRect( x:0.0, y:0.0, width: self.frame.size.width,height: CalendarStyle.headerHeight)
+        self.collectionView.frame = CGRect(x: 0.0, y: CalendarStyle.headerHeight, width: self.frame.size.width, height: self.frame.size.height - CalendarStyle.headerHeight)
+        flowLayout.itemSize = self.cellSize(in: self.bounds)
+        
+//        self.resetCurrentDate()
+        guard let current = currentDate else { return }
+        self.setCurrentDate(date: current)
+        
+    }
+    
     private func setup() {
         
         self.setStartDate()
@@ -139,6 +149,7 @@ public class CalendarView: UIView {
         self.collectionView.showsVerticalScrollIndicator = false
         self.collectionView.register(DayCell.self, forCellWithReuseIdentifier: DayCell_ID)
         self.reloadData()
+        
         checkSelectionType()
     }
     
@@ -240,17 +251,6 @@ extension CalendarView {
             animated: false
         )
         self.displayDateOnHeader(date)
-    }
-    
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-        self.headerView.frame = CGRect( x:0.0, y:0.0, width: self.frame.size.width,height: CalendarStyle.headerHeight)
-        self.collectionView.frame = CGRect(x: 0.0, y: CalendarStyle.headerHeight, width: self.frame.size.width, height: self.frame.size.height - CalendarStyle.headerHeight)
-        flowLayout.itemSize = self.cellSize(in: self.bounds)
-        
-        self.resetCurrentDate()
-        guard let current = currentDate else { return }
-        self.setCurrentDate(date: current)
     }
     
 }

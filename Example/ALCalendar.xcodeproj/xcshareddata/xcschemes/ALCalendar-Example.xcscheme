@@ -53,6 +53,26 @@
                ReferencedContainer = "container:ALCalendar.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9E014C852029E43F009E85A1"
+               BuildableName = "ALCalendar_ExampleTests.xctest"
+               BlueprintName = "ALCalendar_ExampleTests"
+               ReferencedContainer = "container:ALCalendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9E014C932029E460009E85A1"
+               BuildableName = "ALCalendar_ExampleUITests.xctest"
+               BlueprintName = "ALCalendar_ExampleUITests"
+               ReferencedContainer = "container:ALCalendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

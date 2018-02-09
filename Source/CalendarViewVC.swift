@@ -36,7 +36,6 @@ public class CalendarViewVC: UIViewController, CalendarViewDelegate {
         calendarView.allowMultipleSelection = true
         calendarView.backgroundColor = #colorLiteral(red: 0.1594840586, green: 0.1951329112, blue: 0.2491612434, alpha: 1)
         
-        
         let today = Date()
         calendarView.setCurrentDate(date: today, animated: false)
 
@@ -46,9 +45,12 @@ public class CalendarViewVC: UIViewController, CalendarViewDelegate {
         CalendarStyle.cellBackgroundColor = cellBackgroundColor!
         CalendarStyle.cellTodayBackgroundColor = cellTodayBackgroundColor!
         CalendarStyle.cellBorderColor = cellBorderColor!
+        
         CalendarStyle.headerTextColor = headerTextColor!
         CalendarStyle.cellTextColor = cellTextColor!
         CalendarStyle.cellTodayTextColor = cellTodayTextColor!
+        CalendarStyle.textAlligment = .left
+        
     }
     
     func setupUI() {

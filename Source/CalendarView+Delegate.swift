@@ -101,10 +101,9 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     }
     
     func displayDateOnHeader(_ date: Date) {
-        let month = self.calendar.component(.month, from: date) // get month
-        let monthName = DateFormatter().monthSymbols[(month-1) % 12] // 0 indexed array
+        let month = self.calendar.component(.month, from: date)
+        let monthName = DateFormatter().monthSymbols[(month-1) % 12]
         let year = self.calendar.component(.year, from: date)
-        
         self.headerView.monthLabel.text = monthName + " " + String(year)
         self.currentDate = date
     }
@@ -119,10 +118,6 @@ extension CalendarView {
         calendarModel.selectedIndexPaths.append(indexPath)
         let eventsForDaySelected = calendarModel.eventsByIndexPath[indexPath] ?? []
         delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
-    }
-    
-    fileprivate func singleSelection(_ date: Date, _ indexPath: IndexPath) {
-        
     }
     
     fileprivate func rangeSelection(_ indexPath: IndexPath, _ date: Date) {

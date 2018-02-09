@@ -20,8 +20,8 @@
 		7A2B610AA1C323A9A4F25FDAFD1349EB /* CalendarViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4EE5433C799B919970382E14C8C6D /* CalendarViewVC.swift */; };
 		7EE1E13F639650AB391E7270332A0A21 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B06FDE6AF5C9C4C4DFC6134C6434086 /* DayCell.swift */; };
 		8A258D14AFD7E583B30E0BFC4962BF7B /* Pods-ALCalendar_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FFFC1FB1A3B239792214A97550583E /* Pods-ALCalendar_Example-dummy.m */; };
-		93546952EEABB780D9181E79C5984C1E /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8527451F3B1D18E664DCEB08A80B8E /* DateConverter.swift */; };
 		9CD8E1813B3DCE73E08A32D51D74C1C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		9E68803C202D99B60003E444 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68803B202D99B60003E444 /* PaddingLabel.swift */; };
 		A65ABA8B94F1F22F6AB57D63530261DC /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C5C0D1BD418A3F3D17577A2121A815 /* CalendarModel.swift */; };
 		A6A56FA7FFBF73EC99D981B2A3FC55C4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4088ED380CDC974E2B0AE753993E8010 /* DateExtension.swift */; };
 		BCD5A02025157594286C3B3610979D90 /* EKEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8673094BD8039C213B891D6EC5E7FF7 /* EKEventExtension.swift */; };
@@ -51,13 +51,12 @@
 /* Begin PBXFileReference section */
 		0531C3E9E7F949BF3CD2C970BDC64CC5 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Constants.swift; sourceTree = "<group>"; };
 		0B06FDE6AF5C9C4C4DFC6134C6434086 /* DayCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DayCell.swift; path = Source/DayCell.swift; sourceTree = "<group>"; };
-		0F1E4903209887391589DF2980044EE5 /* ALCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ALCalendar.framework; path = ALCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F1E4903209887391589DF2980044EE5 /* ALCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		118B921CF0CE3E9DFAC0A71B3588667A /* CalendarViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarViewFlowLayout.swift; path = Source/CalendarViewFlowLayout.swift; sourceTree = "<group>"; };
 		13532064A8FC346AAA5DBBED256D6002 /* Pods-ALCalendar_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ALCalendar_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		13DE2F8A07A6CB1D033D8FB168DF5944 /* CalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = Source/CalendarView.swift; sourceTree = "<group>"; };
 		2344B7D7DBAE34A6CD8CABFE25E1B605 /* Pods-ALCalendar_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ALCalendar_Example-umbrella.h"; sourceTree = "<group>"; };
 		2890F4DB546B33634843249148F34DDF /* Pods-ALCalendar_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ALCalendar_Example-frameworks.sh"; sourceTree = "<group>"; };
-		2E8527451F3B1D18E664DCEB08A80B8E /* DateConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateConverter.swift; path = Source/DateConverter.swift; sourceTree = "<group>"; };
 		32653619C9F4C2C28E61FC01B9D4678D /* Pods-ALCalendar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ALCalendar_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		340BCEC65EE94510DFA5B3EF052205A9 /* Pods-ALCalendar_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ALCalendar_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		36432C94F481A24E7F2CC6A3EF1C300F /* EventsLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventsLoader.swift; path = Source/EventsLoader.swift; sourceTree = "<group>"; };
@@ -68,24 +67,25 @@
 		53FFFC1FB1A3B239792214A97550583E /* Pods-ALCalendar_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ALCalendar_Example-dummy.m"; sourceTree = "<group>"; };
 		571CB04C39B80EC7399693A335C91014 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		604B66C494159370583B99983B312AA2 /* CalendarViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarViewDelegate.swift; path = Source/CalendarViewDelegate.swift; sourceTree = "<group>"; };
-		62926CF7610D6205687D476B8C386EA5 /* Pods_ALCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ALCalendar_Example.framework; path = "Pods-ALCalendar_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62926CF7610D6205687D476B8C386EA5 /* Pods_ALCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALCalendar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		66BE2399871E638BC48A45D2B5E572BF /* ALCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALCalendar-prefix.pch"; sourceTree = "<group>"; };
-		680724A5CA51611DAF94F43940AD7324 /* Pods_ALCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ALCalendar_Tests.framework; path = "Pods-ALCalendar_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		680724A5CA51611DAF94F43940AD7324 /* Pods_ALCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALCalendar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		697214143EB929389F75301A10F28710 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E0A7485A32DF71088909DA8D6A28169 /* Pods-ALCalendar_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ALCalendar_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6FE00F1E5F9B2B585D836E4E878DCC72 /* Pods-ALCalendar_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ALCalendar_Tests.modulemap"; sourceTree = "<group>"; };
+		6FE00F1E5F9B2B585D836E4E878DCC72 /* Pods-ALCalendar_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ALCalendar_Tests.modulemap"; sourceTree = "<group>"; };
 		73EDAFC52829448D9A084BE64F14728B /* CalendarView+DataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CalendarView+DataSource.swift"; path = "Source/CalendarView+DataSource.swift"; sourceTree = "<group>"; };
 		77BC7B6C8A34528DB50F2F2B0F4DEE5F /* ALCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALCalendar-umbrella.h"; sourceTree = "<group>"; };
 		77F84EA48B035CD8A05CA7A141489B92 /* Pods-ALCalendar_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ALCalendar_Tests-umbrella.h"; sourceTree = "<group>"; };
 		7EF4EE5433C799B919970382E14C8C6D /* CalendarViewVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarViewVC.swift; path = Source/CalendarViewVC.swift; sourceTree = "<group>"; };
-		81EB91E27B04E165660334DF11E6FC11 /* Pods-ALCalendar_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ALCalendar_Example.modulemap"; sourceTree = "<group>"; };
+		81EB91E27B04E165660334DF11E6FC11 /* Pods-ALCalendar_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ALCalendar_Example.modulemap"; sourceTree = "<group>"; };
 		88C1C6B0599D09A60B212BBAC6C6E883 /* CalendarViewExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarViewExtension.swift; path = Source/CalendarViewExtension.swift; sourceTree = "<group>"; };
 		8DF42406633CDBCA7D2AF18D92421146 /* Pods-ALCalendar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ALCalendar_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8F00E9AE7150EF4586BBC7871433DA31 /* Pods-ALCalendar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ALCalendar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95E644219A70737C9181077CF7F69473 /* IndexPathExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IndexPathExtension.swift; path = Source/IndexPathExtension.swift; sourceTree = "<group>"; };
 		9CE97271C1554C78B2D23315B726C166 /* ALCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ALCalendar.xcconfig; sourceTree = "<group>"; };
+		9E68803B202D99B60003E444 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		A87E44EE594BEBC37E1C30A4075AC5C5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE58BE252A201BFA439C322E25B09CFA /* RangeInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeInfo.swift; path = Source/RangeInfo.swift; sourceTree = "<group>"; };
 		AEA5175509452254F491C59C37D0697F /* Pods-ALCalendar_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ALCalendar_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		C30C115B7283CB73AE36B8B036F56EAF /* Pods-ALCalendar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ALCalendar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C8673094BD8039C213B891D6EC5E7FF7 /* EKEventExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKEventExtension.swift; path = Source/EKEventExtension.swift; sourceTree = "<group>"; };
 		CA4F6E48835E6F117766FD666600862B /* ALCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ALCalendar-dummy.m"; sourceTree = "<group>"; };
-		D1BB4979681BE116E1D85956E21827DD /* ALCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ALCalendar.modulemap; sourceTree = "<group>"; };
+		D1BB4979681BE116E1D85956E21827DD /* ALCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ALCalendar.modulemap; sourceTree = "<group>"; };
 		D9A5F49C2F174A889D7CE44BB2C57FC5 /* CalendarEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarEvent.swift; path = Source/CalendarEvent.swift; sourceTree = "<group>"; };
 		F2C5C0D1BD418A3F3D17577A2121A815 /* CalendarModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarModel.swift; path = Source/CalendarModel.swift; sourceTree = "<group>"; };
 		F52F373D0B28AA791B1130C410471B88 /* Pods-ALCalendar_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ALCalendar_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -199,26 +199,26 @@
 		949548E9568F16FAFA6717FAE80A1F3E /* ALCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				414F84C9D1BBA214DC886256F8169473 /* CalendarStyle.swift */,
+				FF20552D987A31B2F992E600E3F33D07 /* CalendarViewHeader.swift */,
 				D9A5F49C2F174A889D7CE44BB2C57FC5 /* CalendarEvent.swift */,
 				B2B6848D37B6ADFFCF2E94651C181E53 /* CalendarExtension.swift */,
 				F2C5C0D1BD418A3F3D17577A2121A815 /* CalendarModel.swift */,
-				414F84C9D1BBA214DC886256F8169473 /* CalendarStyle.swift */,
 				13DE2F8A07A6CB1D033D8FB168DF5944 /* CalendarView.swift */,
 				73EDAFC52829448D9A084BE64F14728B /* CalendarView+DataSource.swift */,
 				536C5A883264FF30E9123C3122A5FA7F /* CalendarView+Delegate.swift */,
 				604B66C494159370583B99983B312AA2 /* CalendarViewDelegate.swift */,
 				88C1C6B0599D09A60B212BBAC6C6E883 /* CalendarViewExtension.swift */,
 				118B921CF0CE3E9DFAC0A71B3588667A /* CalendarViewFlowLayout.swift */,
-				FF20552D987A31B2F992E600E3F33D07 /* CalendarViewHeader.swift */,
 				7EF4EE5433C799B919970382E14C8C6D /* CalendarViewVC.swift */,
 				0531C3E9E7F949BF3CD2C970BDC64CC5 /* Constants.swift */,
-				2E8527451F3B1D18E664DCEB08A80B8E /* DateConverter.swift */,
 				4088ED380CDC974E2B0AE753993E8010 /* DateExtension.swift */,
 				0B06FDE6AF5C9C4C4DFC6134C6434086 /* DayCell.swift */,
 				C8673094BD8039C213B891D6EC5E7FF7 /* EKEventExtension.swift */,
 				36432C94F481A24E7F2CC6A3EF1C300F /* EventsLoader.swift */,
 				95E644219A70737C9181077CF7F69473 /* IndexPathExtension.swift */,
 				AE58BE252A201BFA439C322E25B09CFA /* RangeInfo.swift */,
+				9E68803B202D99B60003E444 /* PaddingLabel.swift */,
 				CCF6F90E0FC27413266BFB496D44739A /* Support Files */,
 			);
 			name = ALCalendar;
@@ -404,11 +404,11 @@
 				2A90951BFD6D8571BC76F04A128ED3EC /* CalendarView.swift in Sources */,
 				EB02BDD4123BB0527B54A0EF36BCD9C8 /* CalendarViewDelegate.swift in Sources */,
 				F220C279F0364E1E968AF8C57677E2D1 /* CalendarViewExtension.swift in Sources */,
+				9E68803C202D99B60003E444 /* PaddingLabel.swift in Sources */,
 				2A68E092856B9C2D7904DD43FC67F24C /* CalendarViewFlowLayout.swift in Sources */,
 				777A4CDAA5D412233AA711FC695F12E1 /* CalendarViewHeader.swift in Sources */,
 				7A2B610AA1C323A9A4F25FDAFD1349EB /* CalendarViewVC.swift in Sources */,
 				D66147DD7BC55A4CF45AC427E8CA60BC /* Constants.swift in Sources */,
-				93546952EEABB780D9181E79C5984C1E /* DateConverter.swift in Sources */,
 				A6A56FA7FFBF73EC99D981B2A3FC55C4 /* DateExtension.swift in Sources */,
 				7EE1E13F639650AB391E7270332A0A21 /* DayCell.swift in Sources */,
 				BCD5A02025157594286C3B3610979D90 /* EKEventExtension.swift in Sources */,
